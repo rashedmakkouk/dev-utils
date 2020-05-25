@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@limo/eslint-config"
+  ],
+  "overrides": [
+    {
+      "files": ["*"],
+      "rules": {
+        "import/no-unresolved": [2, {"ignore": ["uuid/v4"]}]
+      }
+    }
+  ]
+}

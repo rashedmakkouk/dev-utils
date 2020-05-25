@@ -1,0 +1,59 @@
+{
+  "name": "@limo/utilities",
+  "version": "1.04.13",
+  "description": "Utilities for Limo.",
+  "author": "aR",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "lib/index.js",
+  "types": "@types/index.d.ts",
+  "scripts": {
+    "tsc-w": "tsc --watch",
+    "copyPackage": "cp -r ./{package.json,yarn.lock,CHANGELOG.md,README.md} c:/npm/@limo/utilities/ && cp -r ./src/{types.d.ts} c:/npm/@limo/utilities/",
+    "removePackage": "rm -rf c:/npm/@limo/utilities/{@types,lib}",
+    "build": "yarn removePackage && yarn copyPackage && tsc --skipLibCheck",
+    "uP": "yarn upgrade @limo/eslint-config --latest",
+    "docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/utilities/"
+  },
+  "keywords": [
+    "utilities",
+    "@limo",
+    "utils"
+  ],
+  "presets": [
+    "env"
+  ],
+  "devDependencies": {
+    "@limo/eslint-config": "file:../../../../../npm/@limo/eslint-config",
+    "@types/color-convert": "^1.9.0",
+    "@types/lodash": "^4.14.149",
+    "@types/uuid": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "color-convert": "^2.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-tsdoc": "^0.2.4",
+    "lodash": "^4.17.15",
+    "mime-types": "^2.1.26",
+    "moment": "^2.24.0",
+    "normalizr": "^3.6.0",
+    "prettier": "^2.0.4",
+    "typedoc": "^0.17.4",
+    "typescript": "^3.8.3",
+    "uuid": "^7.0.3",
+    "validator": "^13.0.0"
+  },
+  "peerDependencies": {
+    "color-convert": "^2.0.1",
+    "lodash": "^4.17.15",
+    "mime-types": "^2.1.26",
+    "moment": "^2.24.0",
+    "normalizr": "^3.6.0",
+    "uuid": "^7.0.3",
+    "validator": "^13.0.0"
+  }
+}
