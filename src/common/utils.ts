@@ -14,11 +14,12 @@ import { NormalizedSchema, normalize as _normalize, schema } from 'normalizr';
 /** Typings */
 import { KEYWORD } from 'color-convert/conversions';
 import {
+  FieldValue,
   GenerateUUIDTypes,
   NormalizeSchemaOptions,
   NumericTypes,
   TimestampFormats,
-} from '../types';
+} from '../@types';
 
 /* eslint-disable-next-line no-control-regex */
 const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;
@@ -130,7 +131,10 @@ export function isValid(
  *
  * @returns Immutable copy of value.
  */
-export function toArray(value?: any, toNumber?: boolean): string[] | number[] {
+export function toArray(
+  value?: FieldValue,
+  toNumber?: boolean
+): string[] | number[] {
   const results: string[] | number[] = [];
 
   if (value === null || value === undefined || value === '') {
@@ -187,7 +191,6 @@ export function generateUUID(
 ): string {
   switch (type) {
     case 'filename':
-      // TODO: `hash` user_id
       return `${(Date.now() / 1000).toString().replace('.', '')}-${uuid()}`;
 
     case 'title':

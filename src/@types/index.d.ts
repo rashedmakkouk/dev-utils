@@ -15,3 +15,5 @@ export type NumericTypes = 'trunc' | 'ceil' | 'round' | 'floor';
 export interface NormalizeSchemaOptions {
   idAttribute?: string;
 }
+
+export type FieldValue = string | number | string[] | number[] | null;
