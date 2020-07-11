@@ -10,6 +10,7 @@ import startCase from 'lodash/startCase';
 import upperFirst from 'lodash/upperFirst';
 import colorConvert from 'color-convert';
 import { NormalizedSchema, normalize as _normalize, schema } from 'normalizr';
+import path from 'path';
 
 /** Typings */
 import { KEYWORD } from 'color-convert/conversions';
@@ -29,6 +30,22 @@ const BOOLEAN_VALUES = ['false', 'true'];
 const TIMESTAMP_FORMATS = {
   sql: 'YYYY-MM-DD HH:mm:ss',
 };
+
+/**
+ * Join array of paths.
+ *
+ * @param uri - Root path.
+ * @param paths - List of folders/subFolders.
+ */
+export function joinPath(parts: string[] = []): string {
+  if (!parts || !isArray(parts) || !parts.length) {
+    return '';
+  }
+
+  return path
+    .join(...parts.map((part): string => part || ''))
+    .replace(/\\/g, '/');
+}
 
 /**
  * Normalizes db query results.
@@ -82,7 +99,7 @@ export function toRGBa(color: KEYWORD | string, alpha = 1): string {
 
 export function isValid(
   isTypeof: 'string' | 'array' | 'number' | 'object' | 'jsonStr',
-  value: any
+  value: FieldValue | any[] | object | object[]
 ): boolean {
   if (value === null || value === undefined) {
     return false;
@@ -148,7 +165,9 @@ export function toArray(
   }
 
   if (isArray(value)) {
-    return !toNumber ? [...value] : value.map(Number);
+    return !toNumber || isNumber(value[0])
+      ? [...value]
+      : (value as any).map(Number);
   }
 
   if (isNumber(value) || isPlainObject(value)) {

@@ -9,7 +9,7 @@
   "types": "@types/index.d.ts",
   "scripts": {
     "tsc-w": "tsc --watch",
-    "copyPackage": "cp -r ./{package.json,yarn.lock,CHANGELOG.md,README.md} c:/npm/@limo/utilities/ && cp -r ./src/{types.d.ts} c:/npm/@limo/utilities/",
+    "copyPackage": "cp -r ./{package.json,yarn.lock,CHANGELOG.md,README.md} c:/npm/@limo/utilities/ && cp -r ./src/@types c:/npm/@limo/utilities/",
     "removePackage": "rm -rf c:/npm/@limo/utilities/{@types,lib}",
     "build": "yarn removePackage && yarn copyPackage && tsc --skipLibCheck",
     "uP": "yarn upgrade @limo/eslint-config --latest",
@@ -41,6 +41,7 @@
     "mime-types": "^2.1.27",
     "moment": "^2.26.0",
     "normalizr": "^3.6.0",
+    "path": "^0.12.7",
     "prettier": "^2.0.5",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.3",
@@ -53,6 +54,7 @@
     "mime-types": "^2.1.27",
     "moment": "^2.26.0",
     "normalizr": "^3.6.0",
+    "path": "^0.12.7",
     "uuid": "^8.1.0",
     "validator": "^13.0.0"
   }
