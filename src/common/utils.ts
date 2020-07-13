@@ -20,7 +20,7 @@ import {
   NormalizeSchemaOptions,
   NumericTypes,
   TimestampFormats,
-} from '../@types';
+} from '../@types/shared';
 
 /* eslint-disable-next-line no-control-regex */
 const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;
@@ -213,6 +213,7 @@ export function generateUUID(
       return `${(Date.now() / 1000).toString().replace('.', '')}-${uuid()}`;
 
     case 'title':
+      // TODO: Add short `uuid`.
       const title = moment().format('YYYY-MM-DD_HH-mm-ss');
 
       return !prefix ? title : `${prefix}_${title}`;
