@@ -17,3 +17,15 @@ export interface NormalizeSchemaOptions {
 }
 
 export type FieldValue = string | number | string[] | number[] | null;
+
+export interface SqlEscapeOptions {
+  /** Use for column names & reserved words. */
+  escapeId?: boolean;
+  /** Useful in setting query conditions values (e.g. limit, offset). */
+  parseInteger?: boolean;
+  /**
+   * Removes single quotes from result; useful in `REGEXP` values or query
+   * conditions (e.g. ASC).
+   */
+  stripQuote?: boolean;
+}

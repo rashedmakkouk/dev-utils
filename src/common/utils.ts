@@ -1,5 +1,6 @@
 /** Utilities */
 import { v4 as uuid } from 'uuid';
+import { escape as _escape, escapeId as _escapeId } from 'sqlstring';
 import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
@@ -19,6 +20,7 @@ import {
   GenerateUUIDTypes,
   NormalizeSchemaOptions,
   NumericTypes,
+  SqlEscapeOptions,
   TimestampFormats,
 } from '../@types/shared';
 
@@ -30,6 +32,23 @@ const BOOLEAN_VALUES = ['false', 'true'];
 const TIMESTAMP_FORMATS = {
   sql: 'YYYY-MM-DD HH:mm:ss',
 };
+
+export function escape(
+  value: string | number,
+  options: SqlEscapeOptions = {}
+): string | number {
+  const { escapeId, parseInteger, stripQuote } = options;
+
+  if (isNumber(value)) {
+    return value;
+  } else if (parseInteger) {
+    return parseInt(_escape(value), 10);
+  } else if (escapeId) {
+    return _escapeId(value);
+  } else {
+    return !stripQuote ? _escape(value) : _escape(value).slice(1, -1);
+  }
+}
 
 /**
  * Join array of paths.
@@ -133,7 +152,7 @@ export function isValid(
     case 'string':
       return (
         isString(value) &&
-        'undefined' !== value.toLowerCase() &&
+        value.toLowerCase() !== 'undefined' &&
         Boolean(value.length)
       );
   }
