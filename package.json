@@ -27,6 +27,7 @@
     "@limo/eslint-config": "file:../../../../../npm/@limo/eslint-config",
     "@types/color-convert": "^1.9.0",
     "@types/lodash": "^4.14.153",
+    "@types/sqlstring": "^2.2.1",
     "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",
@@ -43,6 +44,7 @@
     "normalizr": "^3.6.0",
     "path": "^0.12.7",
     "prettier": "^2.0.5",
+    "sqlstring": "^2.3.2",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.3",
     "uuid": "^8.1.0",
@@ -55,6 +57,7 @@
     "moment": "^2.26.0",
     "normalizr": "^3.6.0",
     "path": "^0.12.7",
+    "sqlstring": "^2.3.2",
     "uuid": "^8.1.0",
     "validator": "^13.0.0"
   }
