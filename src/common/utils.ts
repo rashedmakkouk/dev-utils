@@ -15,6 +15,7 @@ import path from 'path';
 
 /** Typings */
 import { KEYWORD } from 'color-convert/conversions';
+// TODO: Fix path when imported in build declaration file.
 import {
   FieldValue,
   GenerateUUIDTypes,
@@ -34,9 +35,13 @@ const TIMESTAMP_FORMATS = {
 };
 
 export function escape(
-  value: string | number,
+  value: FieldValue,
   options: SqlEscapeOptions = {}
 ): string | number {
+  if (value === undefined) {
+    throw Error('Invalid value');
+  }
+
   const { escapeId, parseInteger, stripQuote } = options;
 
   if (isNumber(value)) {
