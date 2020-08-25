@@ -18,9 +18,9 @@ import { KEYWORD } from 'color-convert/conversions';
 // TODO: Fix path when imported in build declaration file.
 import {
   FieldValue,
-  GenerateUUIDTypes,
   NormalizeSchemaOptions,
   NumericTypes,
+  RandomIntTypes,
   SqlEscapeOptions,
   TimestampFormats,
 } from '../@types/shared';
@@ -223,30 +223,50 @@ export function toNumeric({
 
 export function timeout(ms: number, race?: boolean): Promise<void> {
   return new Promise((resolve, reject): void => {
-    // FIX: Cannot find name 'setTimeout'.ts(2304)
-    setTimeout((): void => (race ? reject({ status: 408 }) : resolve()), ms);
+    setTimeout((): void => {
+      !race ? resolve() : reject({ status: 408, statusCode: 408 });
+    }, ms);
   });
 }
 
-export function generateUUID(
-  type?: GenerateUUIDTypes,
-  prefix?: string
-): string {
+export function randomInt({
+  min = 1024000,
+  max = 9024000,
+  prefix,
+  type,
+}: {
+  min?: number;
+  max?: number;
+  prefix?: string;
+  type?: RandomIntTypes;
+} = {}): string | number {
+  let value: string;
+
   switch (type) {
     case 'filename':
-      return `${(Date.now() / 1000).toString().replace('.', '')}-${uuid()}`;
+      value = `${(Date.now() / 1000).toString().replace('.', '')}-${uuid()}`;
+
+      return !prefix ? value : `${prefix}-${value}`;
 
     case 'title':
       // TODO: Add short `uuid`.
-      const title = moment().format('YYYY-MM-DD_HH-mm-ss');
+      value = moment().format('YYYY-MM-DD_HH-mm-ss');
 
-      return !prefix ? title : `${prefix}_${title}`;
+      return !prefix ? value : `${prefix}_${value}`;
 
     case 'temp':
       return `${moment().format('YYYY-MM-DD_HH-mm-ss')}_${uuid()}`;
 
-    default:
+    case 'uuid':
       return uuid();
+
+    default:
+      min = Math.ceil(min);
+      max = Math.floor(max);
+
+      const randomInt = Math.floor(Math.random() * (max - min)) + min;
+
+      return type === 'key' ? randomInt.toString() : randomInt;
   }
 }
 
@@ -293,33 +313,6 @@ export const capitalizeString = (
     ? upperFirst(text)
     : startCase(text.toLowerCase().replace(/_/gi, ' '));
 };
-
-export function randomInt({
-  type,
-  min,
-  max,
-}: {
-  type?: 'key' | 'uuid';
-  min?: number;
-  max?: number;
-}): string | number {
-  switch (type) {
-    case 'uuid':
-      return uuid().toString();
-
-    default:
-      min = 10240000;
-      max = 9024000000000;
-      break;
-  }
-
-  min = Math.ceil(min);
-  max = Math.floor(max);
-
-  const randomInt = Math.floor(Math.random() * (max - min)) + min;
-
-  return type === 'key' ? randomInt.toString() : randomInt;
-}
 
 // export function getTimestampDiff(datetime: string, type = 'days', amount = 7) {
 //   var now = moment();

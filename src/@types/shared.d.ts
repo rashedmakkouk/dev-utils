@@ -8,7 +8,7 @@ export type TimestampFormats =
   | 'offset'
   | 'sql';
 
-export type GenerateUUIDTypes = 'filename' | 'title' | 'temp';
+export type RandomIntTypes = 'filename' | 'title' | 'temp' | 'uuid' | 'key';
 
 export type NumericTypes = 'trunc' | 'ceil' | 'round' | 'floor';
 
