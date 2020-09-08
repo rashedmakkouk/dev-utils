@@ -8,10 +8,10 @@
       "ES2018"
     ],
     "declaration": true,
-    "declarationDir": "c:/npm/@limo/utilities/@types",
+    "declarationDir": "c:/npm/@limo/utils/@types",
     "declarationMap": true,
     "sourceMap": false,
-    "outDir": "c:/npm/@limo/utilities/lib",
+    "outDir": "c:/npm/@limo/utils/lib",
     "rootDir": "./src",
     "removeComments": false,
     "noEmit": false,
