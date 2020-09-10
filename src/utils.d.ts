@@ -8,9 +8,21 @@ export type TimestampFormats =
   | 'offset'
   | 'sql';
 
-export type RandomIntTypes = 'filename' | 'title' | 'temp' | 'uuid' | 'key';
+export type RandomTypes =
+  | 'filename'
+  | 'title'
+  | 'temp'
+  | 'uuid'
+  | 'key'
+  | 'integer';
 
-export type NumericTypes = 'trunc' | 'ceil' | 'round' | 'floor';
+export interface RandomOptions {
+  min?: number;
+  max?: number;
+  prefix?: string;
+}
+
+export type MathTypes = 'trunc' | 'ceil' | 'round' | 'floor';
 
 export interface NormalizeSchemaOptions {
   idAttribute?: string;
@@ -28,4 +40,11 @@ export interface SqlEscapeOptions {
    * conditions (e.g. ASC).
    */
   stripQuote?: boolean;
+}
+
+export interface ToNumericArgs {
+  /** Whether to keep or remove decimal point. */
+  decimal?: boolean;
+  math?: MathTypes;
+  value?: string | number;
 }
