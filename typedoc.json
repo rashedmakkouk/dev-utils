@@ -11,7 +11,7 @@
   "includeDeclarations": true,
   "inputFiles": "./src",
   "mode": "file",
-  "name": "@limo/utilities",
+  "name": "@limo/utils",
   "out": "./docs",
-  "readme": "./README.md"
+  "readme": "./DOCS.md"
 }

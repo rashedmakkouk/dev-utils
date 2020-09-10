@@ -3,15 +3,14 @@
     "module": "commonjs",
     "target": "ES2019",
     "lib": [
-      "DOM",
       "ES2017",
       "ES2018"
     ],
     "declaration": true,
-    "declarationDir": "c:/npm/@limo/utils/@types",
-    "declarationMap": true,
+    "declarationDir": "./dist/@types",
+    "declarationMap": false,
     "sourceMap": false,
-    "outDir": "c:/npm/@limo/utils/lib",
+    "outDir": "./dist/lib",
     "rootDir": "./src",
     "removeComments": false,
     "noEmit": false,
@@ -21,13 +20,15 @@
     "noUnusedLocals": false,
     "isolatedModules": false,
     "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "noEmitOnError": false,
     "skipLibCheck": false,
-    "types": []
+    "types": [
+      "node"
+    ]
   },
   "exclude": [
     "node_modules"
