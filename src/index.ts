@@ -1,11 +1,13 @@
-export { default as capitalizeString } from './capitalize-string';
 export { default as delay } from './delay';
 export { default as escape } from './escape';
 export { default as extractValues } from './extract-values';
+export { default as filterValues } from './filter-values';
 export { default as isValid } from './is-valid';
 export { default as joinPath } from './join-path';
 export { default as keyExtractor } from './key-extractor';
+export { default as letterCase } from './letter-case';
 export { default as normalize } from './normalize';
+export { default as parseTextLinks } from './parse-text-links';
 export { default as parseTimestamp } from './parse-timestamp';
 export { default as random } from './random';
 export { default as sanitizeString } from './sanitize-string';

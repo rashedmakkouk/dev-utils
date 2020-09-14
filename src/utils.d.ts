@@ -22,6 +22,15 @@ export interface RandomOptions {
   prefix?: string;
 }
 
+export interface LetterCaseOptions {
+  /**
+   * Converst string to `start case`.
+   * See {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
+   */
+  asStartCase?: boolean;
+  letterCase?: 'lower' | 'upper' | 'upperFirst';
+}
+
 export type MathTypes = 'trunc' | 'ceil' | 'round' | 'floor';
 
 export interface NormalizeSchemaOptions {
