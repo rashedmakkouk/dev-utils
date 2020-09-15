@@ -1,9 +1,8 @@
 {
-  "extends": ["node_modules/@limo/eslint-config/tsdoc.json"],
-  "externalPattern": [],
   "exclude": [
     "node_modules/**"
   ],
+  "externalPattern": [],
   "excludeExternals": false,
   "hideGenerator": true,
   "ignoreCompilerErrors": true,
@@ -12,6 +11,6 @@
   "inputFiles": "./src",
   "mode": "file",
   "name": "@limo/utils",
-  "out": "./docs",
-  "readme": "./DOCS.md"
+  "out": "./docs/types",
+  "readme": "./docs/index.md"
 }
