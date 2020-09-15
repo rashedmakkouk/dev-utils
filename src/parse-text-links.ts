@@ -8,11 +8,17 @@ function parseTextLinks(
     return { links: [], matches: [] };
   }
 
-  const { hashtag = 'twitter', mention = 'twitter', urls = true } = options;
+  const {
+    hashtag = 'twitter',
+    mention = 'twitter',
+    stripTrailingSlash = true,
+    urls = true,
+  } = options;
 
   const matches = Autolinker.parse(text, {
     hashtag,
     mention,
+    stripTrailingSlash,
     urls,
   });
 
