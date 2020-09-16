@@ -1,7 +1,6 @@
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isPlainObject from 'lodash/isPlainObject';
-import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 
 import { FieldValue } from './utils';
@@ -13,7 +12,7 @@ const BOOLEAN_VALUES = ['false', 'true'];
 
 function isValid(
   isTypeof: 'string' | 'array' | 'number' | 'object' | 'jsonStr',
-  value: FieldValue | any[] | object | object[]
+  value?: FieldValue | any[] | object | object[]
 ): boolean {
   if (value === null || value === undefined) {
     return false;
@@ -21,7 +20,7 @@ function isValid(
 
   switch (isTypeof) {
     case 'array':
-      return isArray(value) && Boolean(value.length);
+      return isArray(value) && !!value.length;
 
     case 'jsonStr':
       if (!value || !isString(value)) {
@@ -42,14 +41,14 @@ function isValid(
       return isNumber(value);
 
     case 'object':
-      return isPlainObject(value) && !isEmpty(value);
+      return isPlainObject(value) && !!Object.keys(value).length;
 
     case 'string':
-      return (
-        isString(value) &&
-        value.toLowerCase() !== 'undefined' &&
-        Boolean(value.length)
-      );
+      if (!value || !isString(value)) {
+        return false;
+      }
+
+      return value.toLowerCase() !== 'undefined' && !!value.length;
   }
 }
 
