@@ -15,7 +15,7 @@
     "copy-types": "cp -r ./src/*.d.ts ./dist/types/",
     "publish-npm": "rm -rf c:/npm/@limo/utils/* && cp -r ./dist/* c:/npm/@limo/utils/",
     "build": "yarn build-delete && tsc --skipLibCheck && yarn copy-meta && yarn copy-types && yarn publish-npm",
-    "uP": "yarn upgrade @limo/dev-config --latest",
+    "uP": "yarn upgrade @limo/eslint-config --latest",
     "gen-docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/utils/"
   },
   "keywords": [
@@ -26,7 +26,7 @@
     "env"
   ],
   "devDependencies": {
-    "@limo/dev-config": "file:../../../../../npm/@limo/dev-config",
+    "@limo/eslint-config": "c:/npm/@limo/eslint-config",
     "@types/color-convert": "^1.9.0",
     "@types/lodash": "^4.14.161",
     "@types/node": "^14.11.1",
