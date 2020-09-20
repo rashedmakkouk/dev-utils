@@ -26,7 +26,7 @@
     "env"
   ],
   "devDependencies": {
-    "@limo/eslint-config": "c:/npm/@limo/eslint-config",
+    "@limo/eslint-config": "file:../../../../npm/@limo/eslint-config",
     "@types/color-convert": "^1.9.0",
     "@types/lodash": "^4.14.161",
     "@types/node": "^14.11.1",
