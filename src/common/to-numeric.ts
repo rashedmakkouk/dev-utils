@@ -1,7 +1,8 @@
+/** Utilities */
 import isString from 'lodash/isString';
 
 /** Typings */
-import { ToNumericArgs } from './utils';
+import { ToNumericArgs } from '../utils';
 
 function toNumeric({ decimal, math = 'round', value }: ToNumericArgs): number {
   if (!decimal) {

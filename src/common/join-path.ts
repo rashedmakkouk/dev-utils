@@ -1,3 +1,4 @@
+/** Utilities */
 import path from 'path';
 import isArray from 'lodash/isArray';
 

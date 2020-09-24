@@ -1,9 +1,11 @@
+/** Utilities */
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
-import { FieldValue } from './utils';
+/** Typings */
+import { FieldValue } from '../utils';
 
 /* eslint-disable-next-line no-control-regex */
 const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;

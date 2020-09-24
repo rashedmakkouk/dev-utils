@@ -1,8 +1,9 @@
+/** Utilities */
 import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 
 /** Typings */
-import { RandomOptions, RandomTypes } from './utils';
+import { RandomOptions, RandomTypes } from '../utils';
 
 function random<ResultT extends string | number>(
   type: RandomTypes,

@@ -40,7 +40,7 @@
     strip-json-comments "^3.1.1"
 
 "@limo/eslint-config@file:../../../../npm/@limo/eslint-config":
-  version "1.9.2"
+  version "0.2.0"
 
 "@microsoft/tsdoc-config@0.13.6":
   version "0.13.6"

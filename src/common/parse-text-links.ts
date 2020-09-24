@@ -1,3 +1,4 @@
+/** Utilities */
 import Autolinker, { AutolinkerConfig, Match } from 'autolinker';
 
 function parseTextLinks(

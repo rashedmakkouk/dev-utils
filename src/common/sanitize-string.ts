@@ -1,3 +1,4 @@
+/** Utilities */
 import trimWhiteSpace from './trim-whitespace';
 
 function sanitizeString(text: string): string {

@@ -1,9 +1,11 @@
+/** Utilities */
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
-import { FieldValue } from './utils';
+/** Typings */
+import { FieldValue } from '../utils';
 
 /**
  * Converts supplied value to `string[]` or `number[]`. Useful for multi value

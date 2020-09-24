@@ -1,26 +1,26 @@
 {
   "name": "@limo/utils",
-  "version": "1.04.13",
-  "description": "Utility belt.",
-  "author": "Rashed Makkouk",
+  "version": "0.2.0",
+  "description": "Developer's utility belt.",
   "displayName": "@limo/utils",
+  "author": "Rashed Makkouk <rashed.makkouk@outlook.com>",
   "license": "UNLICENSED",
   "private": true,
-  "main": "lib/index.js",
-  "types": "types/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "tsc-w": "tsc --watch",
     "build-delete": "rm -rf ./dist/*",
     "copy-meta": "cp -r ./{package.json,yarn.lock,README.md,LICENSE} ./dist/",
-    "copy-types": "cp -r ./src/*.d.ts ./dist/types/",
+    "copy-files": "cp -r ./src/*.d.ts ./dist/types/",
     "publish-npm": "rm -rf c:/npm/@limo/utils/* && cp -r ./dist/* c:/npm/@limo/utils/",
-    "build": "yarn build-delete && tsc --skipLibCheck && yarn copy-meta && yarn copy-types && yarn publish-npm",
+    "build": "yarn build-delete && tsc --skipLibCheck && yarn copy-meta && yarn copy-files && yarn publish-npm",
     "uP": "yarn upgrade @limo/eslint-config --latest",
     "gen-docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/utils/"
   },
   "keywords": [
     "utils",
-    "@limo"
+    "utilities"
   ],
   "presets": [
     "env"

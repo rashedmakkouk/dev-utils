@@ -1,3 +1,4 @@
+/** Utilities */
 import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';

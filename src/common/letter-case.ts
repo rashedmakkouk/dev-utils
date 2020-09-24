@@ -1,10 +1,10 @@
-/** Utils */
+/** Utilities */
 import startCase from 'lodash/startCase';
 import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { LetterCaseOptions } from './utils';
+import { LetterCaseOptions } from '../utils';
 
 /**
  * Manipulates text string.

@@ -1,7 +1,9 @@
+/** Utilities */
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import colorConvert from 'color-convert';
 
+/** Typings */
 import { KEYWORD } from 'color-convert/conversions';
 
 function toRGBa(color: KEYWORD | string, alpha = 1): string {

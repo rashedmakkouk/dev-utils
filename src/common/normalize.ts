@@ -1,8 +1,9 @@
+/** Utilities */
 import isArray from 'lodash/isArray';
 import { NormalizedSchema, normalize as _normalize, schema } from 'normalizr';
 
 /** Typings */
-import { NormalizeSchemaOptions } from './utils';
+import { NormalizeSchemaOptions } from '../utils';
 
 /**
  * Normalizes db query results.

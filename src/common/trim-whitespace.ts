@@ -1,3 +1,4 @@
+/** Utilities */
 import isString from 'lodash/isString';
 
 /**
