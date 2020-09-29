@@ -9,6 +9,7 @@ export { default as letterCase } from './letter-case';
 export { default as normalize } from './normalize';
 export { default as parseTextLinks } from './parse-text-links';
 export { default as parseTimestamp } from './parse-timestamp';
+export { default as parseUrl } from './parse-url';
 export { default as random } from './random';
 export { default as sanitizeString } from './sanitize-string';
 export { default as setSlug } from './set-slug';
