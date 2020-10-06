@@ -1,21 +1,34 @@
 /** Utilities */
 import path from 'path';
 import isArray from 'lodash/isArray';
+import { JoinPathOptions } from '../utils';
 
 /**
- * Join array of paths.
+ * Handles absolute and relative `path`s.
  *
- * @param uri - Root path.
- * @param paths - List of folders/subFolders.
+ * @param parts - List of paths to concatenate.
+ * @param options - Aditional options to apply to result path.
  */
-function joinPath(parts: string[] = []): string {
+function joinPath(parts: string[] = [], options: JoinPathOptions = {}): string {
   if (!parts || !isArray(parts) || !parts.length) {
     return '';
   }
 
-  return path
-    .join(...parts.map((part): string => part || ''))
-    .replace(/\\/g, '/');
+  const { resolve } = options;
+
+  let fn: 'join' | 'resolve';
+
+  if (resolve) {
+    fn = 'resolve';
+  } else {
+    fn = 'join';
+  }
+
+  return path[fn](
+    ...parts.map((part): string => {
+      return part || '';
+    })
+  ).replace(/\\/g, '/');
 }
 
 export default joinPath;

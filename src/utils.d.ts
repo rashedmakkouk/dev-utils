@@ -33,6 +33,10 @@ export interface LetterCaseOptions {
 
 export type MathTypes = 'trunc' | 'ceil' | 'round' | 'floor';
 
+export interface JoinPathOptions {
+  resolve?: boolean;
+}
+
 export interface NormalizeSchemaOptions {
   idAttribute?: string;
 }

@@ -8,9 +8,9 @@
   "ignoreCompilerErrors": true,
   "includes": ".",
   "includeDeclarations": true,
-  "inputFiles": "./src",
+  "inputFiles": "src",
   "mode": "file",
   "name": "@limo/utils",
-  "out": "./docs/types",
-  "readme": "./docs/index.md"
+  "out": "docs/types",
+  "readme": "README.md"
 }

@@ -1,11 +1,14 @@
 /** Utilities */
 import isString from 'lodash/isString';
+import isNumber from 'lodash/isNumber';
 
 /**
  * Trims leading, trailing & multiple `white-space`, `tab` & `new-line`.
  */
 function trimWhitespace(text: string): string {
-  if (!text || !isString(text)) {
+  if (isNumber(text)) {
+    return text;
+  } else if (!text || !isString(text)) {
     return '';
   }
 
