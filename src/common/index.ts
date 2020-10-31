@@ -13,6 +13,7 @@ export { default as parseUrl } from './parse-url';
 export { default as random } from './random';
 export { default as sanitizeString } from './sanitize-string';
 export { default as setSlug } from './set-slug';
+export { default as singular } from './singular';
 export { default as toArray } from './to-array';
 export { default as toNumeric } from './to-numeric';
 export { default as toRGBa } from './to-rgba';
