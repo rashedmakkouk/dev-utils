@@ -1,7 +1,7 @@
 /** Utilities */
 import trimWhiteSpace from './trim-whitespace';
 
-function sanitizeString(text: string): string {
+function sanitize(text: string): string {
   text = trimWhiteSpace(text)
     /** Removes html tags; TODO remove ^. */
     .replace(/(<([^>]+)>)/gi, '')
@@ -11,4 +11,4 @@ function sanitizeString(text: string): string {
   return !text.replace(/\s/g, '').length ? '' : text;
 }
 
-export default sanitizeString;
+export default sanitize;

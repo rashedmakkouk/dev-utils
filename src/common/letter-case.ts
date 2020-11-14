@@ -11,7 +11,7 @@ import { LetterCaseOptions } from '../utils';
  */
 function letterCase(
   text?: string | null,
-  { asStartCase, letterCase }: LetterCaseOptions = {}
+  { asStartCase, letterCase, maxLength }: LetterCaseOptions = {}
 ): string {
   let results = '';
 
@@ -19,9 +19,10 @@ function letterCase(
     return results;
   }
 
-  results = !asStartCase
-    ? text
-    : startCase(text.toLowerCase().replace(/_/gi, ' '));
+  results =
+    !asStartCase || letterCase === 'kebab'
+      ? text
+      : startCase(text.toLowerCase().replace(/_/gi, ' '));
 
   switch (letterCase) {
     case 'upper':
@@ -32,6 +33,22 @@ function letterCase(
 
     case 'lower':
       return results.toLowerCase();
+
+    case 'kebab':
+      /** W: all non alphanumeric charachters & whitespace. */
+      results = (!maxLength || text.length < maxLength
+        ? text
+        : text.slice(0, maxLength)
+      )
+        .replace(/[\W_]+/g, '-')
+        .toLowerCase();
+
+      /** Removes last character if '-'. */
+      return results.startsWith('-')
+        ? text.slice(1)
+        : text.endsWith('-')
+        ? text.slice(0, -1)
+        : text;
   }
 
   return results;

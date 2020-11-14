@@ -16,8 +16,8 @@ import { FieldValue } from '../utils';
  *
  * @returns Immutable copy of value.
  */
-function toArray(value?: FieldValue, toNumber?: boolean): string[] | number[] {
-  const results: string[] | number[] = [];
+function toArray(value?: FieldValue, toNumber?: boolean): (string | number)[] {
+  const results: (string | number)[] = [];
 
   if (value === null || value === undefined || value === '') {
     return results;
@@ -27,19 +27,15 @@ function toArray(value?: FieldValue, toNumber?: boolean): string[] | number[] {
     const nextValue = value.split(',');
 
     return !toNumber ? nextValue : nextValue.map(Number);
-  }
-
-  if (isArray(value)) {
+  } else if (isArray(value)) {
     return !toNumber || isNumber(value[0])
       ? [...value]
       : (value as any).map(Number);
-  }
-
-  if (isNumber(value) || isPlainObject(value)) {
+  } else if (isNumber(value) || isPlainObject(value)) {
     return [value];
+  } else {
+    return results;
   }
-
-  return results;
 }
 
 export default toArray;

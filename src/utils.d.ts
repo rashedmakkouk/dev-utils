@@ -1,3 +1,5 @@
+export type TimeSpans = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'y';
+
 export type TimestampFormats =
   | 'fromNow'
   | 'MMMM YYYY'
@@ -22,13 +24,23 @@ export interface RandomOptions {
   prefix?: string;
 }
 
+export interface MsOptions {
+  /** Sets time spans to long formats (e.g. minutes, hours) */
+  long?: boolean;
+}
+
 export interface LetterCaseOptions {
   /**
-   * Converst string to `start case`.
-   * See {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
+   * Converts string to `start case`.
+   *
+   * @remarks
+   * Coversion is bypassed when `letterCase` value is `kebab`.
+   *
+   * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
    */
   asStartCase?: boolean;
-  letterCase?: 'lower' | 'upper' | 'upperFirst';
+  letterCase?: 'lower' | 'upper' | 'upperFirst' | 'kebab';
+  maxLength?: number;
 }
 
 export type MathTypes = 'trunc' | 'ceil' | 'round' | 'floor';

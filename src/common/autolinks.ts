@@ -1,7 +1,7 @@
 /** Utilities */
 import Autolinker, { AutolinkerConfig, Match } from 'autolinker';
 
-function parseTextLinks(
+function autolinks(
   text: string | null = '',
   options: AutolinkerConfig = {}
 ): { links: string[]; matches: Match[] } {
@@ -33,4 +33,4 @@ function parseTextLinks(
   };
 }
 
-export default parseTextLinks;
+export default autolinks;

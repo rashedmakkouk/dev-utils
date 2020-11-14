@@ -11,16 +11,17 @@ const TIMESTAMP_FORMATS = {
 /**
  * Parses a timestamp string from date with specified format.
  *
- * @param date - Date class or db timestamp value; defaults
- * to Date.now().
+ * @param date - .
  * @param format - Returns `moment` object if not supplied.
  */
-function parseTimestamp({
+function timestamp({
   date = Date.now(),
   format,
   timezoneOffest,
 }: {
+  /** Date class or db timestamp value; @default Date.now(). */
   date?: string | number | Date;
+  /** Predefined timestamp output formats. */
   format?: TimestampFormats;
   timezoneOffest?: string;
 }): string | Moment {
@@ -35,4 +36,4 @@ function parseTimestamp({
   return moment(date).format(nextFormat);
 }
 
-export default parseTimestamp;
+export default timestamp;
