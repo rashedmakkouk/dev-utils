@@ -1,5 +1,4 @@
 /** Utilities */
-import isNumber from 'lodash/isNumber';
 import isString from 'lodash/isString';
 
 /** Typings */
@@ -38,23 +37,15 @@ function ms(span: string | number, options: MsOptions = {}): number {
 
     if (!span) {
       return 0;
-    } else if (isString(span)) {
-      const parsedSpan = parseInt(span);
+    } else if (isString(span) && isNaN(span as any)) {
+      /** Splits time value to `count` and `spanFormat` (e.g. '1h', '15m'). */
+      const [count, spanFormat] = span
+        .split(/(\d+)/)
+        .filter((value): boolean => !!value);
 
-      if (!Number.isNaN(parsedSpan)) {
-        return parsedSpan;
-      } else {
-        /** Splits time value to `count` and `spanFormat` (e.g. '1h', '15m'). */
-        const [count, spanFormat] = span
-          .split(/(\d+)/)
-          .filter((value): boolean => !!value);
-
-        return parseInt(count) * TIME_SPANS[spanFormat] * 1000;
-      }
-    } else if (isNumber(span)) {
-      return span;
+      return parseInt(count, 10) * TIME_SPANS[spanFormat] * 1000;
     } else {
-      return 0;
+      return parseInt(span as any, 10);
     }
   } catch (error) {
     /**
