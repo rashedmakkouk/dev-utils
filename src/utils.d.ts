@@ -38,8 +38,8 @@ export interface LetterCaseOptions {
    *
    * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
    */
-  asStartCase?: boolean;
-  letterCase?: 'lower' | 'upper' | 'upperFirst' | 'kebab';
+  convertSnake?: boolean;
+  letterCase: 'lower' | 'upper' | 'sentence' | 'kebab' | 'title';
   maxLength?: number;
 }
 

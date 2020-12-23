@@ -16,7 +16,7 @@ function toRGBa(color: KEYWORD | string, alpha = 1): string {
     : colorConvert.hex.rgb(color);
 
   return `rgba(${numbers.map((num): number => num)}, ${
-    !isNumber(alpha) ? 1 : alpha
+    !alpha || !isNumber(alpha) ? 1 : alpha
   })`;
 }
 

@@ -1,0 +1,21 @@
+{
+  // Use IntelliSense to lean about possible Node.js debug attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  // "processId": "${command:PickProcess}"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach Node",
+      "cwd": "${workspaceFolder}/packages/server",
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/packages/server/build/**/*.js"
+      ],
+      "restart": false,
+      "port": 9229
+    }
+  ]
+}
