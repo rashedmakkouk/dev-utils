@@ -2,7 +2,7 @@
 import isString from 'lodash/isString';
 
 /** Typings */
-import { ToNumericArgs } from '../utils';
+import { ToNumericArgs } from '../types';
 
 function toNumeric({ decimal, math = 'round', value }: ToNumericArgs): number {
   if (!decimal) {

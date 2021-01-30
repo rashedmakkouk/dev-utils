@@ -2,7 +2,7 @@
 import moment, { Moment } from 'moment';
 
 /** Typings */
-import { TimestampFormats } from '../utils';
+import { TimestampFormats } from '../types';
 
 const TIMESTAMP_FORMATS = {
   sql: 'YYYY-MM-DD HH:mm:ss',

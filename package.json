@@ -9,8 +9,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
-    "node": ">= 12.16.1",
-    "yarn": ">=1.4.0"
+    "node": ">= 14.15.4",
+    "yarn": ">=2.4.0"
   },
   "keywords": [
     "utils",
@@ -21,14 +21,8 @@
     "url": "git@192.168.1.200:org/utils"
   },
   "scripts": {
-    "empty-package": "rm -rf c:/npm/@limo/utils/*",
-    "copy-package-metadata": "cp -r ./{package.json,yarn.lock,README.md,LICENSE} c:/npm/@limo/utils",
-    "publish-local": "yarn copy-package-metadata && mkdir c:\\npm\\@limo\\utils\\lib && cp -r ./build/* c:/npm/@limo/utils/lib",
-    "empty-build": "rm -rf ./build/*",
-    "copy-build-files": "cp -r ./src/*.d.ts ./build",
-    "compile": "yarn empty-build && tsc --build && yarn copy-build-files",
-    "build": "yarn compile && yarn empty-package && yarn publish-local",
-    "uP": "yarn upgrade @limo/eslint-config --latest",
+    "build": "ts-node ./scripts/build.ts",
+    "uP": "yarn upgrade-interactive",
     "gen-docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/utils/",
     "tsc": "tsc"
   },
@@ -42,28 +36,31 @@
     "path": "^0.12.7",
     "sqlstring": "^2.3.2",
     "url-parse": "^1.4.7",
-    "uuid": "^8.3.1",
-    "validator": "^13.1.17"
+    "uuid": "^8.3.2",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
-    "@limo/eslint-config": "file:../../../../npm/@limo/eslint-config",
+    "@limo/eslint-config": "file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=8fb4ae&locator=%40limo%2Futils%40workspace%3A.",
     "@types/color-convert": "^2.0.0",
-    "@types/lodash": "^4.14.167",
-    "@types/node": "^14.14.19",
-    "@types/sqlstring": "^2.2.1",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.22",
+    "@types/shelljs": "^0.8.8",
+    "@types/sqlstring": "^2.3.0",
     "@types/url-parse": "^1.4.3",
     "@types/uuid": "^8.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.11.1",
-    "@typescript-eslint/parser": "^4.11.1",
-    "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-tsdoc": "^0.2.7",
-    "prettier": "^2.1.2",
-    "typedoc": "^0.20.9",
-    "typescript": "^4.0.5"
+    "eslint-plugin-tsdoc": "^0.2.11",
+    "prettier": "^2.2.1",
+    "shelljs": "^0.8.4",
+    "ts-node": "^9.1.1",
+    "typedoc": "^0.20.19",
+    "typescript": "^4.1.3"
   },
   "peerDependencies": {
     "autolinker": "^3.14.1",
@@ -75,7 +72,7 @@
     "path": "*",
     "sqlstring": "^2.3.2",
     "url-parse": "^1.4.7",
-    "uuid": "^8.3.1",
-    "validator": "^13.1.17"
+    "uuid": "^8.3.2",
+    "validator": "^13.5.2"
   }
 }

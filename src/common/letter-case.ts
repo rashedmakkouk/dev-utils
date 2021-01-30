@@ -4,7 +4,7 @@ import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { LetterCaseOptions } from '../utils';
+import { LetterCaseOptions } from '../types';
 
 /**
  * Manipulates text string.

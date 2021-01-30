@@ -5,7 +5,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { FieldValue } from '../utils';
+import { FieldValue } from '../types';
 
 /* eslint-disable-next-line no-control-regex */
 const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;

@@ -2,7 +2,7 @@
 import isString from 'lodash/isString';
 
 /** Typings */
-import { MsOptions, TimeSpans } from '../utils';
+import { MsOptions, TimeSpans } from '../types';
 
 const dayInSeconds = 60 * 60 * 24;
 

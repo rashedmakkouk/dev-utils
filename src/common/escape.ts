@@ -3,7 +3,7 @@ import { escape as _escape, escapeId as _escapeId } from 'sqlstring';
 import isNumber from 'lodash/isNumber';
 
 /** Typings */
-import { FieldValue, SqlEscapeOptions } from '../utils';
+import { FieldValue, SqlEscapeOptions } from '../types';
 
 function escape(
   value: FieldValue,

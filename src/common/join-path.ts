@@ -1,7 +1,9 @@
 /** Utilities */
 import path from 'path';
 import isArray from 'lodash/isArray';
-import { JoinPathOptions } from '../utils';
+
+/** Typings */
+import { JoinPathOptions } from '../types';
 
 /**
  * Handles absolute and relative `path`s.

@@ -3,7 +3,7 @@ import isArray from 'lodash/isArray';
 import { NormalizedSchema, normalize as _normalize, schema } from 'normalizr';
 
 /** Typings */
-import { NormalizeSchemaOptions } from '../utils';
+import { NormalizeSchemaOptions } from '../types';
 
 /**
  * Normalizes db query results.
@@ -16,8 +16,8 @@ import { NormalizeSchemaOptions } from '../utils';
  * @param options - Set custom column to use (e.g. idAttribute).
  *
  * @returns result object:
- * .entities: Normalized records per type.
- * .results: List of normalized entities' `attribute`.
+ * - entities: Normalized records per type.
+ * - results: List of normalized entities' `attribute`.
  */
 function normalize<
   KeyT extends string = string,
@@ -37,7 +37,7 @@ function normalize<
 
   return _normalize(
     payload,
-    isArray(payload) ? [resultsSchema] : resultsSchema
+    !isArray(payload) ? resultsSchema : [resultsSchema]
   );
 }
 

@@ -5,7 +5,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { FieldValue } from '../utils';
+import { FieldValue } from '../types';
 
 /**
  * Converts supplied value to `string[]` or `number[]`. Useful for multi value
