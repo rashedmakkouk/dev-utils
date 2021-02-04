@@ -30,17 +30,10 @@ export interface MsOptions {
 }
 
 export interface LetterCaseOptions {
-  /**
-   * Converts string to `start case`.
-   *
-   * @remarks
-   * Coversion is bypassed when `letterCase` value is `kebab`.
-   *
-   * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
-   */
-  convertSnake?: boolean;
   letterCase: 'lower' | 'upper' | 'sentence' | 'kebab' | 'title';
   maxLength?: number;
+  /** Converts supplied symbols list to space. */
+  symbols?: ('-' | '_' | ',' | ';' | '.' | '&' | '#' | '!')[];
 }
 
 export type MathTypes = 'trunc' | 'ceil' | 'round' | 'floor';

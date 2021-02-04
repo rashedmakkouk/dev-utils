@@ -1,32 +1,37 @@
 /** Utilities */
-import startCase from 'lodash/startCase';
+import capitalize from 'lodash/capitalize';
 import upperFirst from 'lodash/upperFirst';
-import isString from 'lodash/isString';
 
 /** Typings */
 import { LetterCaseOptions } from '../types';
 
 /**
- * Manipulates text string.
+ * Converts string to supplied case.
+ *
+ * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
  */
 function letterCase(
   text: string | null = '',
   options: LetterCaseOptions
 ): string {
+  if (!text) {
+    return '';
+  }
+
   let nextText = '';
 
   try {
-    const { convertSnake, letterCase, maxLength } = options;
+    const { letterCase, maxLength, symbols } = options;
 
-    if (!text || !isString(text)) {
-      return nextText;
-    } else {
-      nextText = !convertSnake ? text : text.replace(/_/gi, ' ');
-    }
+    nextText = !symbols
+      ? letterCase === 'title'
+        ? text.replace(/[_-\s]+/gi, ' ')
+        : text
+      : text.replace(new RegExp(`[${symbols.join('|')}\\s]+`, 'gi'), ' ');
 
     switch (letterCase) {
       case 'title':
-        return startCase(nextText.toLowerCase());
+        return nextText.toLowerCase().replace(/\w+/gi, capitalize);
 
       case 'sentence':
         return upperFirst(nextText);
@@ -45,7 +50,7 @@ function letterCase(
           )
             .trim()
             /** W: all non alphanumeric charachters & whitespace. */
-            .replace(/[\W_]+/g, '-')
+            .replace(/[\W_-]+/gi, '-')
             .toLowerCase()
         );
     }
