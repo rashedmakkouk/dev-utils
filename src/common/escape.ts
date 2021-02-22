@@ -8,9 +8,9 @@ import { FieldValue, SqlEscapeOptions } from '../types';
 function escape(
   value: FieldValue,
   options: SqlEscapeOptions = {}
-): string | number {
-  if (value === undefined) {
-    throw Error('Invalid value');
+): string | number | null | undefined {
+  if (value == undefined) {
+    return value;
   }
 
   const { escapeId, parseInteger, stripQuote } = options;
