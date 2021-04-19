@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 (2021-04-19)
+
+### Features
+
+- feat: Bump package version from `v0.5.0` to `v0.6.0`
+- feat: Add `isBase64` helper fn
+
 ## 0.5.0 (2021-03-16)
 
 ### Features
@@ -54,7 +61,7 @@
 
 ### Features
 
-- feat: Add `initials` helper function
+- feat: Add `initials` helper fn
 
 ## 0.4.0 (2020-12-20)
 
@@ -79,7 +86,7 @@
 
 ### Deprecated
 
-- chore: Remove `slug` helper function in favor of `letterCase`
+- chore: Remove `slug` helper fn in favor of `letterCase`
 
 ## 0.3.0 (2020-11-03)
 
@@ -91,7 +98,7 @@
 
 ### Features
 
-- feat: Add `ms` helper function
+- feat: Add `ms` helper fn
 
 ## 0.2.0 (2020-10-06)
 
@@ -127,7 +134,7 @@
 
 ### Features
 
-- feat: Add `parseUrl` helper function
+- feat: Add `parseUrl` helper fn
 - feat: Package dependencies --latest
 
 ## 0.1.0 (2020-09-24)
