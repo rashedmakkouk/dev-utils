@@ -4,6 +4,7 @@ export { default as escape } from './escape';
 export { default as extractValues } from './extract-values';
 export { default as filterValues } from './filter-values';
 export { default as initials } from './initials';
+export { default as isBase64 } from './is-base64';
 export { default as isValid } from './is-valid';
 export { default as joinPath } from './join-path';
 export { default as keyExtractor } from './key-extractor';

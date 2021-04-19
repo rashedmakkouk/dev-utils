@@ -1,3 +1,5 @@
+import validator from 'validator';
+
 export type TimeSpans = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'y';
 
 export type TimestampFormats =
@@ -17,6 +19,12 @@ export type RandomTypes =
   | 'uuid'
   | 'key'
   | 'integer';
+
+export interface IsBase64Options extends validator.IsBase64Options {
+  allowEmpty?: boolean;
+  allowMime?: boolean;
+  mimeRequired?: boolean;
+}
 
 export interface RandomOptions {
   min?: number;
