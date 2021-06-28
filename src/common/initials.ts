@@ -7,6 +7,10 @@ function initials(text = ''): string {
 
   const parts = text.split(/[\s._-|]+/).filter((part): boolean => !!part);
 
+  if (!parts.length) {
+    return '';
+  }
+
   const first = parts[0].charAt(0);
 
   return parts.length === 1 ? first : `${first} ${parts[1].charAt(0)}`;

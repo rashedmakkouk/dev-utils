@@ -21,7 +21,7 @@ function letterCase(
   let nextText = '';
 
   try {
-    const { letterCase, maxLength, symbols } = options;
+    const { letterCase, symbols } = options;
 
     nextText = !symbols
       ? letterCase === 'title'
@@ -43,19 +43,21 @@ function letterCase(
         return nextText.toLowerCase();
 
       case 'kebab':
-        return (
-          (!maxLength || nextText.length < maxLength
-            ? nextText
-            : nextText.slice(0, maxLength)
-          )
-            .trim()
-            /** W: all non alphanumeric charachters & whitespace. */
-            .replace(/[\W_-]+/gi, '-')
-            .toLowerCase()
+        nextText = nextText
+          .trim()
+          /** W: all non alphanumeric charachters & whitespace. */
+          .replace(/[\W_-]+/gi, '-')
+          .toLowerCase();
+
+        return nextText.slice(
+          !nextText.startsWith('-') ? 0 : 1,
+          !nextText.endsWith('-') ? undefined : -1
         );
     }
   } catch (error) {
-    /** Exception thrown. */
+    /**
+     * - Exception thrown.
+     */
   }
 
   return nextText;

@@ -39,7 +39,6 @@ export interface MsOptions {
 
 export interface LetterCaseOptions {
   letterCase: 'lower' | 'upper' | 'sentence' | 'kebab' | 'title';
-  maxLength?: number;
   /** Converts supplied symbols list to space. */
   symbols?: ('-' | '_' | ',' | ';' | '.' | '&' | '#' | '!')[];
 }

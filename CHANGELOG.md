@@ -2,8 +2,14 @@
 
 ## 0.6.0 (2021-06-27)
 
+### Changes
+
 ### Features
 
+- feat: Bump package version from '0.6.0' to '0.7.0'
+- feat: Apply code enhancements
+    - Deprecate 'maxLength' option in 'letterCase'
+    - Add text length validation in 'initials'
 - chore: Upgrade package dependencies --latest
     - Upgrade Yarn package manager
 
