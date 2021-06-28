@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.6.0 (2021-06-27)
+
+### Features
+
+- chore: Upgrade package dependencies --latest
+    - Upgrade Yarn package manager
+
+## 0.6.0 (2021-05-21)
+
+### Bug Fixes
+
+- fix: Trim leading and trailing dashes when using 'kebab' case in 'letterCase'
+
+## 0.6.0 (2021-05-11)
+
+### Bug Fixes
+
+- fix: Handle text input regex invalid parts output
+
 ## 0.6.0 (2021-04-29)
 
 ### Features
