@@ -6,10 +6,10 @@
 
 ### Features
 
-- feat: Bump package version from '0.6.0' to '0.7.0'
+- feat: Bump package version from `0.6.0` to `0.7.0`
 - feat: Apply code enhancements
-    - Deprecate 'maxLength' option in 'letterCase'
-    - Add text length validation in 'initials'
+    - Deprecate `maxLength` option in `letterCase`
+    - Add text length validation in `initials`
 - chore: Upgrade package dependencies --latest
     - Upgrade Yarn package manager
 
@@ -17,7 +17,7 @@
 
 ### Bug Fixes
 
-- fix: Trim leading and trailing dashes when using 'kebab' case in 'letterCase'
+- fix: Trim leading and trailing dashes when using `kebab` case in `letterCase`
 
 ## 0.6.0 (2021-05-11)
 
@@ -77,14 +77,14 @@
 
 ### Features
 
-- feat: Add `symbols` support in 'letterCase'
+- feat: Add `symbols` support in `letterCase`
 
 ## 0.5.0 (2021-01-30)
 
 ### Features
 
 - chore: Update type definitions root file
-- chore: Migrate build script to standalone 'scripts'
+- chore: Migrate build script to standalone `scripts`
 - chore: Upgrade Yarn from `v1` to `v2`
 - chore: Update package config files
 
@@ -111,7 +111,7 @@
 
 ### Bug Fixes
 
-- fix: Implement span 'isNaN' validation in 'ms' method
+- fix: Implement span `isNaN` validation in `ms` method
 
 ## 0.3.0 (2020-11-10)
 

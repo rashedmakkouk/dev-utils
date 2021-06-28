@@ -1,6 +1,6 @@
 {
   "name": "@limo/utils",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Developer's utility belt.",
   "displayName": "@limo/utils",
   "author": "Rashed Makkouk <rashed.makkouk@outlook.com>",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@limo/eslint-config": "file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=4e887b&locator=%40limo%2Futils%40workspace%3A.",
+    "@limo/eslint-config": "file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=b168f6&locator=%40limo%2Futils%40workspace%3A.",
     "@types/color-convert": "^2.0.0",
     "@types/lodash": "^4.14.170",
     "@types/node": "^15.12.5",

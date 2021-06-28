@@ -229,9 +229,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@limo/eslint-config@file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=4e887b&locator=%40limo%2Futils%40workspace%3A.":
-  version: 0.4.0
-  resolution: "@limo/eslint-config@file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=4e887b&locator=%40limo%2Futils%40workspace%3A."
+"@limo/eslint-config@file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=b168f6&locator=%40limo%2Futils%40workspace%3A.":
+  version: 0.4.1
+  resolution: "@limo/eslint-config@file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=b168f6&locator=%40limo%2Futils%40workspace%3A."
   dependencies:
     "@commitlint/cli": ^12.1.4
     "@commitlint/config-conventional": ^12.1.4
@@ -250,23 +250,23 @@ __metadata:
     standard-version: ^9.3.0
     typescript: 4.3.4
   peerDependencies:
-    "@commitlint/cli": ^12.1.0
-    "@commitlint/config-conventional": ^12.1.0
-    "@types/node": ^14.14.35
-    "@typescript-eslint/eslint-plugin": ^4.18.0
-    "@typescript-eslint/parser": ^4.18.0
-    eslint: ^7.22.0
-    eslint-config-prettier: ^8.1.0
-    eslint-plugin-import: ^2.22.1
-    eslint-plugin-prettier: ^3.3.1
-    eslint-plugin-promise: ^4.3.1
-    eslint-plugin-tsdoc: ^0.2.11
+    "@commitlint/cli": ^12.1.4
+    "@commitlint/config-conventional": ^12.1.4
+    "@types/node": ^15.12.5
+    "@typescript-eslint/eslint-plugin": ^4.28.0
+    "@typescript-eslint/parser": ^4.28.0
+    eslint: ^7.29.0
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.23.4
+    eslint-plugin-prettier: ^3.4.0
+    eslint-plugin-promise: ^5.1.0
+    eslint-plugin-tsdoc: ^0.2.14
     husky: ^4.3.8
-    lint-staged: ^10.5.4
-    prettier: ^2.2.1
-    standard-version: ^9.1.1
-    typescript: 4.2.3
-  checksum: c2f758edb0ed45682a17ce85d88da92b823ced6f35370b3f07070cba6388f5615281593f567b87839bd0d3507f5aa33fb40fa0250cbde3d4939a53e0a71dd970
+    lint-staged: ^11.0.0
+    prettier: ^2.3.2
+    standard-version: ^9.3.0
+    typescript: 4.3.4
+  checksum: 5e9a52f692519a2bcb4ea7158c9f1f94e47f3e3ae13eeb8566911aa45514e54665a6e4554a44a429cc6fa473f887f494997261c4b22714d1e274de5b70fbecf1
   languageName: node
   linkType: hard
 
@@ -276,7 +276,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^12.1.4
     "@commitlint/config-conventional": ^12.1.4
-    "@limo/eslint-config": "file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=4e887b&locator=%40limo%2Futils%40workspace%3A."
+    "@limo/eslint-config": "file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=b168f6&locator=%40limo%2Futils%40workspace%3A."
     "@types/color-convert": ^2.0.0
     "@types/lodash": ^4.14.170
     "@types/node": ^15.12.5
