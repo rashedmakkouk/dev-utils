@@ -3,14 +3,12 @@ import validator from 'validator';
 export type TimeSpans = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'y';
 
 export type TimestampFormats =
+  | 'datetime'
   | 'fromNow'
-  | 'MMMM YYYY'
-  | 'MM/D'
-  | 'MM/DD/YYYY'
   | 'short'
-  | 'online'
   | 'offset'
-  | 'sql';
+  | 'sql'
+  | string;
 
 export type RandomTypes =
   | 'filename'
@@ -19,6 +17,16 @@ export type RandomTypes =
   | 'uuid'
   | 'key'
   | 'integer';
+
+export interface TimestampOptions {
+  /**
+   * Predefined timestamp output formats.
+   *
+   * {@link https://momentjs.com/docs/#/displaying/format | Moment - Format}
+   */
+  format?: TimestampFormats;
+  timezoneOffest?: string;
+}
 
 export interface IsBase64Options extends validator.IsBase64Options {
   allowEmpty?: boolean;

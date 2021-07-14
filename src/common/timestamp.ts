@@ -1,39 +1,38 @@
 /** Utilities */
-import moment, { Moment } from 'moment';
+import moment from 'moment';
 
 /** Typings */
-import { TimestampFormats } from '../types';
-
-const TIMESTAMP_FORMATS = {
-  sql: 'YYYY-MM-DD HH:mm:ss',
-};
+import { TimestampOptions } from '../types';
 
 /**
  * Parses a timestamp string from date with specified format.
- *
- * @param date - .
- * @param format - Returns `moment` object if not supplied.
  */
-function timestamp({
-  date = Date.now(),
-  format,
-  timezoneOffest,
-}: {
-  /** Date class or db timestamp value; @default Date.now(). */
-  date?: string | number | Date;
-  /** Predefined timestamp output formats. */
-  format?: TimestampFormats;
-  timezoneOffest?: string;
-}): string | Moment {
-  const m = moment(date);
+function timestamp(
+  date: string | number | Date = Date.now(),
+  { format, timezoneOffest }: TimestampOptions = { format: 'DD/MM/YYYY' }
+): string {
+  const instance = moment(date);
 
-  if (!format) {
-    return m;
+  let nextFormat: string | undefined = format;
+
+  switch (format) {
+    case 'datetime':
+      return `${instance.format('dddd, MMMM D')} at ${instance.format(
+        'h:mmA'
+      )}`;
+
+    case 'fromNow':
+      return instance.fromNow();
+
+    case 'short':
+      return `${instance.format('ddd, MMM D')} ${instance.format('h:mmA')}`;
+
+    case 'sql':
+      nextFormat = 'YYYY-MM-DD HH:mm:ss';
+      break;
   }
 
-  const nextFormat = TIMESTAMP_FORMATS[format] || format;
-
-  return moment(date).format(nextFormat);
+  return instance.format(nextFormat);
 }
 
 export default timestamp;
