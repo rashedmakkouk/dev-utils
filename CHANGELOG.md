@@ -1,8 +1,19 @@
 # Changelog
 
+## 0.6.0 (2021-07-14)
+
+### Features
+
+- feat: Bump package version from `0.7.0` to `0.8.0`
+- feat: Add `splitArray` helper fn
+
 ## 0.6.0 (2021-06-27)
 
-### Changes
+### Features
+
+- feat: Add `format` support in `timestamp` helper fn
+
+## 0.6.0 (2021-06-27)
 
 ### Features
 
@@ -52,7 +63,7 @@
 
 ### Changes
 
-- refactor: Migrate `versions` to `CHANGELOG`
+- chroe: Migrate `versions` to `CHANGELOG`
 
 ### Deprecated
 
@@ -105,7 +116,7 @@
 
 ### Changes
 
-- refactor: `letterCase` for performance & follow naming convention
+- chroe: `letterCase` for performance & follow naming convention
 
 ## 0.3.0 (2020-11-14)
 
@@ -141,14 +152,14 @@
 
 ### Changes
 
-- refactor: Update package configuration files
-- refactor: Update local build scripts
+- chroe: Update package configuration files
+- chroe: Update local build scripts
 
 ### Features
 
 - chore: Add `repository` property to `package.json`
-- enhancement: Add `number` validation to `trimWhiteSpace`
-- enhancement: Add `resolve` option to `joinPath`
+- feat: Add `number` validation to `trimWhiteSpace`
+- feat: Add `resolve` option to `joinPath`
 
 ## 0.1.0 (2020-09-30)
 
@@ -161,7 +172,7 @@
 
 ### Deprecated
 
-- refactor: Remove changelogs `index.md` file
+- chroe: Remove changelogs `index.md` file
 
 ### Features
 
@@ -172,7 +183,7 @@
 
 ### Changes
 
-- refactor: Modules folder structure, move to `common`
+- chroe: Modules folder structure, move to `common`
 - update: Pakcage configuration files & external import references
 - chore: Code cleanup
 
@@ -181,7 +192,7 @@
 ### Changes
 
 - chore: Extend config files from `*.base.*`
-- refactor: `docs/versions` folder structure
+- chroe: `docs/versions` folder structure
 
 ## 0.1.0 (2020-09-18)
 
