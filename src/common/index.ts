@@ -16,6 +16,7 @@ export { default as parseUrl } from './parse-url';
 export { default as random } from './random';
 export { default as sanitize } from './sanitize';
 export { default as singular } from './singular';
+export { default as splitArray } from './split-array';
 export { default as toArray } from './to-array';
 export { default as toNumeric } from './to-numeric';
 export { default as toRGBa } from './to-rgba';
