@@ -13,7 +13,9 @@ function initials(text = ''): string {
 
   const first = parts[0].charAt(0);
 
-  return parts.length === 1 ? first : `${first} ${parts[1].charAt(0)}`;
+  return parts.length === 1
+    ? first
+    : `${first}${parts[parts.length - 1].charAt(0)}`;
 }
 
 export default initials;
