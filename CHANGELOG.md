@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0 (2021-08-30)
+
+### Features
+
+- feat: Bump package version from `0.9.1` to `0.9.2`
+    - Upgrade package dependencies --latest
+
 ## 0.8.0 (2021-08-22)
 
 ### Features
