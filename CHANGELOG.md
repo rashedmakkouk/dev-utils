@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.8.0 (2021-09-18)
+
+### Features
+
+- feat: Bump package version from `0.10.0` to `0.10.1`
+    - Upgrade package dependencies --latest
+
+## 0.8.0 (2021-08-31)
+
+### Features
+
+- feat: Bump package version from `0.9.2` to `0.10.0`
+- feat: Refactor 'random' helper fn for performance & consistency
+
 ## 0.8.0 (2021-08-30)
 
 ### Features
