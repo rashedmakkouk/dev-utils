@@ -10,13 +10,7 @@ export type TimestampFormats =
   | 'sql'
   | string;
 
-export type RandomTypes =
-  | 'filename'
-  | 'title'
-  | 'temp'
-  | 'uuid'
-  | 'key'
-  | 'integer';
+export type RandomTypes = 'filename' | 'number' | 'title' | 'temp' | 'uuid';
 
 export interface TimestampOptions {
   /**
@@ -38,6 +32,7 @@ export interface RandomOptions {
   min?: number;
   max?: number;
   prefix?: string;
+  suffix?: string;
 }
 
 export interface MsOptions {

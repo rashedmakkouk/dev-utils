@@ -5,41 +5,45 @@ import moment from 'moment';
 /** Typings */
 import { RandomOptions, RandomTypes } from '../types';
 
-function random<ResultT extends string | number>(
-  type: RandomTypes,
-  options: RandomOptions = {}
-): ResultT {
-  const { prefix } = options;
+function random(type: RandomTypes, options: RandomOptions = {}): string {
   let { max = 9024000, min = 1024000 } = options;
 
-  let value: string | number;
+  if (type === 'uuid') {
+    return uuid();
+  } else if (type === 'number') {
+    min = Math.ceil(min);
+    max = Math.floor(max);
 
-  switch (type) {
-    case 'filename':
-      value = `${(Date.now() / 1000).toString().replace('.', '')}-${uuid()}`;
+    return `${Math.floor(Math.random() * (max - min)) + min}`;
+  }
 
-      return (!prefix ? value : `${prefix}-${value}`) as ResultT;
+  const timestamp = moment().format('YYYY-MM-DD_HH-mm-ss');
 
-    case 'title':
-      // TODO: Add short `uuid`.
-      value = moment().format('YYYY-MM-DD_HH-mm-ss');
+  if (type === 'temp') {
+    return `${timestamp}_${uuid()}`;
+  } else {
+    const { prefix, suffix } = options;
 
-      return (!prefix ? value : `${prefix}_${value}`) as ResultT;
+    const value: string[] = [];
 
-    case 'temp':
-      return `${moment().format('YYYY-MM-DD_HH-mm-ss')}_${uuid()}` as ResultT;
+    prefix && value.push(prefix);
 
-    case 'uuid':
-      return uuid() as ResultT;
+    switch (type) {
+      case 'filename':
+        value.push(timestamp, uuid());
+        break;
 
-    case 'integer':
-    case 'key':
-      min = Math.ceil(min);
-      max = Math.floor(max);
+      case 'title':
+        value.push(timestamp);
+        break;
 
-      value = Math.floor(Math.random() * (max - min)) + min;
+      default:
+        return '';
+    }
 
-      return (type === 'integer' ? value : value.toString()) as ResultT;
+    suffix && value.push(suffix);
+
+    return value.join('_');
   }
 }
 
