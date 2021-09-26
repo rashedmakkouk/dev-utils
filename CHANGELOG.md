@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0 (2021-09-26)
+
+### Bug Fixes
+
+- fix: Refactor text RegExp to correctly handle hyphen `-` in `initials`
+
 ## 0.8.0 (2021-09-18)
 
 ### Features
@@ -39,7 +45,7 @@
 
 ### Bug Fixes
 
-- fix: Use last element in the array as family name in 'initials'
+- fix: Use last element in the array as family name in `initials`
 
 ## 0.8.0 (2021-07-17)
 

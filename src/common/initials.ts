@@ -1,11 +1,9 @@
-import isString from 'lodash/isString';
-
 function initials(text = ''): string {
-  if (!text || !isString(text)) {
+  if (!text || typeof text !== 'string') {
     return '';
   }
 
-  const parts = text.split(/[\s._-|]+/).filter((part): boolean => !!part);
+  const parts = text.split(/[\s,._|-]+/g).filter((part): boolean => !!part);
 
   if (!parts.length) {
     return '';
