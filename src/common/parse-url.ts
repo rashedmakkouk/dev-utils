@@ -1,6 +1,6 @@
 import urlParse from 'url-parse';
 
-function parseUrl(address: string): urlParse {
+function parseUrl(address: string): urlParse<any> {
   return urlParse(address);
 }
 

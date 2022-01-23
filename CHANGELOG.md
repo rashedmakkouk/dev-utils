@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0 (2022-01-23)
+
+### Features
+
+- feat: Bump package version from `0.10.1` to `0.10.2`
+    - Upgrade package dependencies --latest
+
 ## 0.8.0 (2021-09-26)
 
 ### Bug Fixes
