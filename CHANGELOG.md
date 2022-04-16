@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0 (2022-04-16)
+
+### Features
+
+- feat: Bump package version from `0.10.2` to `0.10.3`
+    - Upgrade package dependencies --latest
+    - Upgrade Yarn package manager
+
 ## 0.8.0 (2022-01-23)
 
 ### Features
