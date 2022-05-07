@@ -1,6 +1,6 @@
 import { cp, exec, mkdir, rm, test } from 'shelljs';
 
-const target = 'c:/npm/@limo/utils';
+const target = 'c:/npm/@limo/dev-utils';
 
 rm('-rf', './build/*');
 

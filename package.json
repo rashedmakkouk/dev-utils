@@ -1,8 +1,8 @@
 {
-  "name": "@limo/utils",
+  "name": "@limo/dev-utils",
   "version": "0.10.3",
   "description": "Developer's utility belt.",
-  "displayName": "@limo/utils",
+  "displayName": "@limo/dev-utils",
   "author": "Rashed Makkouk <rashed.makkouk@outlook.com>",
   "license": "UNLICENSED",
   "private": true,
@@ -18,12 +18,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rashedmakkouk/utils"
+    "url": "https://github.com/rashedmakkouk/dev-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/rashedmakkouk/dev-utils/issues"
+  },
+  "homepage": "https://github.com/rashedmakkouk/dev-utils#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "ts-node ./scripts/build.ts",
     "uP": "yarn upgrade-interactive",
-    "gen-docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/utils/",
+    "gen-docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/dev-utils/",
     "tsc": "tsc"
   },
   "dependencies": {
