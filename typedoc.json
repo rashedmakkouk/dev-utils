@@ -10,7 +10,7 @@
   "includeDeclarations": true,
   "inputFiles": "src",
   "mode": "file",
-  "name": "@limo/utils",
+  "name": "@limo/dev-utils",
   "out": "docs/types",
   "readme": "README.md"
 }

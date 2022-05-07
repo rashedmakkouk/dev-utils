@@ -4,6 +4,7 @@
 
 ### Features
 
+- chore: Update package.json `engines` versions
 - chore: Upgrade Yarn package manager
 - feat: Bump package version from `0.10.3` to `0.11.0`
     - Update package changelog
