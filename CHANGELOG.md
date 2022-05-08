@@ -1,6 +1,15 @@
 # Changelog
 
-## 0.10.3 (2022-05-07)
+## 0.11.0 (2022-05-08)
+
+### Features
+
+- feat: Bump package version from `0.11.0` to `0.11.1`
+    - Update package changelog
+    - Upgrade package dependencies --latest
+    - Upgrade Yarn package manager
+
+## 0.10.0 (2022-05-07)
 
 ### Features
 
@@ -10,7 +19,7 @@
     - Update package changelog
 - feat: Rename package from `utils` to `dev-utils`
 
-## 0.10.2 (2022-04-16)
+## 0.10.0 (2022-04-16)
 
 ### Features
 
@@ -18,14 +27,14 @@
     - Upgrade package dependencies --latest
     - Upgrade Yarn package manager
 
-## 0.10.1 (2022-01-23)
+## 0.10.0 (2022-01-23)
 
 ### Features
 
 - feat: Bump package version from `0.10.1` to `0.10.2`
     - Upgrade package dependencies --latest
 
-## 0.10.1 (2021-09-26)
+## 0.10.0 (2021-09-26)
 
 ### Bug Fixes
 
@@ -38,14 +47,14 @@
 - feat: Bump package version from `0.10.0` to `0.10.1`
     - Upgrade package dependencies --latest
 
-## 0.9.2 (2021-08-31)
+## 0.9.0 (2021-08-31)
 
 ### Features
 
 - feat: Bump package version from `0.9.2` to `0.10.0`
 - feat: Refactor 'random' helper fn for performance & consistency
 
-## 0.9.1 (2021-08-30)
+## 0.9.0 (2021-08-30)
 
 ### Features
 
