@@ -1,20 +1,24 @@
 {
-  "name": "@limo/dev-utils",
-  "version": "0.11.1",
+  "name": "@rashedmakkouk/dev-utils",
+  "version": "0.12.0",
   "description": "Developer's utility belt.",
-  "displayName": "@limo/dev-utils",
-  "author": "Rashed Makkouk <rashed.makkouk@outlook.com>",
-  "license": "UNLICENSED",
-  "private": true,
+  "displayName": "@rashedmakkouk/dev-utils",
+  "author": {
+    "name": "Rashed Makkouk",
+    "email": "rashed.makkouk@outlook.com",
+    "url": "https://www.twitter.com/rashedmakkouk"
+  },
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
     "node": ">= 16.14.0",
-    "yarn": ">= 3.2.0"
+    "yarn": ">= 1.22.0"
   },
   "keywords": [
     "utils",
-    "utilities"
+    "utilities",
+    "helpers"
   ],
   "repository": {
     "type": "git",
@@ -25,12 +29,21 @@
   },
   "homepage": "https://github.com/rashedmakkouk/dev-utils#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
+  "files": [
+    "lib/**/*",
+    "**/*.d.ts",
+    "yarn.lock",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
   "scripts": {
-    "build": "ts-node ./scripts/build.ts",
+    "build:compile": "tsc --build",
+    "build:prepare": "node ./scripts/build.js",
+    "build": "npm run build:compile && npm run build:prepare",
+    "gen-docs": "yarn typedoc",
     "uP": "yarn upgrade-interactive",
-    "gen-docs": "yarn typedoc && cp -r ./docs/* c:/Nginx/html/docs/dev-utils/",
     "tsc": "tsc"
   },
   "dependencies": {
@@ -47,30 +60,30 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
-    "@limo/eslint-config": "file:/c%3A/npm/@limo/eslint-config#/c%3A/npm/@limo/eslint-config::hash=e96701&locator=%40limo%2Fdev-utils%40workspace%3A.",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@rashedmakkouk/eslint-config": "^0.5.7",
     "@types/color-convert": "^2.0.0",
     "@types/lodash": "^4.14.182",
-    "@types/node": "^17.0.31",
+    "@types/node": "^17.0.34",
     "@types/shelljs": "^0.8.11",
     "@types/sqlstring": "^2.3.0",
     "@types/url-parse": "^1.4.8",
     "@types/uuid": "^8.3.4",
     "@types/validator": "^13.7.2",
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
+    "@typescript-eslint/eslint-plugin": "^5.24.0",
+    "@typescript-eslint/parser": "^5.24.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-tsdoc": "^0.2.16",
-    "husky": "^7.0.4",
+    "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "shelljs": "^0.8.5",
-    "standard-version": "^9.3.2",
+    "standard-version": "^9.5.0",
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.15",
     "typescript": "4.6.4"

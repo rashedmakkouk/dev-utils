@@ -1,13 +1,26 @@
-# Changelog
+# Changelogname
+
+## 0.11.0 (2022-05-17)
+
+### Features
+
+- feat: Bump package version from `0.11.1` to `0.12.0`
+  - Upgrade package dependencies --latest
+  - Update publish package configuration files
+  - Update package `LICENSE` to `MIT`
+  - Update package visibility to `public`
+  - Add GitHub action configuration file
+  - Refactor `build` script
+  - Rename package
 
 ## 0.11.0 (2022-05-08)
 
 ### Features
 
 - feat: Bump package version from `0.11.0` to `0.11.1`
-    - Update package changelog
-    - Upgrade package dependencies --latest
-    - Upgrade Yarn package manager
+  - Update package changelog
+  - Upgrade package dependencies --latest
+  - Upgrade Yarn package manager
 
 ## 0.10.0 (2022-05-07)
 
@@ -16,7 +29,7 @@
 - chore: Update package.json `engines` versions
 - chore: Upgrade Yarn package manager
 - feat: Bump package version from `0.10.3` to `0.11.0`
-    - Update package changelog
+  - Update package changelog
 - feat: Rename package from `utils` to `dev-utils`
 
 ## 0.10.0 (2022-04-16)
@@ -24,15 +37,15 @@
 ### Features
 
 - feat: Bump package version from `0.10.2` to `0.10.3`
-    - Upgrade package dependencies --latest
-    - Upgrade Yarn package manager
+  - Upgrade package dependencies --latest
+  - Upgrade Yarn package manager
 
 ## 0.10.0 (2022-01-23)
 
 ### Features
 
 - feat: Bump package version from `0.10.1` to `0.10.2`
-    - Upgrade package dependencies --latest
+  - Upgrade package dependencies --latest
 
 ## 0.10.0 (2021-09-26)
 
@@ -45,21 +58,21 @@
 ### Features
 
 - feat: Bump package version from `0.10.0` to `0.10.1`
-    - Upgrade package dependencies --latest
+  - Upgrade package dependencies --latest
 
 ## 0.9.0 (2021-08-31)
 
 ### Features
 
 - feat: Bump package version from `0.9.2` to `0.10.0`
-- feat: Refactor 'random' helper fn for performance & consistency
+- feat: Refactor `random` helper fn for performance & consistency
 
 ## 0.9.0 (2021-08-30)
 
 ### Features
 
 - feat: Bump package version from `0.9.1` to `0.9.2`
-    - Upgrade package dependencies --latest
+  - Upgrade package dependencies --latest
 
 ## 0.9.0 (2021-08-22)
 
@@ -106,10 +119,10 @@
 
 - feat: Bump package version from `0.6.0` to `0.7.0`
 - feat: Apply code enhancements
-    - Deprecate `maxLength` option in `letterCase`
-    - Add text length validation in `initials`
+  - Deprecate `maxLength` option in `letterCase`
+  - Add text length validation in `initials`
 - chore: Upgrade package dependencies --latest
-    - Upgrade Yarn package manager
+  - Upgrade Yarn package manager
 
 ## 0.6.0 (2021-05-21)
 

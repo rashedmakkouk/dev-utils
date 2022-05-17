@@ -10,7 +10,7 @@
   "includeDeclarations": true,
   "inputFiles": "src",
   "mode": "file",
-  "name": "@limo/dev-utils",
+  "name": "@rashedmakkouk/dev-utils",
   "out": "docs/types",
   "readme": "README.md"
 }
