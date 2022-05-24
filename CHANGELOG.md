@@ -1,5 +1,45 @@
 # Changelogname
 
+## 0.12.0 (2022-05-23)
+
+### Changes
+
+- chore: Move publish `access` configuration to `package.json`
+
+### Documentation
+
+- docs: Update `README.md` file
+  - Add list of available helper methods, description and parameters
+  - Add package information
+  - Add package installation instructions
+
+### Features
+
+- feat: Bump package version from `0.12.0` to `0.13.0`
+- feat: Apply code enhancements and commenting
+  - Update `autolinks` helper
+  - Update `delay` helper
+  - Update `escape` helper
+  - Update `extractValues` helper
+  - Update `initials` helper
+  - Update `isBase64` helper
+  - Update `isValid` helper
+  - Update `joinPath` helper
+  - Update `keyExtractor` helper
+  - Update `letterCase` helper
+  - Update `ms` helper
+  - Update `normalize` helper
+  - Update `parseUrl` helper
+  - Update `random` helper
+  - Update `sanitize` helper
+  - Update `singular` helper
+  - Update `splitArray` helper
+  - Update `timestamp` helper
+  - Update `toArray` helper
+  - Update `toNumeric` helper
+  - Update `toRGBa` helper
+  - Update `trimWhitespace` helper
+
 ## 0.11.0 (2022-05-17)
 
 ### Features
