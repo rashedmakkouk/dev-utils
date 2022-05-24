@@ -16,7 +16,7 @@ import { FieldValue, ToArrayOptions } from '../types';
  */
 function toArray(
   value: FieldValue,
-  { separator, toNumber }: ToArrayOptions
+  { separator, toNumber }: ToArrayOptions = {}
 ): (string | number)[] {
   const results: (string | number)[] = [];
 
