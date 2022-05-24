@@ -12,8 +12,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
-    "node": ">= 16.14.0",
-    "yarn": ">= 1.22.0"
+    "node": ">=16.14.0",
+    "yarn": ">=1.22.18"
   },
   "keywords": [
     "utils",
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/rashedmakkouk/dev-utils#readme",
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "files": [
@@ -87,6 +88,5 @@
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.15",
     "typescript": "4.6.4"
-  },
-  "packageManager": "yarn@3.2.0"
+  }
 }
