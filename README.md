@@ -278,8 +278,8 @@ Converts value to and validates as number.
 |---                  |---          |---            |---                                          |
 | `value`             | Yes         | -             | Number representation; if null, returns 0.  |
 | `options`           | No          | -             | Object                                      |
-| `options.decimal`   | No          | -             | If true, retains decimal point.             |
-| `options.math`      | No          | round         | trunc, ceil, round, floor                   |
+| `options.decimal`   | No          | true          | If true, retains decimal point.             |
+| `options.math`      | No          | -             | trunc, ceil, round, floor                   |
 
 ### `toRGBa`
 
