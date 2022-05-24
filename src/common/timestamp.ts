@@ -5,17 +5,23 @@ import moment from 'moment';
 import { TimestampOptions } from '../types';
 
 /**
- * Parses a timestamp string from date with specified format.
+ * Parses any date value to a timestamp with predefined or custom format.
+ *
+ * - datetime: dddd, MMMM D at h:mA
+ * - fromNow: Relative time.
+ * - short: ddd, MMM D
+ * - sql: YYYY-MM-DD HH:mm:ss
  */
 function timestamp(
   date: string | number | Date = Date.now(),
-  { format, timezoneOffest }: TimestampOptions = { format: 'DD/MM/YYYY' }
+  { format = 'DD/MM/YYYY', timezoneOffest }: TimestampOptions = {}
 ): string {
   const instance = moment(date);
 
-  let nextFormat: string | undefined = format;
-
   switch (format) {
+    case 'DD/MM/YYYY':
+      return instance.format(format);
+
     case 'datetime':
       return `${instance.format('dddd, MMMM D')} at ${instance.format(
         'h:mmA'
@@ -28,11 +34,11 @@ function timestamp(
       return `${instance.format('ddd, MMM D')} ${instance.format('h:mmA')}`;
 
     case 'sql':
-      nextFormat = 'YYYY-MM-DD HH:mm:ss';
-      break;
-  }
+      return instance.format('YYYY-MM-DD HH:mm:ss');
 
-  return instance.format(nextFormat);
+    default:
+      return instance.format(format);
+  }
 }
 
 export default timestamp;

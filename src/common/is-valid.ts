@@ -12,12 +12,15 @@ const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;
 const NULLISH_VALUES = ['null', 'undefined'];
 const BOOLEAN_VALUES = ['false', 'true'];
 
+/**
+ * Verifies if supplied payload is valid by defined type.
+ */
 function isValid(
   isTypeof: 'string' | 'array' | 'number' | 'object' | 'jsonStr',
   value?: FieldValue | any[] | object | object[]
 ): boolean {
-  if (value === null || value === undefined) {
-    return false;
+  if (value == null) {
+    return true;
   }
 
   switch (isTypeof) {

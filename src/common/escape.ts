@@ -5,6 +5,9 @@ import isNumber from 'lodash/isNumber';
 /** Typings */
 import { FieldValue, SqlEscapeOptions } from '../types';
 
+/**
+ * A `sqlstring` wrapper for convenience.
+ */
 function escape(
   value: FieldValue,
   options: SqlEscapeOptions = {}
@@ -13,7 +16,11 @@ function escape(
     return value;
   }
 
-  const { escapeId, parseInteger, stripQuote } = options;
+  const {
+    escapeId = false,
+    parseInteger = false,
+    stripQuote = false,
+  } = options;
 
   if (isNumber(value)) {
     return value;

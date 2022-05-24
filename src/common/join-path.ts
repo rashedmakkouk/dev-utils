@@ -6,10 +6,7 @@ import isArray from 'lodash/isArray';
 import { JoinPathOptions } from '../types';
 
 /**
- * Handles absolute and relative `path`s.
- *
- * @param parts - List of paths to concatenate.
- * @param options - Aditional options to apply to result path.
+ * Joins list of absolute and relative paths as a string.
  */
 function joinPath(parts: string[] = [], options: JoinPathOptions = {}): string {
   if (!parts || !isArray(parts) || !parts.length) {

@@ -2,9 +2,15 @@
 import isString from 'lodash/isString';
 
 /** Typings */
-import { ToNumericArgs } from '../types';
+import { ToNumericOptions } from '../types';
 
-function toNumeric({ decimal, math = 'round', value }: ToNumericArgs): number {
+/**
+ * Converts value to and validates as number.
+ */
+function toNumeric(
+  value: number | string | null,
+  { decimal = true, math = 'round' }: ToNumericOptions
+): number {
   if (!decimal) {
     return (
       Math[math](

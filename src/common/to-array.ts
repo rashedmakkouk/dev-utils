@@ -5,26 +5,27 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { FieldValue } from '../types';
+import { FieldValue, ToArrayOptions } from '../types';
 
 /**
- * Converts supplied value to `string[]` or `number[]`. Useful for multi value
- * fields as `group_concat`.
+ * Converts any value to array.
  *
- * @param value - Field multi value.
- * @param toNumber - Map array values as numbers.
+ * Useful for multi value fields as `group_concat`.
  *
  * @returns Immutable copy of value.
  */
-function toArray(value?: FieldValue, toNumber?: boolean): (string | number)[] {
+function toArray(
+  value: FieldValue,
+  { separator, toNumber }: ToArrayOptions
+): (string | number)[] {
   const results: (string | number)[] = [];
 
-  if (value === null || value === undefined || value === '') {
+  if (value == null || value === '') {
     return results;
   }
 
   if (isString(value)) {
-    const nextValue = value.split(',');
+    const nextValue = value.split(separator || ',');
 
     return !toNumber ? nextValue : nextValue.map(Number);
   } else if (isArray(value)) {

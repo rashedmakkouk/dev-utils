@@ -6,6 +6,9 @@ import colorConvert from 'color-convert';
 /** Typings */
 import { KEYWORD } from 'color-convert/conversions';
 
+/**
+ * Converts color from keyword or hex to RGBa value.
+ */
 function toRGBa(color: KEYWORD | string, alpha = 1): string {
   if (!color || !isString(color)) {
     return 'rgba(0,0,0,0)';

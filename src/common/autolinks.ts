@@ -1,6 +1,13 @@
 /** Utilities */
 import Autolinker, { AutolinkerConfig, Match } from 'autolinker';
 
+/**
+ * Parses a text string and returns links matching:
+ *
+ * - Hashtag **#**
+ * - Mention **@**
+ * - URL **http**
+ */
 function autolinks(
   text: string | null = '',
   options: AutolinkerConfig = {}

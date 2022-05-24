@@ -1,6 +1,5 @@
 /** Utilities */
 import validateIsBase64 from 'validator/lib/isBase64';
-import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
@@ -8,16 +7,15 @@ import { IsBase64Options } from '../types';
 
 const MIME_REGEX = '(data:\\w+\\/[a-zA-Z\\+\\-\\.]+;base64)';
 
+/**
+ * Verifies if supplied string is a valid base64 string.
+ */
 function isBase64(
   value?: string | null,
   options: IsBase64Options = {}
 ): boolean {
-  if (!isString(value)) {
+  if (!value || !isString(value)) {
     return false;
-  }
-
-  if (!options || !isPlainObject(options)) {
-    options = {};
   }
 
   const { allowEmpty, allowMime, mimeRequired, urlSafe } = options;

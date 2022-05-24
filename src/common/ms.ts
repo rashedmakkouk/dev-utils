@@ -24,7 +24,16 @@ export const TIME_SPANS: { [timePeriod in TimeSpans]: number } = {
 };
 
 /**
- * Parses a number representation of a string time period (e.g. 1h, 2d).
+ * Parses a number representation or a string time period (e.g. 1h, 2d) to Unix
+ * Timestamp.
+ *
+ * - d: day.
+ * - h: hour.
+ * - m: month.
+ * - ms: millisecond.
+ * - s: second.
+ * - w: week.
+ * - y: year.
  *
  * @remarks
  * If supplied `span` is a `number` or a string representation of a
@@ -37,7 +46,7 @@ function ms(span: string | number, options: MsOptions = {}): number {
 
     if (!span) {
       return 0;
-    } else if (isString(span) && isNaN(span as any)) {
+    } else if (isString(span) && isNaN(Number(span))) {
       /** Splits time value to `count` and `spanFormat` (e.g. '1h', '15m'). */
       const [count, spanFormat] = span
         .split(/(\d+)/)
@@ -45,7 +54,7 @@ function ms(span: string | number, options: MsOptions = {}): number {
 
       return parseInt(count, 10) * TIME_SPANS[spanFormat] * 1000;
     } else {
-      return parseInt(span as any, 10);
+      return parseInt(isString(span) ? span : `${span}`, 10);
     }
   } catch (error) {
     /**

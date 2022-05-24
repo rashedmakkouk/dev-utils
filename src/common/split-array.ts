@@ -1,7 +1,12 @@
 import isArray from 'lodash/isArray';
 
-function splitArray(array: any[], size: number): any[][] {
-  if (!isArray(array)) {
+/**
+ * Splits any array to chunks by supplied size.
+ */
+function splitArray(array: any[], size?: number): any[][] {
+  if (!size) {
+    return array;
+  } else if (!isArray(array)) {
     return [];
   }
 

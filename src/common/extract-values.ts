@@ -5,7 +5,7 @@ import isNumber from 'lodash/isNumber';
 import isPlainObject from 'lodash/isPlainObject';
 
 /**
- * Extracts values from supplied `key` (i-e 'id') & converts any value to
+ * Extracts values from supplied `key` (i-e 'id') and converts any value to
  * array; drops object values.
  *
  * @param key - Object field name property to extract values from.

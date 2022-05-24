@@ -3,7 +3,8 @@ import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 
 /**
- * Trims leading, trailing & multiple `white-space`, `tab` & `new-line`.
+ * Removes leading and trailing spaces and replaces multiple whitespaces, tabs
+ * and newlines with one space.
  */
 function trimWhitespace(text: string): string {
   if (isNumber(text)) {

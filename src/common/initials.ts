@@ -1,3 +1,8 @@
+/**
+ * Extracts the first character from the first and last words in a string.
+ *
+ * Splits at: whitespace, comma, dot, underscore, dash.
+ */
 function initials(text = ''): string {
   if (!text || typeof text !== 'string') {
     return '';

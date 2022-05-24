@@ -1,3 +1,6 @@
+/**
+ * Delays executions of a specified piece of code.
+ */
 function delay(ms: number, race?: boolean): Promise<void> {
   return new Promise((resolve, reject): void => {
     setTimeout((): void => {

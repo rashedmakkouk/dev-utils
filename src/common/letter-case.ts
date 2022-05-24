@@ -6,7 +6,7 @@ import upperFirst from 'lodash/upperFirst';
 import { LetterCaseOptions } from '../types';
 
 /**
- * Converts string to supplied case.
+ * Converts supplied string to defined case.
  *
  * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
  */
@@ -21,13 +21,13 @@ function letterCase(
   let nextText = '';
 
   try {
-    const { letterCase, symbols } = options;
+    const { letterCase, separators } = options;
 
-    nextText = !symbols
+    nextText = !separators
       ? letterCase === 'title'
         ? text.replace(/[_-\s]+/gi, ' ')
         : text
-      : text.replace(new RegExp(`[${symbols.join('|')}\\s]+`, 'gi'), ' ');
+      : text.replace(new RegExp(`[${separators.join('|')}\\s]+`, 'gi'), ' ');
 
     switch (letterCase) {
       case 'title':
