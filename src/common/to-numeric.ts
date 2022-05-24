@@ -1,5 +1,5 @@
 /** Utilities */
-import isString from 'lodash/isString';
+import isNumber from 'lodash/isNumber';
 
 /** Typings */
 import { ToNumericOptions } from '../types';
@@ -9,17 +9,17 @@ import { ToNumericOptions } from '../types';
  */
 function toNumeric(
   value: number | string | null,
-  { decimal = true, math = 'round' }: ToNumericOptions
+  { decimal = true, math }: ToNumericOptions = {}
 ): number {
-  if (!decimal) {
-    return (
-      Math[math](
-        (!isString(value) ? value : value.replace(/,|-/g, '')) as number
-      ) || 0
-    );
+  let nextValue = !isNumber(value) ? Number(value) || 0 : value;
+
+  if (nextValue === 0) {
+    return nextValue;
+  } else if (decimal === false) {
+    nextValue = Math.trunc(nextValue);
   }
 
-  return Number(value) || 0;
+  return !math ? nextValue : Math[math](nextValue);
 }
 
 export default toNumeric;
