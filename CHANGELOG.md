@@ -1,5 +1,20 @@
 # Changelogname
 
+## 0.13.0 (2022-05-24)
+
+### Documentation
+
+- docs: Update `Methods` parameters in `README.md` file
+
+### Features
+
+- feat: Bump package version from `0.13.0` to `0.13.1`
+- feat: Refactor `toNumeric` helper
+  - Update `options` parameter to optional in `toNumeric`
+  - Use Math.trunc in place of regular expression for `decimal`
+  - If `math` type is supplied, apply to value
+- feat: Update `options` parameter to optional in `toArray`
+
 ## 0.12.0 (2022-05-23)
 
 ### Changes
