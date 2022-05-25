@@ -7,10 +7,10 @@ Utility library.
 Install package in your project.
 
 ```shell
-// NPM
+# NPM
 npm install @rashedmakkouk/dev-utils
 
-// Yarn
+# Yarn
 yarn add @rashedmakkouk/dev-utils
 ```
 
@@ -42,11 +42,11 @@ Parses a text string and returns links matching:
 - Mention **@**
 - URL **http**
 
-#### Paramaters
+#### Parameters
 
 | Param               | Required    | Default Value | Description                                 |
 |---                  |---          |---            |---                                          |
-| `text`              | No          | ''            | Input text string.                          |
+| `text`              | No          | ''            | Text string.                                |
 
 ### `delay`
 
@@ -59,7 +59,7 @@ Delays executions of a specified piece of code.
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
 | `ms`        | Yes         | -             | Duration to delay in milliseconds.                  |
-| `race`      | No          | -             | If true, returns a Promise object that is rejected with status 408 Request Timeout. |
+| `race`      | No          | false         | If true, returns a Promise object that is rejected with status 408 Request Timeout. |
 
 ### `escape`
 
@@ -70,7 +70,7 @@ A [sqlstring][sqlstring-npm] wrapper for convenience.
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
 | `value`                 | Yes         | -             | Any value.                              |
-| `options`               | No          | -             | Object                                  |
+| `options`               | No          | -             | Object.                                 |
 | `options.escapeId`      | No          | false         | Escapes Identifiers such as column names and reserved words. |
 | `options.parseInteger`  | No          | false         | Parses values such as LIMIT and OFFSET. |
 | `options.stripQuote`    | No          | false         | Removes quotes from result; useful for REGEXP or query conditions e.g. ASC. |
@@ -81,32 +81,32 @@ Extracts the first character from the first and last words in a string.
 
 Splits at: whitespace, comma, dot, underscore, dash.
 
-#### Paramters
+#### Parameters
 
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
-| `text`      | No          | ''            | Any text string.                                    |
+| `text`      | No          | ''            | Text string.                                        |
 
 ### `isBase64`
 
 Verifies if supplied string is a valid base64 string.
 
-#### Paramters
+#### Parameters
 
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
 | `value`                 | Yes         | -             | Any string value.                       |
-| `options`               | No          | -             | Object                                  |
+| `options`               | No          | -             | Object.                                 |
 | `options.allowEmpty`    | No          | false         | Returns true if value is empty.         |
 | `options.allowMime`     | No          | false         | String may include mime type.           |
 | `options.mimeRequired`  | No          | false         | String should include mime type.        |
-| `options.urlSafe`       | No          | false         | [Base64URL][base64-url-safe]            |
+| `options.urlSafe`       | No          | false         | See [Base64URL][base64-url-safe].       |
 
 ### `isValid`
 
 Verifies if supplied payload is valid by defined type.
 
-#### Paramters
+#### Parameters
 
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
@@ -117,24 +117,24 @@ Verifies if supplied payload is valid by defined type.
 
 Joins list of absolute and relative paths as a string.
 
-#### Paramters
+#### Parameters
 
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
 | `parts`                 | Yes         | -             | Path string array value.                |
-| `options`               | No          | -             | Object                                  |
+| `options`               | No          | -             | Object.                                 |
 | `options.resolve`       | No          | false         | If true, resolves result path string.   |
 
 ### `letterCase`
 
 Converts supplied string to defined case.
 
-#### Paramters
+#### Parameters
 
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
-| `text`                  | Yes         | -             | Any text string.                        |
-| `options`               | Yes         | -             | Object                                  |
+| `text`                  | Yes         | -             | Text string.                            |
+| `options`               | Yes         | -             | Object.                                 |
 | `options.letterCase`    | Yes         | -             | lower, upper, sentence, kebab, title.   |
 | `options.separators`    | No          | -             | Converts supplied symbols list to space. |
 
@@ -150,7 +150,7 @@ Parses a number representation or a string time period (e.g. 1h, 2d) to Unix Tim
 - w: week.
 - y: year.
 
-#### Paramters
+#### Parameters
 
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
@@ -160,19 +160,22 @@ Parses a number representation or a string time period (e.g. 1h, 2d) to Unix Tim
 
 Normalizes payload by defined object attribute.
 
+> Payload data needs to be consistent and has similar data structure to avoid unexpected results,
+> specifically defined `idAttribute` (e.g. results from a database query).
+
 @returns
 
 - entities.key: Normalized records by `key`.
-- results: Array of normalized entities `attribute`s.
+- results: Array of normalized entities `idAttribute` values.
 
-#### Paramters
+#### Parameters
 
 | Param                   | Required    | Default Value | Description                             |
 |---                      |---          |---            |---                                      |
-| `key`                   | Yes         | -             | Object name to move records to.         |
-| `payload`               | Yes         | -             | Any value or value array.               |
-| `options`               | No          | -             | Object                                  |
-| `options.idAttribute`   | No          | id            | Object property to normalize based on.  |
+| `key`                   | Yes         | -             | Property name to move records to.       |
+| `payload`               | Yes         | -             | Object or array of objects.             |
+| `options`               | No          | -             | Object.                                 |
+| `options.idAttribute`   | No          | id            | Property to normalize records based on. |
 
 ### `parseUrl`
 
@@ -180,11 +183,11 @@ Parses URL string parts.
 
 A [parseurl][parse-url-npm] wrapper for convenience.
 
-#### Paramters
+#### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `address`               | Yes         | -             | Any text string.                        |
+| Param       | Required    | Default Value | Description                                         |
+|---          |---          |---            |---                                                  |
+| `address`   | Yes         | -             | Text string.                                        |
 
 ### `random`
 
@@ -196,16 +199,16 @@ Generates a random string with customizable options.
 - temp: File names stored in temporary or cache locations.
 - uuid: v4
 
-#### Paramters
+#### Parameters
 
-| Param             | Required    | Default Value | Description                             |
-|---                |---          |---            |---                                      |
-| `type`            | Yes         | -             | filename, number, title, temp, uuid. |
-| `options`         | No          | -             | Object                                  |
+| Param             | Required    | Default Value | Description                                   |
+|---                |---          |---            |---                                            |
+| `type`            | Yes         | -             | filename, number, title, temp, uuid.          |
+| `options`         | No          | -             | Object.                                       |
 | `options.min`     | No          | -             | If type is number, minimum value to start from. |
-| `options.max`     | No          | -             | If type is number, maximum value to end at. |
+| `options.max`     | No          | -             | If type is number, maximum value to end at.   |
 | `options.prefix`  | No          | -             | String to add to the beginning of the result. |
-| `options.suffix`  | No          | -             | String to add to the end of the result. |
+| `options.suffix`  | No          | -             | String to add to the end of the result.       |
 
 ### `sanitize`
 
@@ -215,17 +218,17 @@ Trims whitespaces and removes HTML tags.
 
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
-| `text`      | Yes         | -             | Any text string.                                    |
+| `text`      | Yes         | -             | Text string.                                        |
 
 ### `singular`
 
-Trims last character if ends with `s`.
+Trims last character if string ends with `s`.
 
 #### Parameters
 
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
-| `text`      | Yes         | -             | Any text string.                                    |
+| `text`      | Yes         | -             | Text string.                                        |
 
 ### `splitArray`
 
@@ -236,7 +239,7 @@ Splits any array to chunks by supplied size.
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
 | `array`     | Yes         | -             | Any array.                                          |
-| `size`      | No          | undefined     | Size of each array chunk; no split if empty.        |
+| `size`      | No          | -             | Size of each array chunk; bypasses split if empty.  |
 
 ### `timestamp`
 
@@ -251,22 +254,22 @@ Parses any date value to a timestamp with predefined or custom format.
 
 | Param             | Required    | Default Value | Description                                   |
 |---                |---          |---            |---                                            |
-| `date`            | Yes         | -             | Any array.                                    |
-| `opptions`        | No          | -             | Object                                        |
-| `opptions.format` | No          | DD/MM/YYYY    | datetime, fromNow, short, sql, [Moment][moment-format]. |
+| `date`            | Yes         | -             | Date string, Date object, Unix Timestamp.     |
+| `options`        | No          | -             | Object.                                        |
+| `options.format` | No          | DD/MM/YYYY    | datetime, fromNow, short, sql, [Moment][moment-format]. |
 
 ### `toArray`
 
 Converts any value to array.
 
-#### Paramters
+#### Parameters
 
 | Param               | Required    | Default Value | Description                                 |
 |---                  |---          |---            |---                                          |
 | `value`             | Yes         | -             | Any value.                                  |
-| `options`           | No          | -             | Object                                      |
+| `options`           | No          | -             | Object.                                     |
 | `options.separator` | No          | ,             | The pattern where the split should occur.   |
-| `options.number`    | No          | -             | If supported, maps array values as numbers. |
+| `options.number`    | No          | false         | If true, maps array values as `Number`.     |
 
 ### `toNumeric`
 
@@ -277,19 +280,19 @@ Converts value to and validates as number.
 | Param               | Required    | Default Value | Description                                 |
 |---                  |---          |---            |---                                          |
 | `value`             | Yes         | -             | Number representation; if null, returns 0.  |
-| `options`           | No          | -             | Object                                      |
+| `options`           | No          | -             | Object.                                     |
 | `options.decimal`   | No          | true          | If true, retains decimal point.             |
-| `options.math`      | No          | -             | trunc, ceil, round, floor                   |
+| `options.math`      | No          | -             | trunc, ceil, round, floor.                  |
 
 ### `toRGBa`
 
-Converts color from keyword or hex to RGBa value.
+Converts color from Name or HEX code to RGBa value.
 
-#### Paramters
+#### Parameters
 
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
-| `color`     | Yes         | -             | Can be name or hex value (e.g. white, #FFF).        |
+| `color`     | Yes         | -             | Can be Name or HEX code (e.g. white, #FFF).         |
 | `alpha`     | No          | 1             | Set custom value to result.                         |
 
 ### `trimWhitespace`
@@ -301,7 +304,7 @@ space.
 
 | Param       | Required    | Default Value | Description                                         |
 |---          |---          |---            |---                                                  |
-| `text`      | Yes         | -             | Any text string.                                    |
+| `text`      | Yes         | -             | Text string.                                        |
 
 ## Changelog
 
@@ -313,7 +316,7 @@ Head over to [Discussions][discussions] where you can ask questions, request new
 your ideas and suggestions.
 
 - [`Ideas`][discussions-ideas]
-- [`Q&A`][discussion-q-a]
+- [`Q&A`][discussions-q-a]
 
 ## License
 
@@ -323,7 +326,7 @@ license text.
 
 [discussions]: https://github.com/rashedmakkouk/dev-utils/discussions
 [discussions-ideas]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/ideas
-[discussion-q-a]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/q-a
+[discussions-q-a]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/q-a
 [issues]: https://github.com/rashedmakkouk/dev-utils/issues
 [mit-license]:https://opensource.org/licenses/MIT
 [mit-license-repo]: https://github.com/rashedmakkouk/dev-utils/blob/main/LICENSE
