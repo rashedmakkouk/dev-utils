@@ -1,5 +1,19 @@
 # Changelogname
 
+## 0.13.0 (2022-05-25)
+
+### Documentation
+
+- docs: Update `README.md` file
+  - Update Methods parameters
+  - Apply content enhancements for clarity
+  - Fix typos
+
+### Features
+
+- feat: Bump package version from `0.13.1` to `0.13.2`
+- feat: Upgrade package dependencies
+
 ## 0.13.0 (2022-05-24)
 
 ### Documentation
