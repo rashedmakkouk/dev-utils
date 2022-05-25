@@ -323,7 +323,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.0.0
-    "@rashedmakkouk/eslint-config": ^0.5.7
+    "@rashedmakkouk/eslint-config": ^0.7.0
     "@types/color-convert": ^2.0.0
     "@types/lodash": ^4.14.182
     "@types/node": ^17.0.34
@@ -362,9 +362,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rashedmakkouk/eslint-config@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "@rashedmakkouk/eslint-config@npm:0.5.7"
+"@rashedmakkouk/eslint-config@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@rashedmakkouk/eslint-config@npm:0.7.0"
   dependencies:
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.0.0
@@ -399,7 +399,7 @@ __metadata:
     prettier: ^2.6.2
     standard-version: ^9.5.0
     typescript: 4.6.4
-  checksum: f2fb7cf35321384c7fc5676cbb3207a4216b581c2717245d6b7ec4c96913f5a94f0c4f96fdf4518bdb24cdb51961bf1a067e84df17753385e5a838b5be94da9c
+  checksum: 9765d776188a82560e1a09f317496b30b3a5ee96cc2f80de62de67016c64b92545f4f8c8673e3751338d4b964cfddfdc2dfbc5e35e3bf8d6f5a7d603efbe4753
   languageName: node
   linkType: hard
 
