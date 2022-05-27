@@ -16,26 +16,29 @@ import { FieldValue, ToArrayOptions } from '../types';
  */
 function toArray(
   value: FieldValue,
-  { separator, toNumber }: ToArrayOptions = {}
+  options: ToArrayOptions = {}
 ): (string | number)[] {
-  const results: (string | number)[] = [];
+  const { separator, toNumber } = options;
 
   if (value == null || value === '') {
-    return results;
+    return [];
   }
 
   if (isString(value)) {
-    const nextValue = value.split(separator || ',');
+    const nextValue = value
+      .replace(/[\s]+/gi, '')
+      .split(separator || ',')
+      .filter((n): boolean => !!n);
 
     return !toNumber ? nextValue : nextValue.map(Number);
   } else if (isArray(value)) {
-    return !toNumber || isNumber(value[0])
+    return !toNumber
       ? [...value]
-      : (value as any).map(Number);
+      : (value as any).map((n): any => Number(n) || n);
   } else if (isNumber(value) || isPlainObject(value)) {
     return [value];
   } else {
-    return results;
+    return [];
   }
 }
 
