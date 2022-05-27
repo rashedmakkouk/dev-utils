@@ -1,4 +1,43 @@
-# Changelogname
+# Changelog
+
+## 0.13.0 (2022-05-27)
+
+### Changed
+
+- chore: Apply code enhancements and formatting
+  - Update `escape` helper
+  - Update `joinPath` helper
+  - Update `keyExtractor` helper
+  - Update `parseUrl` helper
+  - Update `random` helper
+  - Update `splitArray` helper
+  - Update `timestamp` helper
+  - Update `toRGBa` helper
+
+### Documentation
+
+- docs: Update `README.md` file content
+  - Update Methods `Parameters`
+  - Update Methods `Description`
+  - Add Method `Returns` output type and description
+  - Add Method usage and output `Example`
+
+### Features
+
+- feat: Bump package version from `0.13.2` to `0.14.0`
+- feat: Update RegExp patterns
+  - Update `initials` helper
+  - Update `letterCase` helper
+- feat: Add support to replace string ending with `ies` with `y` in `singular` helper
+- feat: Handle invalid payload in `toArray` helper
+  - Trim leading, trailing and multiple white spaces on string value
+  - Remove empty array items after string value split
+  - Return `NaN` when mapping values to Number
+- feat: Add `options.allowEmpty` argument support in `isValid` helper
+
+### Fixed
+
+- fix: Check if `mime` exists and validate on `allowMime` in `isBase64` helper
 
 ## 0.13.0 (2022-05-25)
 
@@ -31,7 +70,7 @@
 
 ## 0.12.0 (2022-05-23)
 
-### Changes
+### Changed
 
 - chore: Move publish `access` configuration to `package.json`
 
@@ -118,7 +157,7 @@
 
 ## 0.10.0 (2021-09-26)
 
-### Bug Fixes
+### Fixed
 
 - fix: Refactor text RegExp to correctly handle hyphen `-` in `initials`
 
@@ -159,7 +198,7 @@
 
 ## 0.8.0 (2021-07-20)
 
-### Bug Fixes
+### Fixed
 
 - fix: Use last element in the array as family name in `initials`
 
@@ -195,13 +234,13 @@
 
 ## 0.6.0 (2021-05-21)
 
-### Bug Fixes
+### Fixed
 
 - fix: Trim leading and trailing dashes when using `kebab` case in `letterCase`
 
 ## 0.6.0 (2021-05-11)
 
-### Bug Fixes
+### Fixed
 
 - fix: Handle text input regex invalid parts output
 
@@ -226,15 +265,15 @@
 
 ## 0.5.0 (2021-02-22)
 
-### Bug Fixes
+### Fixed
 
 - fix: Return null or undefined values instead of throwing exception
 
-### Changes
+### Changed
 
 - chroe: Migrate `versions` to `CHANGELOG`
 
-### Deprecated
+### Removed
 
 - chore: Remove `docs` directory in favor of `README` file
 
@@ -245,13 +284,13 @@
 
 ## 0.5.0 (2021-02-04)
 
-### Bug Fixes
+### Fixed
 
 - fix: Replace Lodash `startCase` implemenation; remove special chars
 
 ## 0.5.0 (2021-02-02)
 
-### Changes
+### Changed
 
 - chore: Update `changelogs` file structure
 
@@ -283,25 +322,25 @@
 
 ## 0.4.0 (2020-12-15)
 
-### Changes
+### Changed
 
 - chroe: `letterCase` for performance & follow naming convention
 
 ## 0.3.0 (2020-11-14)
 
-### Bug Fixes
+### Fixed
 
 - fix: Implement span `isNaN` validation in `ms` method
 
 ## 0.3.0 (2020-11-10)
 
-### Deprecated
+### Removed
 
 - chore: Remove `slug` helper fn in favor of `letterCase`
 
 ## 0.3.0 (2020-11-03)
 
-### Changes
+### Changed
 
 - chore: Rename `parseTimestamp` to `timestamp`
 - chore: Rename `sanitizeString` to `sanitize`
@@ -319,7 +358,7 @@
 
 ## 0.2.0 (2020-10-04)
 
-### Changes
+### Changed
 
 - chroe: Update package configuration files
 - chroe: Update local build scripts
@@ -339,7 +378,7 @@
 
 ## 0.1.0 (2020-09-29)
 
-### Deprecated
+### Removed
 
 - chroe: Remove changelogs `index.md` file
 
@@ -350,7 +389,7 @@
 
 ## 0.1.0 (2020-09-24)
 
-### Changes
+### Changed
 
 - chroe: Modules folder structure, move to `common`
 - update: Pakcage configuration files & external import references
@@ -358,7 +397,7 @@
 
 ## 0.1.0 (2020-09-20)
 
-### Changes
+### Changed
 
 - chore: Extend config files from `*.base.*`
 - chroe: `docs/versions` folder structure
