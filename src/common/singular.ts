@@ -2,14 +2,20 @@
 import { isString } from 'lodash';
 
 /**
- * Trims last character if ends with `s`.
+ * Trims last character if ends with `s` or replaces `ies` with `y`.
  */
 function singular(text: string): string {
-  if (!isString(text)) {
+  if (!text || !isString(text)) {
     return '';
   }
 
-  return !text.endsWith('s') ? text : text.slice(0, -1);
+  if (text.endsWith('ies')) {
+    return text.replace(/ies$/, 'y');
+  } else if (text.endsWith('s')) {
+    return text.slice(0, -1);
+  } else {
+    return text;
+  }
 }
 
 export default singular;
