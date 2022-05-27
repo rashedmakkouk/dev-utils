@@ -8,20 +8,18 @@ import { IsBase64Options } from '../types';
 const MIME_REGEX = '(data:\\w+\\/[a-zA-Z\\+\\-\\.]+;base64)';
 
 /**
- * Verifies if supplied string is a valid base64 string.
+ * Validates if supplied mime type and/or base64 string are valid.
  */
 function isBase64(
   value?: string | null,
   options: IsBase64Options = {}
 ): boolean {
-  if (!value || !isString(value)) {
-    return false;
-  }
-
   const { allowEmpty, allowMime, mimeRequired, urlSafe } = options;
 
   if (!value) {
     return allowEmpty === true;
+  } else if (!isString(value)) {
+    return false;
   }
 
   function validateMime(mime = ''): boolean {
@@ -35,12 +33,14 @@ function isBase64(
   const [mime, data] = value.split(',');
 
   if (mimeRequired === true) {
-    return validateMime(mime) && validateData(data);
-  } else if (allowMime === true && validateMime(mime)) {
-    return validateData(data);
+    return !!mime && validateMime(mime) && validateData(data);
+  } else if (mime) {
+    return allowMime === true
+      ? validateMime(mime) && validateData(data)
+      : false;
+  } else {
+    return validateData(value);
   }
-
-  return validateData(value);
 }
 
 export default isBase64;
