@@ -108,3 +108,12 @@ export interface ToArrayOptions {
   /** Maps array values as numbers. */
   toNumber?: boolean;
 }
+
+export interface IsValidOptions {
+  /**
+   * If true, validates empty values as valid.
+   *
+   * @default false
+   */
+  allowEmpty?: boolean;
+}

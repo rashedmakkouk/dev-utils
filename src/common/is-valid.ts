@@ -5,7 +5,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { FieldValue } from '../types';
+import { FieldValue, IsValidOptions } from '../types';
 
 /* eslint-disable-next-line no-control-regex */
 const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;
@@ -17,15 +17,18 @@ const BOOLEAN_VALUES = ['false', 'true'];
  */
 function isValid(
   isTypeof: 'string' | 'array' | 'number' | 'object' | 'jsonStr',
-  value?: FieldValue | any[] | object | object[]
+  value?: FieldValue | any[] | object | object[],
+  options: IsValidOptions = {}
 ): boolean {
+  const { allowEmpty } = options;
+
   if (value == null) {
-    return true;
+    return allowEmpty === true ? true : false;
   }
 
   switch (isTypeof) {
     case 'array':
-      return isArray(value) && !!value.length;
+      return isArray(value) && (!!value.length || allowEmpty === true);
 
     case 'jsonStr':
       if (!value || !isString(value)) {
@@ -43,17 +46,20 @@ function isValid(
       );
 
     case 'number':
-      return isNumber(value);
+      return isNumber(value) && (value !== 0 || allowEmpty === true);
 
     case 'object':
-      return isPlainObject(value) && !!Object.keys(value).length;
+      return (
+        isPlainObject(value) &&
+        (!!Object.keys(value).length || allowEmpty === true)
+      );
 
     case 'string':
-      if (!value || !isString(value)) {
+      if (!isString(value) || value.toLowerCase() === 'undefined') {
         return false;
       }
 
-      return value.toLowerCase() !== 'undefined' && !!value.length;
+      return !!value.length || allowEmpty === true;
   }
 }
 
