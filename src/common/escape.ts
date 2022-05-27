@@ -6,13 +6,13 @@ import isNumber from 'lodash/isNumber';
 import { FieldValue, SqlEscapeOptions } from '../types';
 
 /**
- * A `sqlstring` wrapper for convenience.
+ * SQL input data escape and format for MySQL.
  */
 function escape(
   value: FieldValue,
   options: SqlEscapeOptions = {}
 ): string | number | null | undefined {
-  if (value == undefined) {
+  if (value == null) {
     return value;
   }
 
@@ -22,14 +22,14 @@ function escape(
     stripQuote = false,
   } = options;
 
-  if (isNumber(value)) {
-    return value;
-  } else if (parseInteger) {
+  if (parseInteger) {
     return parseInt(_escape(value), 10);
   } else if (escapeId) {
     return _escapeId(value);
   } else {
-    return !stripQuote ? _escape(value) : _escape(value).slice(1, -1);
+    return !stripQuote || isNumber(value)
+      ? _escape(value)
+      : _escape(value).slice(1, -1);
   }
 }
 

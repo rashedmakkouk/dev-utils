@@ -14,16 +14,25 @@ import { RandomOptions, RandomTypes } from '../types';
  * - temp: File names stored in temporary or cache locations.
  * - uuid: v4
  */
-function random(type: RandomTypes, options: RandomOptions = {}): string {
-  let { max = 9024000, min = 1024000 } = options;
+function random<TypeT extends RandomTypes>(
+  type: TypeT,
+  options?: RandomOptions
+): TypeT extends 'number' ? number : string;
 
+function random(
+  type: RandomTypes,
+  options: RandomOptions = {}
+): string | number {
   if (type === 'uuid') {
     return uuid();
   } else if (type === 'number') {
+    let { max = 0, min = 1 } = options;
+
     min = Math.ceil(min);
     max = Math.floor(max);
 
-    return `${Math.floor(Math.random() * (max - min)) + min}`;
+    /* eslint-disable-next-line no-mixed-operators */
+    return `${Math.floor(Math.random() * (max - min + 1) + min)}`;
   }
 
   const timestamp = moment().format('YYYY-MM-DD_HH-mm-ss');

@@ -8,8 +8,11 @@ import { JoinPathOptions } from '../types';
 /**
  * Joins list of absolute and relative paths as a string.
  */
-function joinPath(parts: string[] = [], options: JoinPathOptions = {}): string {
-  if (!parts || !isArray(parts) || !parts.length) {
+function joinPath(
+  segments: string[] = [],
+  options: JoinPathOptions = {}
+): string {
+  if (!segments || !isArray(segments) || !segments.length) {
     return '';
   }
 
@@ -23,11 +26,7 @@ function joinPath(parts: string[] = [], options: JoinPathOptions = {}): string {
     fn = 'join';
   }
 
-  return path[fn](
-    ...parts.map((part): string => {
-      return part || '';
-    })
-  ).replace(/\\/g, '/');
+  return path[fn](...segments).replace(/\\/g, '/');
 }
 
 export default joinPath;

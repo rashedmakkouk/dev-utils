@@ -1,10 +1,11 @@
+/** Utilties */
 import urlParse from 'url-parse';
 
 /**
- * Parses URL string parts.
+ * Parses URL string segments including query string values, if any.
  */
-function parseUrl(address: string): urlParse<any> {
-  return urlParse(address);
+function parseUrl(url: string): urlParse<Record<string, string | undefined>> {
+  return urlParse(url, true);
 }
 
 export default parseUrl;

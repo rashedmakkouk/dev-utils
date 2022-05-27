@@ -14,9 +14,11 @@ import { TimestampOptions } from '../types';
  */
 function timestamp(
   date: string | number | Date = Date.now(),
-  { format = 'DD/MM/YYYY', timezoneOffest }: TimestampOptions = {}
+  options: TimestampOptions = {}
 ): string {
   const instance = moment(date);
+
+  const { format = 'DD/MM/YYYY', timezoneOffest } = options;
 
   switch (format) {
     case 'DD/MM/YYYY':
