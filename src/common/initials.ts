@@ -1,14 +1,14 @@
 /**
  * Extracts the first character from the first and last words in a string.
  *
- * Splits at: whitespace, comma, dot, underscore, dash.
+ * Splits at: white space, comma, dot, pipe, underscore, dash.
  */
 function initials(text = ''): string {
   if (!text || typeof text !== 'string') {
     return '';
   }
 
-  const parts = text.split(/[\s,._|-]+/g).filter((part): boolean => !!part);
+  const parts = text.split(/[\s,.|_-]+/g).filter((part): boolean => !!part);
 
   if (!parts.length) {
     return '';

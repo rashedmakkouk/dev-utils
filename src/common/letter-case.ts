@@ -6,7 +6,7 @@ import upperFirst from 'lodash/upperFirst';
 import { LetterCaseOptions } from '../types';
 
 /**
- * Converts supplied string to defined case.
+ * Formats supplied string to defined case.
  *
  * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
  */
@@ -24,14 +24,16 @@ function letterCase(
     const { letterCase, separators } = options;
 
     nextText = !separators
-      ? letterCase === 'title'
-        ? text.replace(/[_-\s]+/gi, ' ')
-        : text
-      : text.replace(new RegExp(`[${separators.join('|')}\\s]+`, 'gi'), ' ');
+      ? text.toLowerCase()
+      : text
+          .replace(new RegExp(`[${separators.join('|')}]+`, 'gi'), ' ')
+          .toLowerCase();
 
     switch (letterCase) {
       case 'title':
-        return nextText.toLowerCase().replace(/\w+/gi, capitalize);
+        return (
+          !separators ? nextText.replace(/[_-\s]+/gi, ' ') : nextText
+        ).replace(/\w+/gi, capitalize);
 
       case 'sentence':
         return upperFirst(nextText);
@@ -40,14 +42,13 @@ function letterCase(
         return nextText.toUpperCase();
 
       case 'lower':
-        return nextText.toLowerCase();
+        return nextText;
 
       case 'kebab':
         nextText = nextText
           .trim()
-          /** W: all non alphanumeric charachters & whitespace. */
-          .replace(/[\W_-]+/gi, '-')
-          .toLowerCase();
+          /** W: all non alphanumeric charachters and white space. */
+          .replace(/[\W_-]+/gi, '-');
 
         return nextText.slice(
           !nextText.startsWith('-') ? 0 : 1,
