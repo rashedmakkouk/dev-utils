@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.0 (2022-06-05)
+
+### Features
+
+- feat: Bump package version from `0.14.0` to `0.14.1`
+- docs: Add Parameters `Type` in `README.md` file
+
 ## 0.13.0 (2022-05-27)
 
 ### Changed
