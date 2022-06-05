@@ -46,9 +46,9 @@ Builds on [autolinker][autolinker-npm] with custom configuration and output.
 
 #### Parameters
 
-| Param               | Required    | Default Value | Description                                 |
-|---                  |---          |---            |---                                          |
-| `text`              | No          | ''            | Text string.                                |
+| Param               | Type    | Required    | Default | Description                             |
+|---                  |---      |---          |---      |---                                      |
+| `text`              | string  | No          | ''      | Text to parse.                          |
 
 #### Returns
 
@@ -108,10 +108,10 @@ Delays executions of a specified piece of code.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `ms`        | Yes         | -             | Duration to delay in milliseconds.                  |
-| `race`      | No          | false         | If true, returns a Promise object that is rejected with status 408 Request Timeout. |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `ms`        | number  | Yes         | -       | Duration to delay in milliseconds.              |
+| `race`      | boolean | No          | false   | If true, returns a Promise object that is rejected with status 408 Request Timeout. |
 
 #### Returns
 
@@ -131,13 +131,13 @@ A [sqlstring][sqlstring-npm] wrapper for convenience.
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `value`                 | Yes         | -             | Any value.                              |
-| `options`               | No          | -             | Object.                                 |
-| `options.escapeId`      | No          | false         | Escapes Identifiers such as database table column names and reserved words. |
-| `options.parseInteger`  | No          | false         | Parses values such as LIMIT and OFFSET. |
-| `options.stripQuote`    | No          | false         | Removes quotes from result; useful for RegExp or query conditions e.g. ASC. |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `value`                 | Any     | Yes         | -       | Data to escape.                     |
+| `options`               | object  | No          | -       | Custom options to apply.            |
+| `options.escapeId`      | boolean | No          | false   | Escapes Identifiers such as database table column names and reserved words. |
+| `options.parseInteger`  | boolean | No          | false   | Parses values such as LIMIT and OFFSET. |
+| `options.stripQuote`    | boolean | No          | false   | Removes quotes from result; useful for RegExp or query conditions e.g. ASC. |
 
 #### Returns
 
@@ -158,9 +158,9 @@ Splits at: Splits at: white space, comma, dot, pipe, underscore, dash.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `text`      | No          | ''            | Text string.                                        |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `text`      | string  | No          | ''      | Text to extract characters from.                |
 
 #### Returns
 
@@ -179,14 +179,14 @@ Validates if supplied mime type and/or base64 string are valid.
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `value`                 | Yes         | -             | Any string value.                       |
-| `options`               | No          | -             | Object.                                 |
-| `options.allowEmpty`    | No          | false         | Returns true if value is empty.         |
-| `options.allowMime`     | No          | false         | String may include mime type.           |
-| `options.mimeRequired`  | No          | false         | String should include mime type.        |
-| `options.urlSafe`       | No          | false         | See [Base64URL][base64-url-safe].       |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `value`                 | string  | Yes         | -       | Base64 value.                       |
+| `options`               | object  | No          | -       | Custom options to apply.            |
+| `options.allowEmpty`    | boolean | No          | false   | Returns true if value is empty.     |
+| `options.allowMime`     | boolean | No          | false   | String may include mime type.       |
+| `options.mimeRequired`  | boolean | No          | false   | String should include mime type.    |
+| `options.urlSafe`       | boolean | No          | false   | See [Base64URL][base64-url-safe].   |
 
 #### Returns
 
@@ -205,12 +205,12 @@ Verifies if supplied payload is valid by defined type.
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `isTypeof`              | Yes         | -             | string, array, number, object, jsonStr. |
-| `value`                 | No          | -             | Any value.                              |
-| `options`               | No          | -             | Object.                                 |
-| `options.allowEmpty`    | No          | false         | If true, validates empty, 0, null and undefined values as valid. |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `isTypeof`              | string  | Yes         | -       | string, array, number, object, jsonStr. |
+| `value`                 | Any     | No          | -       | Data to validate.                   |
+| `options`               | object  | No          | -       | Custom options to apply.            |
+| `options.allowEmpty`    | boolean | No          | false   | If true, validates empty, 0, null and undefined values as valid. |
 
 #### Returns
 
@@ -247,11 +247,11 @@ Joins list of absolute and relative paths as a string.
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `segments`              | Yes         | -             | Path string array value.                |
-| `options`               | No          | -             | Object.                                 |
-| `options.resolve`       | No          | false         | If true, tries to resolve segments into an absolute path. |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `segments`              | Array   | Yes         | -       | List of paths to join.              |
+| `options`               | object  | No          | -       | Custom options to apply.            |
+| `options.resolve`       | boolean | No          | false   | If true, tries to resolve segments into an absolute path. |
 
 #### Returns
 
@@ -270,12 +270,12 @@ Formats supplied string to defined case.
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `text`                  | Yes         | -             | Text string.                            |
-| `options`               | Yes         | -             | Object.                                 |
-| `options.letterCase`    | Yes         | -             | lower, upper, sentence, kebab, title.   |
-| `options.separators`    | No          | -             | Replaces supplied symbols with white space. |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `text`                  | string  | Yes         | -       | Text to format.                     |
+| `options`               | object  | Yes         | -       | Custom options to apply.            |
+| `options.letterCase`    | string  | Yes         | -       | lower, upper, sentence, kebab, title. |
+| `options.separators`    | Array   | No          | -       | Replaces specified symbols with white space. |
 
 #### Returns
 
@@ -309,9 +309,9 @@ Parses a number representation or a string time period (e.g. 1h, 2d) to Unix Tim
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `span`                  | Yes         | -             | d, h, m, ms, s, w, y.                   |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `span`                  | string \| number  | Yes         | -             | d, h, m, ms, s, w, y. |
 
 #### Returns
 
@@ -336,12 +336,12 @@ Normalizes payload by defined object attribute.
 
 #### Parameters
 
-| Param                   | Required    | Default Value | Description                             |
-|---                      |---          |---            |---                                      |
-| `key`                   | Yes         | -             | Property name to move records to.       |
-| `payload`               | Yes         | -             | Object or array of objects.             |
-| `options`               | No          | -             | Object.                                 |
-| `options.idAttribute`   | No          | id            | Property to normalize records based on. |
+| Param                   | Type    | Required    | Default | Description                         |
+|---                      |---      |---          |---      |---                                  |
+| `key`                   | string  | Yes         | -       | Object property name to move records to. |
+| `payload`               | Array \| object | Yes         | -             | Data to normalize.    |
+| `options`               | object  | No          | -       | Custom options to apply.            |
+| `options.idAttribute`   | string  | No          | id      | Object property name to normalize records based on. |
 
 #### Returns
 
@@ -385,9 +385,9 @@ A [url-parse][url-parse-npm] wrapper for convenience.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `url`       | Yes         | -             | Text string.                                        |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `url`       | string  | Yes         | -       | URL to parse.                                   |
 
 #### Returns
 
@@ -430,14 +430,14 @@ Generates a random string with customizable options.
 
 #### Parameters
 
-| Param             | Required    | Default Value | Description                                   |
-|---                |---          |---            |---                                            |
-| `type`            | Yes         | -             | filename, number, title, temp, uuid.          |
-| `options`         | No          | -             | Object.                                       |
-| `options.min`     | No          | 0             | If type is number, minimum value to start from. |
-| `options.max`     | No          | 1             | If type is number, maximum value to end at.   |
-| `options.prefix`  | No          | -             | String to add to the beginning of the result. |
-| `options.suffix`  | No          | -             | String to add to the end of the result.       |
+| Param             | Type    | Required    | Default | Description                               |
+|---                |---      |---          |---      |---                                        |
+| `type`            | string  | Yes         | -       | filename, number, title, temp, uuid.      |
+| `options`         | object  | No          | -       | Custom options to apply.                  |
+| `options.min`     | number  | No          | 0       | If type is number, minimum value to start from. |
+| `options.max`     | number  | No          | 1       | If type is number, maximum value to end at. |
+| `options.prefix`  | string  | No          | -       | Text to add to the beginning of the result. |
+| `options.suffix`  | string  | No          | -       | Text to add to the end of the result.     |
 
 #### Returns
 
@@ -470,9 +470,9 @@ Trims white spaces and removes HTML tags.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `text`      | Yes         | -             | Text string.                                        |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `text`      | string  | Yes         | -       | Text to trim.                                   |
 
 #### Returns
 
@@ -491,9 +491,9 @@ Trims last character if ends with `s` or replaces `ies` with `y`.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `text`      | Yes         | -             | Text string.                                        |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `text`      | string  | Yes         | -       | Text to convert.                                |
 
 #### Returns
 
@@ -518,10 +518,10 @@ Splits any array to chunks by supplied size.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `array`     | Yes         | -             | Any array.                                          |
-| `size`      | No          | -             | Size of each array chunk; bypasses split if empty.  |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `array`     | Array   | Yes         | -       | Data array to split.                            |
+| `size`      | number  | No          | -       | Size of each array chunk; bypasses split if empty. |
 
 #### Returns
 
@@ -537,7 +537,7 @@ splitArray([{ id: 1, title: 'abc' }, { id: 2, title: 'def' }]);
 //   { "id": 2, "title": "name2" }
 // ]
 
-splitArray([{ id: 1, title: 'abc' }, { id: 2, title: 'def' }], 2);
+splitArray([{ id: 1, title: 'abc' }, { id: 2, title: 'def' }], 1);
 // =>
 // [
 //   [{ "id": 1, "title": "name1" }],
@@ -556,11 +556,11 @@ Parses any date value to a timestamp with predefined or custom format.
 
 #### Parameters
 
-| Param             | Required    | Default Value | Description                                   |
-|---                |---          |---            |---                                            |
-| `date`            | Yes         | -             | Date string, Date object, Unix Timestamp.     |
-| `options`         | No          | -             | Object.                                       |
-| `options.format`  | No          | DD/MM/YYYY    | datetime, fromNow, short, sql, [Moment][moment-format]. |
+| Param             | Type    | Required    | Default | Description                               |
+|---                |---      |---          |---      |---                                        |
+| `date`            | string \| number \| object | Yes         | -             | Date string, Date object, Unix Timestamp. |
+| `options`         | object  | No          | -       | Custom options to apply.                  |
+| `options.format`  | string  | No          | DD/MM/YYYY | datetime, fromNow, short, sql, [Moment][moment-format]. |
 
 #### Returns
 
@@ -591,12 +591,12 @@ Converts any value to array.
 
 #### Parameters
 
-| Param               | Required    | Default Value | Description                                 |
-|---                  |---          |---            |---                                          |
-| `value`             | Yes         | -             | Any value.                                  |
-| `options`           | No          | -             | Object.                                     |
-| `options.separator` | No          | ,             | The pattern where the split should occur.   |
-| `options.toNumber`  | No          | false         | If true, maps array values as `Number`.     |
+| Param               | Type    | Required    | Default | Description                             |
+|---                  |---      |---          |---      |---                                      |
+| `value`             | Any     | Yes         | -       | Data to convert.                        |
+| `options`           | object  | No          | -       | Custom options to apply.                |
+| `options.separator` | string  | No          | ,       | The pattern where the split should occur. |
+| `options.toNumber`  | boolean | No          | false   | If true, maps array values as `Number`. |
 
 #### Returns
 
@@ -627,12 +627,12 @@ Converts value to and validates as number.
 
 #### Parameters
 
-| Param               | Required    | Default Value | Description                                 |
-|---                  |---          |---            |---                                          |
-| `value`             | Yes         | -             | Number representation; if null, returns 0.  |
-| `options`           | No          | -             | Object.                                     |
-| `options.decimal`   | No          | true          | If true, retains decimal point.             |
-| `options.math`      | No          | -             | trunc, ceil, round, floor.                  |
+| Param               | Type    | Required    | Default | Description                             |
+|---                  |---      |---          |---      |---                                      |
+| `value`             | number \| string | Yes         | -             | Number representation; if null, returns 0. |
+| `options`           | object  | No          | -       | Custom options to apply.                |
+| `options.decimal`   | boolean | No          | true    | If true, retains decimal point.         |
+| `options.math`      | string  | No          | -       | trunc, ceil, round, floor.              |
 
 #### Returns
 
@@ -669,10 +669,10 @@ Converts color from Name or HEX code to RGBa value.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `color`     | Yes         | -             | Can be Name or HEX code (e.g. white, #DDD).         |
-| `alpha`     | No          | 1             | Set custom alpha value.                             |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `color`     | string  | Yes         | -       | Can be Name or HEX code (e.g. white, #DDD).     |
+| `alpha`     | number  | No          | 1       | Set custom alpha value.                         |
 
 #### Returns
 
@@ -695,9 +695,9 @@ space.
 
 #### Parameters
 
-| Param       | Required    | Default Value | Description                                         |
-|---          |---          |---            |---                                                  |
-| `text`      | Yes         | -             | Text string.                                        |
+| Param       | Type    | Required    | Default | Description                                     |
+|---          |---      |---          |---      |---                                              |
+| `text`      | string  | Yes         | -       | Text to trim.                                   |
 
 #### Returns
 
