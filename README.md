@@ -724,16 +724,16 @@ your ideas and suggestions.
 
 ## License
 
-This package is available under the [MIT license][mit-license]. It also includes external libraries
-that are available under a variety of licenses. See [LICENSE][mit-license-repo] for the full
-license text.
+This package is available under the [BSD 3-Clause license][bsd-3-clause-license]. It also includes
+external libraries that are available under a variety of licenses. See [LICENSE][license-file] for
+the full license text.
 
 [discussions]: https://github.com/rashedmakkouk/dev-utils/discussions
 [discussions-ideas]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/ideas
 [discussions-q-a]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/q-a
 [issues]: https://github.com/rashedmakkouk/dev-utils/issues
-[mit-license]:https://opensource.org/licenses/MIT
-[mit-license-repo]: https://github.com/rashedmakkouk/dev-utils/blob/main/LICENSE
+[bsd-3-clause-license]: https://opensource.org/licenses/BSD-3-Clause
+[license-file]: https://github.com/rashedmakkouk/redux-toolkit/blob/main/LICENSE
 [changelog]: https://github.com/rashedmakkouk/dev-utils/blob/main/CHANGELOG.md
 [sqlstring-npm]: https://www.npmjs.com/package/sqlstring
 [moment-format]: https://momentjs.com/docs/#/displaying/format/
