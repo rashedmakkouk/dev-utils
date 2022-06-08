@@ -733,7 +733,7 @@ the full license text.
 [discussions-q-a]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/q-a
 [issues]: https://github.com/rashedmakkouk/dev-utils/issues
 [bsd-3-clause-license]: https://opensource.org/licenses/BSD-3-Clause
-[license-file]: https://github.com/rashedmakkouk/redux-toolkit/blob/main/LICENSE
+[license-file]: https://github.com/rashedmakkouk/dev-utils/blob/main/LICENSE
 [changelog]: https://github.com/rashedmakkouk/dev-utils/blob/main/CHANGELOG.md
 [sqlstring-npm]: https://www.npmjs.com/package/sqlstring
 [moment-format]: https://momentjs.com/docs/#/displaying/format/
