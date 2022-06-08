@@ -8,6 +8,7 @@
 
 ### Features
 
+- feat: Bump package version from `0.14.2` to `0.14.3`
 - feat: Bump package version from `0.14.1` to `0.14.2`
 
 ## 0.14.0 (2022-06-05)
