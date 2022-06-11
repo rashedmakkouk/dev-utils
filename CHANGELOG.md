@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.22.0 (2021-06-11)
+
+### Documentation
+
+- docs: Update methods `Example` content
+
+### Features
+
+- feat: Bump package version from `0.14.5` to `0.14.6`
+
 ## 0.22.0 (2021-06-08)
 
 ### Changed
@@ -15,10 +25,13 @@
 
 ## 0.14.0 (2022-06-05)
 
+### Documentation
+
+- docs: Add method Parameters `Type`
+
 ### Features
 
 - feat: Bump package version from `0.14.0` to `0.14.1`
-- docs: Add Parameters `Type` in `README.md` file
 
 ## 0.13.0 (2022-05-27)
 
