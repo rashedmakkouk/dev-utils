@@ -59,50 +59,48 @@ Builds on [autolinker][autolinker-npm] with custom configuration and output.
 
 ```javascript
 autolinks('The #quick brown @fox.');
-// =>
-// {
-//   "links": [
-//     "#quick",
-//     "@fox"
-//   ],
-//   "matches": [
-//     {
-//       "__jsduckDummyDocProp": null,
-//       "matchedText": "#quick",
-//       "offset": 4,
-//       "tagBuilder": {
-//         "newWindow": true,
-//         "truncate": {
-//           "length": null,
-//           "location": "end"
-//         },
-//         "className": ""
-//       },
-//       "serviceName": "twitter",
-//       "hashtag": "quick"
-//     },
-//     {
-//       "__jsduckDummyDocProp": null,
-//       "matchedText": "@fox",
-//       "offset": 17,
-//       "tagBuilder": {
-//         "newWindow": true,
-//         "truncate": {
-//           "length": null,
-//           "location": "end"
-//         },
-//         "className": ""
-//       },
-//       "serviceName": "twitter",
-//       "mention": "fox"
-//     }
-//   ]
-// }
+// Result.
+{
+  links: [
+    "#quick",
+    "@fox"
+  ],
+  matches: [
+    {
+      "__jsduckDummyDocProp": null,
+      matchedText: "#quick",
+      offset: 4,
+      tagBuilder: {
+        newWindow: true,
+        truncate: {
+          length: null,
+          location: "end"
+        },
+        className: ""
+      },
+      serviceName: "twitter",
+      hashtag: "quick"
+    },
+    {
+      "__jsduckDummyDocProp": null,
+      matchedText: "@fox",
+      offset: 17,
+      tagBuilder: {
+        newWindow: true,
+        truncate: {
+          length: null,
+          location: "end"
+        },
+        className: ""
+      },
+      serviceName: "twitter",
+      mention: "fox"
+    }
+  ]
+}
 ```
 
-### `delay`
-
-> Promise
+### `delay` *(Promise)*
 
 Delays executions of a specified piece of code.
 
@@ -120,7 +118,11 @@ Delays executions of a specified piece of code.
 #### Example
 
 ```javascript
-delay(1000, true);
+try {
+  await delay(1000, true);
+} catch (error) {
+  // Handle rejected Promise.
+}
 ```
 
 ### `escape`
@@ -147,7 +149,8 @@ A [sqlstring][sqlstring-npm] wrapper for convenience.
 
 ```javascript
 escape('abc', { stripQuote: true });
-// => abc
+// Result.
+abc
 ```
 
 ### `initials`
@@ -170,7 +173,8 @@ Splits at: Splits at: white space, comma, dot, pipe, underscore, dash.
 
 ```javascript
 initials('John Unknown-Doe');
-// => JD
+// Result.
+'JD'
 ```
 
 ### `isBase64`
@@ -190,13 +194,14 @@ Validates if supplied mime type and/or base64 string are valid.
 
 #### Returns
 
-- `(boolean)`: Returns true if supplied string passes checks, else false.
+- `(boolean)`: Returns `true` if supplied string passes checks, else `false`.
 
 #### Example
 
 ```javascript
 isBase64('data:image/png;base64,<code>', { mimeRequired: true });
-// => true
+// Result.
+true
 ```
 
 ### `isValid`
@@ -214,31 +219,38 @@ Verifies if supplied payload is valid by defined type.
 
 #### Returns
 
-- `(boolean)`: Returns true if supplied payload passes checks, else false.
+- `(boolean)`: Returns `true` if supplied payload passes checks, else `false`.
 
 #### Example
 
 ```javascript
 isValid('string', 'undefined');
-// => false
+// Result.
+false
 
 isValid('string', '', { allowEmpty: true });
-// => true
+// Result.
+true
 
 isValid('number', 'abc');
-// => false
+// Result.
+false
 
 isValid('number', '123');
-// => false
+// Result.
+false
 
 isValid('number', 0);
-// => false
+// Result.
+false
 
 isValid('object', ['abc']);
-// => false
+// Result.
+false
 
 isValid('object', {}, { allowEmpty: true });
-// => true
+// Result.
+true
 ```
 
 ### `joinPath`
@@ -261,7 +273,8 @@ Joins list of absolute and relative paths as a string.
 
 ```javascript
 joinPath(['/foo', 'bar', 'baz\\abc', './def', '..']);
-// => '/foo/bar/baz/abc'
+// Result.
+'/foo/bar/baz/abc'
 ```
 
 ### `letterCase`
@@ -285,14 +298,17 @@ Formats supplied string to defined case.
 
 ```javascript
 letterCase('_the   quiCK--brown     FOx_!', { letterCase: 'sentence' });
-// => '_The   quick--brown     fox_!'
+// Result.
+'_The   quick--brown     fox_!'
 
 letterCase('the #quiCK brown FOx!', { letterCase: 'kebab' });
-// => 'the-quick-brown-fox'
+// Result.
+'the-quick-brown-fox'
 
 // Applies custom separators if supplied, else defaults to: [_-\s]+
 letterCase('_the   quiCK--brown     FOx_!', { letterCase: 'title' });
-// => 'The Quick Brown Fox!'
+// Result.
+'The Quick Brown Fox!'
 ```
 
 ### `ms`
@@ -321,10 +337,12 @@ Parses a number representation or a string time period (e.g. 1h, 2d) to Unix Tim
 
 ```javascript
 ms('1hr');
-// => 3600
+// Result.
+3600
 
 ms('1000');
-// => 1000
+// Result.
+1000
 ```
 
 ### `normalize`
@@ -353,28 +371,28 @@ Normalizes payload by defined object attribute.
 ```javascript
 // Array payload.
 normalize('posts', [{ id: 1, title: 'abc' }, { id: 2, title: 'def' }], { idAttribute: 'uid' });
-// => 
-// {
-//   entities: {
-//     posts: {
-//       1: { uid: 1, title: 'abc' },
-//       2: { uid: 2, title: 'def' }
-//     },
-//   },
-//   result: [1,2]
-// }
+// Result.
+{
+  entities: {
+    posts: {
+      1: { uid: 1, title: 'abc' },
+      2: { uid: 2, title: 'def' }
+    },
+  },
+  result: [1,2]
+}
 
 // Object payload.
 normalize('posts', { id: 1, title: 'abc' });
-// => 
-// {
-//   entities: {
-//     posts: {
-//       1: { id: 1, title: 'abc' }
-//     },
-//   },
-//   result: 1
-// }
+// Result.
+{
+  entities: {
+    posts: {
+      1: { id: 1, title: 'abc' }
+    },
+  },
+  result: 1
+}
 ```
 
 ### `parseUrl`
@@ -397,25 +415,25 @@ A [url-parse][url-parse-npm] wrapper for convenience.
 
 ```javascript
 parseUrl('https://localhost:8000/foo/bar?firstName=John&lastName=Doe');
-// => 
-// {
-//   "slashes": true,
-//   "protocol": "https:",
-//   "hash": "",
-//   "query": {
-//     "firstName": "John",
-//     "lastName": "Doe"
-//   },
-//   "pathname": "/foo/bar",
-//   "auth": "",
-//   "host": "localhost:8000",
-//   "port": "8000",
-//   "hostname": "localhost",
-//   "password": "",
-//   "username": "",
-//   "origin": "https://localhost:8000",
-//   "href": "https://localhost:8000/foo/bar?firstName=John&lastName=Doe"
-// }
+// Result.
+{
+  slashes: true,
+  protocol: "https:",
+  hash: "",
+  query: {
+    firstName: "John",
+    lastName: "Doe"
+  },
+  pathname: "/foo/bar",
+  auth: "",
+  host: "localhost:8000",
+  port: "8000",
+  hostname: "localhost",
+  password: "",
+  username: "",
+  origin: "https://localhost:8000",
+  href: "https://localhost:8000/foo/bar?firstName=John&lastName=Doe"
+}
 ```
 
 ### `random`
@@ -426,7 +444,7 @@ Generates a random string with customizable options.
 - number: Number between defined min and max (See [Math.random][math-random-mdn]).
 - title: Content or post random title.
 - temp: File names stored in temporary or cache locations.
-- uuid: v4
+- uuid: v4.
 
 #### Parameters
 
@@ -447,19 +465,24 @@ Generates a random string with customizable options.
 
 ```javascript
 random('filename', { prefix: 'post' });
-// => post_2018-01-01_12-00-00_7f2a79ba-962e-4b35-96d0-28xf1d025107
+// Result.
+'post_2018-01-01_12-00-00_7f2a79ba-962e-4b35-96d0-28xf1d025107'
 
 random('number', { min: 1000, max: 2000 });
-// => 1784
+// Result.
+1784
 
-random('title', { prefix: 'post' });
-// => post_2018-01-01_12-00-00
+random('title', { suffix: 'post' });
+// Result.
+'2018-01-01_12-00-00_post'
 
 random('temp');
-// => 2018-01-01_12-00-00_efc7438f-0a4d-4538-af87-b6984xe04688
+// Result.
+'2018-01-01_12-00-00_efc7438f-0a4d-4538-af87-b6984xe04688'
 
 random('uuid');
-// => 7e0ea78d-c170-4449-93fb-f5caxb952752
+// Result.
+'7e0ea78d-c170-4449-93fb-f5caxb952752'
 ```
 
 ### `sanitize`
@@ -482,7 +505,8 @@ Trims white spaces and removes HTML tags.
 
 ```javascript
 sanitize('<script>"the__   #quicK-- BROWN     @foX_".js</script> <html><div>Html code</div></html>');
-// => "the__ #quicK-- BROWN @foX_".js Html code
+// Result.
+'the__ #quicK-- BROWN @foX_.js Html code'
 ```
 
 ### `singular`
@@ -503,13 +527,16 @@ Trims last character if ends with `s` or replaces `ies` with `y`.
 
 ```javascript
 singular('posts');
-// => post
+// Result.
+'post'
 
 singular('commodities');
-// => commodity
+// Result.
+'commodity'
 
 singular({ key: 'posts' });
-// => ''
+// Result.
+''
 ```
 
 ### `splitArray`
@@ -531,28 +558,28 @@ Splits any array to chunks by supplied size.
 
 ```javascript
 splitArray([{ id: 1, title: 'abc' }, { id: 2, title: 'def' }]);
-// =>
-// [
-//   { "id": 1, "title": "name1" },
-//   { "id": 2, "title": "name2" }
-// ]
+// Result.
+[
+  { "id": 1, "title": "name1" },
+  { "id": 2, "title": "name2" }
+]
 
 splitArray([{ id: 1, title: 'abc' }, { id: 2, title: 'def' }], 1);
-// =>
-// [
-//   [{ "id": 1, "title": "name1" }],
-//   [{ "id": 2, "title": "name2" }]
-// ]
+// Result.
+[
+  [{ "id": 1, "title": "name1" }],
+  [{ "id": 2, "title": "name2" }]
+]
 ```
 
 ### `timestamp`
 
 Parses any date value to a timestamp with predefined or custom format.
 
-- datetime: dddd, MMMM D at h:mA
+- datetime: dddd, MMMM D at h:mA.
 - fromNow: Relative time.
-- short: ddd, MMM D
-- sql: YYYY-MM-DD HH:mm:ss
+- short: ddd, MMM D.
+- sql: YYYY-MM-DD HH:mm:ss.
 
 #### Parameters
 
@@ -570,19 +597,24 @@ Parses any date value to a timestamp with predefined or custom format.
 
 ```javascript
 timestamp(Date.now());
-// => 31/12/2018
+// Result.
+'31/12/2018'
 
 timestamp(new Date('12/31/2018'), { format: 'datetime' });
-// => Monday, December 31 at 12:00AM
+// Result.
+'Monday, December 31 at 12:00AM'
 
 timestamp(Date(), { format: 'fromNow' });
-// => a few seconds ago
+// Result.
+'a few seconds ago'
 
 timestamp(moment('12/31/2018'), { format: 'short' });
-// => Mon, Dec 31 12:00AM
+// Result.
+'Mon, Dec 31 12:00AM'
 
 timestamp('12/31/2018 12:00', { format: 'sql' });
-// => 2018-12-31 12:00:00
+// Result.
+'2018-12-31 12:00:00'
 ```
 
 ### `toArray`
@@ -606,19 +638,24 @@ Converts any value to array.
 
 ```javascript
 toArray('1', { toNumber: true });
-// => [1]
+// Result.
+[1]
 
 toArray(['a', 'b', 'c']);
-// => ['a', 'b', 'c']
+// Result.
+['a', 'b', 'c']
 
 toArray({ id: 1, title: 'name1' });
-// => [{ id: 1, title: 'name1' }]
+// Result.
+[{ id: 1, title: 'name1' }]
 
 toArray('1,2,3');
-// => ['1', '2', '3']
+// Result.
+['1', '2', '3']
 
 toArray('  a-2-3  -', { toNumber: true, separator: '-' });
-// => [NaN, 2, 3]
+// Result.
+[NaN, 2, 3]
 ```
 
 ### `toNumeric`
@@ -642,25 +679,32 @@ Converts value to and validates as number.
 
 ```javascript
 toNumeric('1.3');
-// => 1.3
+// Result.
+1.3
 
 toNumeric(1.3);
-// => 1.3
+// Result.
+1.3
 
 toNumeric('1.3', { decimal: false });
-// => 1
+// Result.
+1
 
 toNumeric('1.3', { math: 'ceil' });
-// => 2
+// Result.
+2
 
 toNumeric(1.3, { math: 'floor' });
-// => 1
+// Result.
+1
 
 toNumeric(['1.3', 1], { math: 'floor' });
-// => NaN
+// Result.
+NaN
 
 toNumeric({ 0: 1 });
-// => NaN
+// Result.
+NaN
 ```
 
 ### `toRGBa`
@@ -682,10 +726,12 @@ Converts color from Name or HEX code to RGBa value.
 
 ```javascript
 toRGBa('purple');
-// => rgba(128,0,128,1)
+// Result.
+'rgba(128,0,128,1)'
 
 toRGBa('#DDD', 0.5);
-// => rgba(221,221,221,0.5)
+// Result.
+'rgba(221,221,221,0.5)'
 ```
 
 ### `trimWhitespace`
@@ -707,7 +753,8 @@ space.
 
 ```javascript
 trimWhitespace('   _the   quiCK--brown     FOx !');
-// => _the quiCK--brown FOx !
+// Result.
+'_the quiCK--brown FOx !'
 ```
 
 ## Changelog
