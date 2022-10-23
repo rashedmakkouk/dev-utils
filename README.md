@@ -533,10 +533,6 @@ singular('posts');
 singular('commodities');
 // Result.
 'commodity'
-
-singular({ key: 'posts' });
-// Result.
-''
 ```
 
 ### `splitArray`
