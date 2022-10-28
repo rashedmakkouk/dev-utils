@@ -446,6 +446,17 @@ Generates a random string with customizable options.
 - temp: File names stored in temporary or cache locations.
 - uuid: v4.
 
+This helper uses [uuid][uuid-npm] to generate UUIDs in options `filename`, `temp` and `uuid`; for
+known issues, see [Duplicate UUIDs (Googlebot)][uuid-github-duplicate-uuids-googlebot].
+
+#### Usage
+
+If using this package in a `React Native/Expo` project:
+
+1. Install [react-native-get-random-values][react-native-get-random-values-npm] polyfill.
+1. Add `import 'react-native-get-random-values'` as the first line in your index/entry point. See
+more details [here][uuid-npm-react-native-polyfill].
+
 #### Parameters
 
 | Param             | Type    | Required    | Default | Description                               |
@@ -774,7 +785,6 @@ the full license text.
 [discussions]: https://github.com/rashedmakkouk/dev-utils/discussions
 [discussions-ideas]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/ideas
 [discussions-q-a]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/q-a
-[issues]: https://github.com/rashedmakkouk/dev-utils/issues
 [bsd-3-clause-license]: https://opensource.org/licenses/BSD-3-Clause
 [license-file]: https://github.com/rashedmakkouk/dev-utils/blob/main/LICENSE
 [changelog]: https://github.com/rashedmakkouk/dev-utils/blob/main/CHANGELOG.md
@@ -784,3 +794,7 @@ the full license text.
 [url-parse-npm]: https://www.npmjs.com/package/url-parse
 [math-random-mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 [autolinker-npm]: https://www.npmjs.com/package/autolinker
+[uuid-npm]: https://www.npmjs.com/package/uuid
+[uuid-npm-react-native-polyfill]: https://www.npmjs.com/package/uuid#react-native--expo
+[uuid-github-duplicate-uuids-googlebot]: https://github.com/uuidjs/uuid#duplicate-uuids-googlebot
+[react-native-get-random-values-npm]:https://www.npmjs.com/package/react-native-get-random-values
