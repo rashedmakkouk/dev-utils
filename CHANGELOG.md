@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.14.0 (2022-11-06)
+
+### Changes
+
+- chore: Fix typos and spelling errors
+
+### Features
+
+- feat: Bump package version from `0.14.7` to `0.14.8`
+  - Upgrade package dependencies --latest
+  - Update package CHANGELOG.md
+  - Add `Code Spell Checker` extension configuration
+
+## 0.14.0 (2022-10-28)
+
+### Documentation
+
+- docs: Add `random` method installation and usage instructions
+
 ## 0.14.0 (2022-10-23)
 
 ### Changes
@@ -25,7 +44,7 @@
 
 ## 0.14.0 (2021-06-08)
 
-### Changed
+### Changes
 
 - chore: Update package license to `BSD 3-Clause License`
 
@@ -48,7 +67,7 @@
 
 ## 0.13.0 (2022-05-27)
 
-### Changed
+### Changes
 
 - chore: Apply code enhancements and formatting
   - Update `escape` helper
@@ -81,7 +100,7 @@
   - Return `NaN` when mapping values to Number
 - feat: Add `options.allowEmpty` argument support in `isValid` helper
 
-### Fixed
+### Bug Fixes
 
 - fix: Check if `mime` exists and validate on `allowMime` in `isBase64` helper
 
@@ -116,7 +135,7 @@
 
 ## 0.12.0 (2022-05-23)
 
-### Changed
+### Changes
 
 - chore: Move publish `access` configuration to `package.json`
 
@@ -203,7 +222,7 @@
 
 ## 0.10.0 (2021-09-26)
 
-### Fixed
+### Bug Fixes
 
 - fix: Refactor text RegExp to correctly handle hyphen `-` in `initials`
 
@@ -244,7 +263,7 @@
 
 ## 0.8.0 (2021-07-20)
 
-### Fixed
+### Bug Fixes
 
 - fix: Use last element in the array as family name in `initials`
 
@@ -280,13 +299,13 @@
 
 ## 0.6.0 (2021-05-21)
 
-### Fixed
+### Bug Fixes
 
 - fix: Trim leading and trailing dashes when using `kebab` case in `letterCase`
 
 ## 0.6.0 (2021-05-11)
 
-### Fixed
+### Bug Fixes
 
 - fix: Handle text input regex invalid parts output
 
@@ -311,13 +330,13 @@
 
 ## 0.5.0 (2021-02-22)
 
-### Fixed
+### Bug Fixes
 
 - fix: Return null or undefined values instead of throwing exception
 
-### Changed
+### Changes
 
-- chroe: Migrate `versions` to `CHANGELOG`
+- chore: Migrate `versions` to `CHANGELOG`
 
 ### Removed
 
@@ -330,13 +349,13 @@
 
 ## 0.5.0 (2021-02-04)
 
-### Fixed
+### Bug Fixes
 
-- fix: Replace Lodash `startCase` implemenation; remove special chars
+- fix: Replace Lodash `startCase` implementation; remove special chars
 
 ## 0.5.0 (2021-02-02)
 
-### Changed
+### Changes
 
 - chore: Update `changelogs` file structure
 
@@ -368,13 +387,13 @@
 
 ## 0.4.0 (2020-12-15)
 
-### Changed
+### Changes
 
-- chroe: `letterCase` for performance & follow naming convention
+- chore: `letterCase` for performance & follow naming convention
 
 ## 0.3.0 (2020-11-14)
 
-### Fixed
+### Bug Fixes
 
 - fix: Implement span `isNaN` validation in `ms` method
 
@@ -386,7 +405,7 @@
 
 ## 0.3.0 (2020-11-03)
 
-### Changed
+### Changes
 
 - chore: Rename `parseTimestamp` to `timestamp`
 - chore: Rename `sanitizeString` to `sanitize`
@@ -404,10 +423,10 @@
 
 ## 0.2.0 (2020-10-04)
 
-### Changed
+### Changes
 
-- chroe: Update package configuration files
-- chroe: Update local build scripts
+- chore: Update package configuration files
+- chore: Update local build scripts
 
 ### Features
 
@@ -426,7 +445,7 @@
 
 ### Removed
 
-- chroe: Remove changelogs `index.md` file
+- chore: Remove changelogs `index.md` file
 
 ### Features
 
@@ -435,18 +454,18 @@
 
 ## 0.1.0 (2020-09-24)
 
-### Changed
+### Changes
 
-- chroe: Modules folder structure, move to `common`
-- update: Pakcage configuration files & external import references
+- chore: Modules folder structure, move to `common`
+- chore: Update package configuration files & external import references
 - chore: Code cleanup
 
 ## 0.1.0 (2020-09-20)
 
-### Changed
+### Changes
 
 - chore: Extend config files from `*.base.*`
-- chroe: `docs/versions` folder structure
+- chore: `docs/versions` folder structure
 
 ## 0.1.0 (2020-09-18)
 
