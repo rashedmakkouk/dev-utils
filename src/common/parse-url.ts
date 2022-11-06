@@ -1,4 +1,4 @@
-/** Utilties */
+/** Utilities */
 import urlParse from 'url-parse';
 
 /**

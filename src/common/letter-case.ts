@@ -47,7 +47,7 @@ function letterCase(
       case 'kebab':
         nextText = nextText
           .trim()
-          /** W: all non alphanumeric charachters and white space. */
+          /** W: all non alphanumeric characters and white space. */
           .replace(/[\W_-]+/gi, '-');
 
         return nextText.slice(

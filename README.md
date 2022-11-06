@@ -498,7 +498,7 @@ random('uuid');
 
 ### `sanitize`
 
-Trims white spaces and removes HTML tags.
+Trims whitespace and removes HTML tags.
 
 > Uses: [trimWhitespace](#trimwhitespace)
 

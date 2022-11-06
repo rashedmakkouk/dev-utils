@@ -1,11 +1,12 @@
 /** Utilities */
+/* eslint-disable-next-line import/no-named-as-default */
 import Autolinker, { AutolinkerConfig, Match } from 'autolinker';
 
 /**
  * Parses a text string and returns links matching:
  *
  * - Hashtag **#**
- * - Mention **@**
+ * - Mention **\@**
  * - URL **http**
  */
 function autolinks(
