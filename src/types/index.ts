@@ -23,7 +23,7 @@ export interface TimestampOptions {
    * @default DD/MM/YYYY
    */
   format?: TimestampFormats;
-  timezoneOffest?: string | number;
+  timezoneOffset?: string | number;
 }
 
 export interface IsBase64Options extends validator.IsBase64Options {
@@ -47,8 +47,15 @@ export interface MsOptions {
   long?: boolean;
 }
 
+export type LetterCaseTypes =
+  | 'lower'
+  | 'upper'
+  | 'sentence'
+  | 'kebab'
+  | 'title';
+
 export interface LetterCaseOptions {
-  letterCase: 'lower' | 'upper' | 'sentence' | 'kebab' | 'title';
+  letterCase: LetterCaseTypes;
   /** Converts supplied symbols list to space. */
   separators?: Separators[];
 }
