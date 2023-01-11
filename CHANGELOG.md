@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.14.0 (2023-01-11)
+
+### Changes
+
+- chore: Minor code updates and fixes
+  - Add `Issue` numbers to pending work
+  - Update `words` in `cspell.json` config file
+  - Fix typos
+
+### Features
+
+- feat: Bump package version from `0.14.8` to `0.14.9`
+  - Update package changelog
+
+## 0.14.0 (2023-01-09)
+
+### Changes
+
+- chore: Extract `LetterCaseTypes` type definition from `LetterCaseOptions`
+
 ## 0.14.0 (2022-11-06)
 
 ### Changes
@@ -32,7 +52,7 @@
   - Update package CHANGELOG.md
   - Update package README.md
 
-## 0.14.0 (2021-06-11)
+## 0.14.0 (2022-06-11)
 
 ### Documentation
 
@@ -42,7 +62,7 @@
 
 - feat: Bump package version from `0.14.5` to `0.14.6`
 
-## 0.14.0 (2021-06-08)
+## 0.14.0 (2022-06-08)
 
 ### Changes
 
