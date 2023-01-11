@@ -18,7 +18,8 @@ function timestamp(
 ): string {
   const instance = moment(date);
 
-  const { format = 'DD/MM/YYYY', timezoneOffest } = options;
+  // TODO: Add 'timezoneOffset' support; Issue #6.
+  const { format = 'DD/MM/YYYY', timezoneOffset } = options;
 
   switch (format) {
     case 'DD/MM/YYYY':

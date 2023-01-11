@@ -11,7 +11,7 @@ const dayInSeconds = 60 * 60 * 24;
  *
  * {@link https://github.com/vercel/ms | vercel / ms}
  *
- * TODO: Add support for `long` formats (e.g. 2 days, 3 hours)
+ * TODO: Add `long` format support; Issue #2.
  */
 export const TIME_SPANS: { [timePeriod in TimeSpans]: number } = {
   d: 1 * dayInSeconds,

@@ -10,6 +10,8 @@ import isPlainObject from 'lodash/isPlainObject';
  *
  * @param key - Object field name property to extract values from.
  * @param payload - List of results.
+ * 
+ * TODO: Refactor implementation for better args handling; Issue #4.
  */
 function extractValues({
   key,

@@ -1,6 +1,7 @@
 /** Utilities */
 import isArray from 'lodash/isArray';
 
+// TODO: Refactor implementation, add 'key' support; Issue #5.
 function filterValues<ResultT extends any[]>(
   /** Original data to filter. */
   data: any[],
