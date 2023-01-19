@@ -1,5 +1,7 @@
 {
   "words": [
+    "Rashed",
+    "Makkouk",
     "rashedmakkouk",
     "trunc",
     "autolinks",
@@ -11,6 +13,10 @@
     "Typeof",
     "Googlebot",
     "rgba",
-    "offset"
+    "offset",
+    "concat",
+    "commitlint",
+    "tsdoc",
+    "yarnpkg"
   ]
 }

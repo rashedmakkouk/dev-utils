@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/@rashedmakkouk/eslint-config/lib/bases/tsconfig.base.json",
+  "extends": "@rashedmakkouk/eslint-config/lib/bases/tsconfig.base.json",
   "display": "Node.js Package",
   "compilerOptions": {
     "baseUrl": ".",
@@ -7,9 +7,9 @@
     "outDir": "lib",
     "declaration": true,
     "allowJs": true,
-    "target": "ES2021",
+    "target": "ES2022",
     "lib": [
-      "ES2021"
+      "ES2022"
     ],
     "noEmitOnError": true
   },

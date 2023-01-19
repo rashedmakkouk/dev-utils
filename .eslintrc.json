@@ -1,5 +1,6 @@
 {
   "extends": [
     "@rashedmakkouk/eslint-config"
-  ]
+  ],
+  "root": true
 }
