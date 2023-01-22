@@ -1,67 +1,83 @@
 /** Utilities */
-import { v4 as uuid } from 'uuid';
+import isString from 'lodash/isString';
 import moment from 'moment';
+import { v4 as uuid } from 'uuid';
 
 /** Typings */
-import { RandomOptions, RandomTypes } from '../types';
+import {
+  RandomOptions,
+  RandomOptionsNumber,
+  RandomOptionsString,
+  RandomResult,
+  RandomTypes,
+} from '../types';
+import { toFixedRange } from '../utils';
 
 /**
- * Generates a random string with customizable options.
+ * Generates a random string or number with customizable options.
  *
  * - filename: File names stored in databases.
  * - number: Number between defined min and max.
- * - title: Content or post random title.
  * - temp: File names stored in temporary or cache locations.
+ * - title: Content or post random title.
  * - uuid: v4
+ *
+ * @returns Generated string or number.
  */
-function random<TypeT extends RandomTypes>(
-  type: TypeT,
-  options?: RandomOptions
-): TypeT extends 'number' ? number : string;
-
+function random<RandomTypeT extends RandomTypes>(
+  type: RandomTypeT,
+  options?: RandomOptions<RandomTypeT>
+): RandomResult<RandomTypeT>;
 function random(
   type: RandomTypes,
-  options: RandomOptions = {}
+  options: RandomOptionsString | RandomOptionsNumber = {}
 ): string | number {
-  if (type === 'uuid') {
-    return uuid();
-  } else if (type === 'number') {
-    let { max = 0, min = 1 } = options;
+  const timeFormat = 'YYYY-MM-DD_HH-mm-ss';
 
-    min = Math.ceil(min);
-    max = Math.floor(max);
+  switch (type) {
+    case 'uuid':
+      return uuid();
 
-    /* eslint-disable-next-line no-mixed-operators */
-    return `${Math.floor(Math.random() * (max - min + 1) + min)}`;
-  }
+    case 'number': {
+      const {
+        decimal = false,
+        max = 1,
+        min = 0,
+        precision = 0,
+      } = options as RandomOptionsNumber;
 
-  const timestamp = moment().format('YYYY-MM-DD_HH-mm-ss');
+      const randomNumber = Math.random() * (max - min + min);
 
-  if (type === 'temp') {
-    return `${timestamp}_${uuid()}`;
-  } else {
-    const { prefix, suffix } = options;
+      if (decimal === false) {
+        return Math.trunc(randomNumber);
+      }
 
-    const value: string[] = [];
-
-    prefix && value.push(prefix);
-
-    switch (type) {
-      case 'filename':
-        value.push(timestamp, uuid());
-        break;
-
-      case 'title':
-        value.push(timestamp);
-        break;
-
-      default:
-        return '';
+      return precision == null || !toFixedRange.includes(precision)
+        ? randomNumber
+        : Number(randomNumber.toFixed(precision));
     }
 
-    suffix && value.push(suffix);
+    case 'filename':
+    case 'temp':
+    case 'title': {
+      const { prefix, suffix } = options as RandomOptionsString;
 
-    return value.join('_');
+      const randomString: string[] = [];
+
+      prefix && isString(prefix) && randomString.push(prefix);
+
+      const timestamp = moment().format(timeFormat);
+
+      if (type === 'title') {
+        randomString.push(timestamp);
+      } else {
+        randomString.push(timestamp, uuid());
+      }
+
+      suffix && isString(suffix) && randomString.push(suffix);
+
+      return randomString.join('_');
+    }
   }
 }
 

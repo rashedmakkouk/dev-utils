@@ -1,5 +1,7 @@
 import validator from 'validator';
 
+import { toFixedRange } from '../utils';
+
 export type Separators = '-' | '_' | ',' | ';' | '.' | '&' | '#' | '!';
 
 export type TimeSpans = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'y';
@@ -12,7 +14,7 @@ export type TimestampFormats =
   | 'sql'
   | string;
 
-export type RandomTypes = 'filename' | 'number' | 'title' | 'temp' | 'uuid';
+export type ToFixedRange = (typeof toFixedRange)[number];
 
 export interface TimestampOptions {
   /**
@@ -35,12 +37,53 @@ export interface IsBase64Options extends validator.IsBase64Options {
   mimeRequired?: boolean;
 }
 
-export interface RandomOptions {
+export type RandomTypes = 'filename' | 'number' | 'temp' | 'title' | 'uuid';
+
+/**
+ * Available for option: 'number'.
+ */
+export interface RandomOptionsNumber {
+  /**
+   * Generate a random number with decimals. Also see 'precision'.
+   *
+   * @default false
+   */
+  decimal?: boolean;
+  /**
+   * @default 0
+   */
   min?: number;
+  /**
+   * @default 1
+   */
   max?: number;
+  /**
+   * Limit generated number decimal places.
+   *
+   * @default 0
+   */
+  precision?: ToFixedRange;
+}
+
+/**
+ * Available for options: 'filename', 'temp', 'title'.
+ */
+export interface RandomOptionsString {
+  /** Text to add to the beginning of the result. */
   prefix?: string;
+  /** Text to add to the end of the result. */
   suffix?: string;
 }
+
+export type RandomOptions<RandomTypeT extends RandomTypes> =
+  RandomTypeT extends 'uuid'
+    ? never
+    : RandomTypeT extends 'number'
+    ? RandomOptionsNumber
+    : RandomOptionsString;
+
+export type RandomResult<RandomTypeT extends RandomTypes> =
+  RandomTypeT extends 'number' ? number : string;
 
 export interface MsOptions {
   /** Sets time spans to long formats (e.g. minutes, hours). */
