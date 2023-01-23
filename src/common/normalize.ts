@@ -1,6 +1,6 @@
 /** Utilities */
 import isArray from 'lodash/isArray';
-import { NormalizedSchema, normalize as _normalize, schema } from 'normalizr';
+import { normalize as _normalize, NormalizedSchema, schema } from 'normalizr';
 
 /** Typings */
 import { NormalizeSchemaOptions } from '../types';
@@ -15,21 +15,21 @@ import { NormalizeSchemaOptions } from '../types';
  * @param payload - Data object or object array to manipulate.
  * @param options - Set custom column to use (e.g. idAttribute).
  *
- * @returns result object:
- * - entities.key: Normalized records by `key`.
- * - results: Array of normalized entities `attribute`s.
+ * @returns Result object:
+ * - Object.entities: Normalized records by 'key'.
+ * - Object.result: Array or single value of data 'idAttributes'.
  */
 function normalize<
   KeyT extends string = string,
-  EntityT = any,
-  PayloadT extends any | any[] = any[]
+  EntityT = unknown,
+  PayloadT extends unknown | unknown[] = unknown[]
 >(
   key: KeyT,
   payload: PayloadT,
   options: NormalizeSchemaOptions = {}
 ): NormalizedSchema<
   { [key: string]: { [attribute: string]: EntityT } | undefined },
-  PayloadT extends any[] ? string[] : string
+  PayloadT extends unknown[] ? string[] : string
 > {
   if (!options?.idAttribute) {
     options.idAttribute = 'id';

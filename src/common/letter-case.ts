@@ -9,6 +9,8 @@ import { LetterCaseOptions } from '../types';
  * Formats supplied string to defined case.
  *
  * {@link https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage | Start Case}
+ *
+ * @returns Formatted string.
  */
 function letterCase(
   text: string | null = '',

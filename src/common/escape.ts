@@ -1,15 +1,17 @@
 /** Utilities */
-import { escape as _escape, escapeId as _escapeId } from 'sqlstring';
 import isNumber from 'lodash/isNumber';
+import { escape as _escape, escapeId as _escapeId } from 'sqlstring';
 
 /** Typings */
-import { FieldValue, SqlEscapeOptions } from '../types';
+import { FieldValues, SqlEscapeOptions } from '../types';
 
 /**
- * SQL input data escape and format for MySQL.
+ * Sanitizes and formats SQL input data for safe use in MySQL query statements.
+ *
+ * @returns Escaped string.
  */
 function escape(
-  value: FieldValue,
+  value: FieldValues,
   options: SqlEscapeOptions = {}
 ): string | number | null | undefined {
   if (value == null) {

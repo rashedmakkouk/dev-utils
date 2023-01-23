@@ -1,10 +1,14 @@
+import isString from 'lodash/isString';
+
 /**
  * Extracts the first character from the first and last words in a string.
  *
  * Splits at: white space, comma, dot, pipe, underscore, dash.
+ *
+ * @returns Extracted characters as string.
  */
 function initials(text = ''): string {
-  if (!text || typeof text !== 'string') {
+  if (!isString(text)) {
     return '';
   }
 

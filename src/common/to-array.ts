@@ -5,7 +5,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { FieldValue, ToArrayOptions } from '../types';
+import { FieldValues, ToArrayOptions } from '../types';
 import trimWhitespace from './trim-whitespace';
 
 /**
@@ -16,7 +16,7 @@ import trimWhitespace from './trim-whitespace';
  * @returns New array based on supplied options.
  */
 function toArray(
-  value: FieldValue,
+  value: FieldValues,
   options: ToArrayOptions = {}
 ): string[] | number[] | (string | number)[] {
   const { separator, parseNumber } = options;

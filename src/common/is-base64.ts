@@ -1,6 +1,6 @@
 /** Utilities */
-import validateIsBase64 from 'validator/lib/isBase64';
 import isString from 'lodash/isString';
+import validateIsBase64 from 'validator/lib/isBase64';
 
 /** Typings */
 import { IsBase64Options } from '../types';
@@ -9,6 +9,8 @@ const MIME_REGEX = '(data:\\w+\\/[a-zA-Z\\+\\-\\.]+;base64)';
 
 /**
  * Validates if supplied mime type and/or base64 string are valid.
+ *
+ * @returns 'true' if supplied string passes checks, else 'false'.
  */
 function isBase64(
   value?: string | null,

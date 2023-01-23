@@ -2,6 +2,8 @@ import validator from 'validator';
 
 import { toFixedRange, toNumericMathTypes } from '../utils';
 
+export type FieldValues = string | number | string[] | number[] | null;
+
 export type Separators = '-' | '_' | ',' | ';' | '.' | '&' | '#' | '!';
 
 export type TimeSpans = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'y';
@@ -112,8 +114,6 @@ export interface NormalizeSchemaOptions {
   idAttribute?: string;
 }
 
-export type FieldValue = string | number | string[] | number[] | null;
-
 export interface SqlEscapeOptions {
   /**
    * Use for column names & reserved words.
@@ -167,7 +167,7 @@ export interface ToArrayOptions {
 
 export interface IsValidOptions {
   /**
-   * If true, validates empty values as valid.
+   * If true, validates empty, null, undefined and 0 values as valid.
    *
    * @default false
    */

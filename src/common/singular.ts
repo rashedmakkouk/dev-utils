@@ -2,7 +2,9 @@
 import { isString } from 'lodash';
 
 /**
- * Trims last character if ends with `s` or replaces `ies` with `y`.
+ * Trims last character if ends with 's' or replaces 'ies' with 'y'.
+ *
+ * @returns Trimmed text.
  */
 function singular(text: string): string {
   if (!text || !isString(text)) {

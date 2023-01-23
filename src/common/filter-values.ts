@@ -1,17 +1,18 @@
 /** Utilities */
 import isArray from 'lodash/isArray';
 
-// TODO: Refactor implementation, add 'key' support; Issue #5.
-function filterValues<ResultT extends any[]>(
+// TODO: Refactor 'filterValues' implementation; Issue #5.
+
+function filterValues<ResultT extends unknown[]>(
   /** Original data to filter. */
-  data: any[],
+  data: unknown[],
   /** Value to remove from data array. */
-  value: any | any[],
-  /** Object `key` to filter data by. */
+  value: unknown | unknown[],
+  /** Object 'key' to filter data by. */
   key?: string
 ): ResultT {
   if (!isArray(data)) {
-    const results: any[] = [];
+    const results: unknown[] = [];
 
     return results as ResultT;
   }

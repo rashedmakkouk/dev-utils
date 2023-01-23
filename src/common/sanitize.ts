@@ -2,7 +2,9 @@
 import trimWhiteSpace from './trim-whitespace';
 
 /**
- * Trims whitespace and removes HTML tags.
+ * Trims extra whitespace and removes HTML tags.
+ *
+ * @returns Sanitized string.
  */
 function sanitize(text: string): string {
   text = trimWhiteSpace(text)

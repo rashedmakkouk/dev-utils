@@ -5,7 +5,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 
 /** Typings */
-import { FieldValue, IsValidOptions } from '../types';
+import { FieldValues, IsValidOptions } from '../types';
 
 /* eslint-disable-next-line no-control-regex */
 const FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*(.)/;
@@ -17,7 +17,7 @@ const BOOLEAN_VALUES = ['false', 'true'];
  */
 function isValid(
   isTypeof: 'string' | 'array' | 'number' | 'object' | 'jsonStr',
-  value?: FieldValue | any[] | object | object[],
+  value?: FieldValues | object | object[] | unknown[],
   options: IsValidOptions = {}
 ): boolean {
   const { allowEmpty } = options;
@@ -30,7 +30,7 @@ function isValid(
     case 'array':
       return isArray(value) && (!!value.length || allowEmpty === true);
 
-    case 'jsonStr':
+    case 'jsonStr': {
       if (!value || !isString(value)) {
         return false;
       }
@@ -44,6 +44,7 @@ function isValid(
         NULLISH_VALUES.includes(lowerCaseValue) ||
         BOOLEAN_VALUES.includes(lowerCaseValue)
       );
+    }
 
     case 'number':
       return isNumber(value) && (value !== 0 || allowEmpty === true);
@@ -55,7 +56,7 @@ function isValid(
       );
 
     case 'string':
-      if (!isString(value) || value.toLowerCase() === 'undefined') {
+      if (!isString(value) || NULLISH_VALUES.includes(value.toLowerCase())) {
         return false;
       }
 

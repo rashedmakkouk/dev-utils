@@ -1,12 +1,14 @@
 /** Utilities */
-import path from 'path';
 import isArray from 'lodash/isArray';
+import path from 'path';
 
 /** Typings */
 import { JoinPathOptions } from '../types';
 
 /**
- * Joins list of absolute and relative paths as a string.
+ * Joins a list of absolute and relative paths as string.
+ *
+ * @returns Joined path string.
  */
 function joinPath(
   segments: string[] = [],
@@ -18,15 +20,7 @@ function joinPath(
 
   const { resolve } = options;
 
-  let fn: 'join' | 'resolve';
-
-  if (resolve) {
-    fn = 'resolve';
-  } else {
-    fn = 'join';
-  }
-
-  return path[fn](...segments).replace(/\\/g, '/');
+  return path[!resolve ? 'join' : 'resolve'](...segments).replace(/\\/g, '/');
 }
 
 export default joinPath;

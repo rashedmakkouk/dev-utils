@@ -11,9 +11,13 @@ import { TimestampOptions } from '../types';
  * - fromNow: Relative time.
  * - short: ddd, MMM D
  * - sql: YYYY-MM-DD HH:mm:ss
+ *
+ * @param date - Parses supplied value, else falls back to Date/Time Now.
+ *
+ * @returns Formatted timestamp.
  */
 function timestamp(
-  date: string | number | Date = Date.now(),
+  date: string | number | Date | null | undefined = Date.now(),
   options: TimestampOptions = {}
 ): string {
   const instance = moment(date);
@@ -22,9 +26,6 @@ function timestamp(
   const { format = 'DD/MM/YYYY', timezoneOffset } = options;
 
   switch (format) {
-    case 'DD/MM/YYYY':
-      return instance.format(format);
-
     case 'datetime':
       return `${instance.format('dddd, MMMM D')} at ${instance.format(
         'h:mmA'

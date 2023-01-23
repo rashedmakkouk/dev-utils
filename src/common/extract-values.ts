@@ -1,8 +1,10 @@
 /** Utilities */
 import isArray from 'lodash/isArray';
-import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import isPlainObject from 'lodash/isPlainObject';
+import isString from 'lodash/isString';
+
+// TODO: Refactor 'extractValues' implementation; Issue #4.
 
 /**
  * Extracts values from supplied `key` (i-e 'id') and converts any value to
@@ -10,8 +12,6 @@ import isPlainObject from 'lodash/isPlainObject';
  *
  * @param key - Object field name property to extract values from.
  * @param payload - List of results.
- * 
- * TODO: Refactor implementation for better args handling; Issue #4.
  */
 function extractValues({
   key,
@@ -19,12 +19,12 @@ function extractValues({
   separator = ',',
 }: {
   key: string;
-  payload: { [key: string]: any } | any[];
+  payload: { [key: string]: unknown } | unknown[];
   separator?: string;
 }): string[] | number[] {
   let data: string[] | number[] = [];
 
-  const appendValue = (value?: any): void => {
+  const appendValue = (value?: unknown): void => {
     if (value === null || value === undefined || value === '') {
       return;
     } else if (isString(value)) {
@@ -36,6 +36,7 @@ function extractValues({
     } else if (isNumber(value)) {
       (data as number[]).push(value);
     } else if (isArray(value)) {
+      /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
       data = [...data, ...value];
     }
   };
