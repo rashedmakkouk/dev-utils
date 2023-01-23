@@ -6,35 +6,37 @@ import isString from 'lodash/isString';
 
 /** Typings */
 import { FieldValue, ToArrayOptions } from '../types';
+import trimWhitespace from './trim-whitespace';
 
 /**
  * Converts any value to array.
  *
- * Useful for multi value fields as `group_concat`.
+ * Useful for multi value fields as 'group_concat'.
  *
- * @returns Immutable copy of value.
+ * @returns New array based on supplied options.
  */
 function toArray(
   value: FieldValue,
   options: ToArrayOptions = {}
-): (string | number)[] {
-  const { separator, toNumber } = options;
+): string[] | number[] | (string | number)[] {
+  const { separator, parseNumber } = options;
 
   if (value == null || value === '') {
     return [];
   }
 
   if (isString(value)) {
-    const nextValue = value
-      .replace(/[\s]+/gi, '')
-      .split(separator || ',')
+    const trimmedValue = trimWhitespace(value);
+
+    const nextValue = trimmedValue
+      .split(separator ?? ',')
       .filter((n): boolean => !!n);
 
-    return !toNumber ? nextValue : nextValue.map(Number);
+    return !parseNumber ? nextValue : nextValue.map(Number);
   } else if (isArray(value)) {
-    return !toNumber
+    return !parseNumber
       ? [...value]
-      : (value as any).map((n): any => Number(n) || n);
+      : value.map((n: string | number): number => Number(n) ?? (n as number));
   } else if (isNumber(value) || isPlainObject(value)) {
     return [value];
   } else {

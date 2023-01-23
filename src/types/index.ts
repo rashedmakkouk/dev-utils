@@ -155,14 +155,14 @@ export interface ToNumericOptions {
 }
 
 export interface ToArrayOptions {
+  /** Maps array values as numbers. */
+  parseNumber?: boolean;
   /**
    * The pattern where the split should occur.
    *
    * @default ,
    */
   separator?: Separators;
-  /** Maps array values as numbers. */
-  toNumber?: boolean;
 }
 
 export interface IsValidOptions {
