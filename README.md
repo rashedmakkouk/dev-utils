@@ -52,8 +52,8 @@ Builds on [autolinker][autolinker-npm] with custom configuration and output.
 
 #### Returns
 
-- `(Object.links)`: Array list of unique words links (e.g. mention, hashtag, url).
-- `(Object.matches)`: Array list of all matched links metadata.
+- `(Object.links)`: Array of unique words links (e.g. mention, hashtag, url).
+- `(Object.matches)`: Array of all matched links metadata.
 
 #### Example
 
@@ -113,7 +113,11 @@ Delays executions of a specified piece of code.
 
 #### Returns
 
-- `(Object)`: Returns Promise Object.
+- `(Object)`: Returns Promise Object,.
+
+#### Rejects
+
+- `(Object)`: Rejects { status: 408, statusCode: 408 }.
 
 #### Example
 
@@ -127,7 +131,7 @@ try {
 
 ### `escape`
 
-SQL input data escape and format for MySQL.
+Sanitizes and formats SQL input data for safe use in MySQL query statements.
 
 A [sqlstring][sqlstring-npm] wrapper for convenience.
 
@@ -194,7 +198,7 @@ Validates if supplied mime type and/or base64 string are valid.
 
 #### Returns
 
-- `(boolean)`: Returns `true` if supplied string passes checks, else `false`.
+- `(boolean)`: Returns 'true' if supplied string passes checks, else 'false'.
 
 #### Example
 
@@ -215,7 +219,7 @@ Verifies if supplied payload is valid by defined type.
 | `isTypeof`              | string  | Yes         | -       | string, array, number, object, jsonStr. |
 | `value`                 | Any     | No          | -       | Data to validate.                   |
 | `options`               | object  | No          | -       | Custom options to apply.            |
-| `options.allowEmpty`    | boolean | No          | false   | If true, validates empty, 0, null and undefined values as valid. |
+| `options.allowEmpty`    | boolean | No          | false   | If true, validates empty, null, undefined and 0 values as valid. |
 
 #### Returns
 
@@ -240,6 +244,10 @@ isValid('number', '123');
 // Result.
 false
 
+isValid('number', 0, { allowEmpty: true });
+// Result.
+true
+
 isValid('number', 0);
 // Result.
 false
@@ -255,7 +263,7 @@ true
 
 ### `joinPath`
 
-Joins list of absolute and relative paths as a string.
+Joins a list of absolute and relative paths as a string.
 
 #### Parameters
 
@@ -277,7 +285,33 @@ joinPath(['/foo', 'bar', 'baz\\abc', './def', '..']);
 '/foo/bar/baz/abc'
 ```
 
+### `keyExtractor`
+
+For applications where unique keys need to be generated for elements in an array (e.g. React Native
+FlatList).
+
+#### Parameters
+
+| Param                   | Type            | Required    | Default | Description                         |
+|---                      |---              |---          |---      |---                                  |
+| `key`                   | string \| number | Yes         | -       | Can be any value (e.g. id, title). |
+| `index`                 | number          | Yes         | -       | Element array index.            |
+
+#### Returns
+
+- `(string)`: Returns concatenated 'key-index' string.
+
+#### Example
+
+```javascript
+keyExtractor('post', 2);
+// Result.
+'post-2'
+```
+
 ### `letterCase`
+
+> See [Start Case][start-case-wikipedia] for more details.
 
 Formats supplied string to defined case.
 
@@ -315,11 +349,11 @@ letterCase('_the   quiCK--brown     FOx_!', { letterCase: 'title' });
 
 Parses a number representation or a string time period (e.g. 1h, 2d) to Unix Timestamp.
 
-- d: day.
-- h: hour.
-- m: month.
 - ms: millisecond.
 - s: second.
+- m: minute.
+- h: hour.
+- d: day.
 - w: week.
 - y: year.
 
@@ -327,11 +361,11 @@ Parses a number representation or a string time period (e.g. 1h, 2d) to Unix Tim
 
 | Param                   | Type    | Required    | Default | Description                         |
 |---                      |---      |---          |---      |---                                  |
-| `span`                  | string \| number  | Yes         | -             | d, h, m, ms, s, w, y. |
+| `span`                  | string \| number  | Yes         | -             | ms, s, m, h, d, w, y. |
 
 #### Returns
 
-- `(number)`: Returns time representation in seconds, else parses value as integer.
+- `(number)`: Returns time representation in milliseconds, else parses value as integer.
 
 #### Example
 
@@ -363,8 +397,8 @@ Normalizes payload by defined object attribute.
 
 #### Returns
 
-- `(Object.entities)`: Normalized data objects.
-- `(Object.result)`: List of data idAttributes.
+- `(Object.entities)`: Normalized records by 'key'.
+- `(Object.result)`: Array or single value of data 'idAttributes'.
 
 #### Example
 
@@ -399,7 +433,7 @@ normalize('posts', { id: 1, title: 'abc' });
 
 Parses URL string segments including query string values, if any.
 
-A [url-parse][url-parse-npm] wrapper for convenience.
+A [url-parse][url-parse-npm] wrapper for convenience and extensibility.
 
 #### Parameters
 
@@ -438,12 +472,12 @@ parseUrl('https://localhost:8000/foo/bar?firstName=John&lastName=Doe');
 
 ### `random`
 
-Generates a random string with customizable options.
+Generates a random string or number with customizable options.
 
 - filename: File names stored in databases.
 - number: Number between defined min and max (See [Math.random][math-random-mdn]).
-- title: Content or post random title.
 - temp: File names stored in temporary or cache locations.
+- title: Content or post random title.
 - uuid: v4.
 
 This helper uses [uuid][uuid-npm] to generate UUIDs in options `filename`, `temp` and `uuid`; for
@@ -451,7 +485,7 @@ known issues, see [Duplicate UUIDs (Googlebot)][uuid-github-duplicate-uuids-goog
 
 #### Usage
 
-If using this package in a `React Native/Expo` project:
+If you are using this package in a `React Native/Expo` project:
 
 1. Install [react-native-get-random-values][react-native-get-random-values-npm] polyfill.
 1. Add `import 'react-native-get-random-values'` as the first line in your index/entry point. See
@@ -459,14 +493,32 @@ more details [here][uuid-npm-react-native-polyfill].
 
 #### Parameters
 
-| Param             | Type    | Required    | Default | Description                               |
-|---                |---      |---          |---      |---                                        |
-| `type`            | string  | Yes         | -       | filename, number, title, temp, uuid.      |
-| `options`         | object  | No          | -       | Custom options to apply.                  |
-| `options.min`     | number  | No          | 0       | If type is number, minimum value to start from. |
-| `options.max`     | number  | No          | 1       | If type is number, maximum value to end at. |
-| `options.prefix`  | string  | No          | -       | Text to add to the beginning of the result. |
-| `options.suffix`  | string  | No          | -       | Text to add to the end of the result.     |
+| Param               | Type      | Required    | Default | Description                               |
+|---                  |---        |---          |---      |---                                        |
+| `type`              | string    | Yes         | -       | filename, number, title, temp, uuid.      |
+| `options`           | object    | No          | -       | Custom options to apply.                  |
+
+##### Options: **number**
+
+| Param               | Type      | Required    | Default | Description                               |
+|---                  |---        |---          |---      |---                                        |
+| `options.min`       | number    | No          | 0       | If type is number, minimum value to start from. |
+| `options.max`       | number    | No          | 1       | If type is number, maximum value to end at. |
+| `options.decimal`   | boolean   | No          | false   | Generate a random number with decimals. |
+| `options.precision` | number    | No          | 0       | Limit generated number decimal places. |
+
+##### Options: **filename**, **temp**, **title**
+
+| Param               | Type      | Required    | Default | Description                               |
+|---                  |---        |---          |---      |---                                        |
+| `options.prefix`    | string    | No          | -       | Text to add to the beginning of the result. |
+| `options.suffix`    | string    | No          | -       | Text to add to the end of the result.     |
+
+##### Options: **uuid**
+
+| Param               | Type      | Required    | Default | Description                               |
+|---                  |---        |---          |---      |---                                        |
+| `options`           | undefined | -           | -       | Argument not available for 'uuid' option. |
 
 #### Returns
 
@@ -475,21 +527,25 @@ more details [here][uuid-npm-react-native-polyfill].
 #### Example
 
 ```javascript
-random('filename', { prefix: 'post' });
-// Result.
-'post_2018-01-01_12-00-00_7f2a79ba-962e-4b35-96d0-28xf1d025107'
-
 random('number', { min: 1000, max: 2000 });
 // Result.
 1784
 
-random('title', { suffix: 'post' });
+random('number', { decimal: true, min: 10, max: 200, precision: 2 });
 // Result.
-'2018-01-01_12-00-00_post'
+97.13
+
+random('filename', { prefix: 'post' });
+// Result.
+'post_2018-01-01_12-00-00_7f2a79ba-962e-4b35-96d0-28xf1d025107'
 
 random('temp');
 // Result.
 '2018-01-01_12-00-00_efc7438f-0a4d-4538-af87-b6984xe04688'
+
+random('title', { suffix: 'post' });
+// Result.
+'2018-01-01_12-00-00_post'
 
 random('uuid');
 // Result.
@@ -498,7 +554,7 @@ random('uuid');
 
 ### `sanitize`
 
-Trims whitespace and removes HTML tags.
+Trims extra whitespace and removes HTML tags.
 
 > Uses: [trimWhitespace](#trimwhitespace)
 
@@ -522,7 +578,9 @@ sanitize('<script>"the__   #quicK-- BROWN     @foX_".js</script> <html><div>Html
 
 ### `singular`
 
-Trims last character if ends with `s` or replaces `ies` with `y`.
+Trims last character if ends with 's' or replaces 'ies' with 'y'.
+
+> Not an ideal solution, but does the job for most cases.
 
 #### Parameters
 
@@ -588,13 +646,15 @@ Parses any date value to a timestamp with predefined or custom format.
 - short: ddd, MMM D.
 - sql: YYYY-MM-DD HH:mm:ss.
 
+You can use 'format' option to provide custom date/time format.
+
 #### Parameters
 
-| Param             | Type    | Required    | Default | Description                               |
-|---                |---      |---          |---      |---                                        |
-| `date`            | string \| number \| object | Yes         | -             | Date string, Date object, Unix Timestamp. |
-| `options`         | object  | No          | -       | Custom options to apply.                  |
-| `options.format`  | string  | No          | DD/MM/YYYY | datetime, fromNow, short, sql, [Moment][moment-format]. |
+| Param             | Type    | Required  | Default | Description                               |
+|---                |---                  |---          |---      |---                                       |
+| `date`            | string \| number \| object | No         | Date.now()            | Date string, Date object, Unix Timestamp. |
+| `options`         | object  | No        | -       | Custom options to apply.                  |
+| `options.format`  | string  | No        | DD/MM/YYYY | datetime, fromNow, short, sql, [Moment][moment-format]. |
 
 #### Returns
 
@@ -603,48 +663,52 @@ Parses any date value to a timestamp with predefined or custom format.
 #### Example
 
 ```javascript
-timestamp(Date.now());
+timestamp();
 // Result.
-'31/12/2018'
+'31/12/2022' // Date.now()
 
-timestamp(new Date('12/31/2018'), { format: 'datetime' });
+timestamp(new Date('12/31/2022'), { format: 'datetime' });
 // Result.
-'Monday, December 31 at 12:00AM'
+'Saturday, December 31 at 12:00AM'
 
 timestamp(Date(), { format: 'fromNow' });
 // Result.
 'a few seconds ago'
 
-timestamp(moment('12/31/2018'), { format: 'short' });
+timestamp(moment('12/31/2022'), { format: 'short' });
 // Result.
-'Mon, Dec 31 12:00AM'
+'Sat, Dec 31 12:00AM'
 
-timestamp('12/31/2018 12:00', { format: 'sql' });
+timestamp('12/31/2022 12:00', { format: 'sql' });
 // Result.
-'2018-12-31 12:00:00'
+'2022-12-31 12:00:00'
 ```
 
 ### `toArray`
 
 Converts any value to array.
 
+Useful for multi value fields as 'group_concat'.
+
+> Uses: [trimWhitespace](#trimwhitespace)
+
 #### Parameters
 
-| Param               | Type    | Required    | Default | Description                             |
-|---                  |---      |---          |---      |---                                      |
-| `value`             | Any     | Yes         | -       | Data to convert.                        |
-| `options`           | object  | No          | -       | Custom options to apply.                |
-| `options.separator` | string  | No          | ,       | The pattern where the split should occur. |
-| `options.toNumber`  | boolean | No          | false   | If true, maps array values as `Number`. |
+| Param                 | Type    | Required    | Default | Description                             |
+|---                    |---      |---          |---      |---                                      |
+| `value`               | Any     | Yes         | -       | Data to convert.                        |
+| `options`             | object  | No          | -       | Custom options to apply.                |
+| `options.separator`   | string  | No          | ,       | The pattern where the split should occur. |
+| `options.parseNumber` | boolean | No          | false   | If true, maps array values as `Number`. |
 
 #### Returns
 
-- `(Array)`: Returns array based on supplied params.
+- `(Array)`: Returns new array based on supplied options.
 
 #### Example
 
 ```javascript
-toArray('1', { toNumber: true });
+toArray('1', { parseNumber: true });
 // Result.
 [1]
 
@@ -652,22 +716,22 @@ toArray(['a', 'b', 'c']);
 // Result.
 ['a', 'b', 'c']
 
-toArray({ id: 1, title: 'name1' });
+toArray({ id: 1, title: 'name-1' });
 // Result.
-[{ id: 1, title: 'name1' }]
+[{ id: 1, title: 'name-1' }]
 
 toArray('1,2,3');
 // Result.
 ['1', '2', '3']
 
-toArray('  a-2-3  -', { toNumber: true, separator: '-' });
+toArray('  a-2-3  -', { parseNumber: true, separator: '-' });
 // Result.
 [NaN, 2, 3]
 ```
 
 ### `toNumeric`
 
-Converts value to and validates as number.
+Converts value to and validates as 'number'.
 
 #### Parameters
 
@@ -676,7 +740,8 @@ Converts value to and validates as number.
 | `value`             | number \| string | Yes         | -             | Number representation; if null, returns 0. |
 | `options`           | object  | No          | -       | Custom options to apply.                |
 | `options.decimal`   | boolean | No          | true    | If true, retains decimal point.         |
-| `options.math`      | string  | No          | -       | trunc, ceil, round, floor.              |
+| `options.math`      | string  | No          | -       | 'abs', 'ceil', 'floor', 'round', 'trunc'.              |
+| `options.precision`   | number | No          | -    | If supplied, limits number decimal places.    |
 
 #### Returns
 
@@ -697,6 +762,14 @@ toNumeric('1.3', { decimal: false });
 // Result.
 1
 
+toNumeric('1.3456', { precision: 2 });
+// Result.
+1.35
+
+toNumeric('1.3446', { precision: 2 });
+// Result.
+1.34
+
 toNumeric('1.3', { math: 'ceil' });
 // Result.
 2
@@ -716,18 +789,19 @@ NaN
 
 ### `toRGBa`
 
-Converts color from Name or HEX code to RGBa value.
+Converts color from 'keyword' (e.g. green) or 'hex' (e.g. #00FF00) to RGBa value. Useful when there
+is a need to apply color opacity.
 
 #### Parameters
 
 | Param       | Type    | Required    | Default | Description                                     |
 |---          |---      |---          |---      |---                                              |
 | `color`     | string  | Yes         | -       | Can be Name or HEX code (e.g. white, #DDD).     |
-| `alpha`     | number  | No          | 1       | Set custom alpha value.                         |
+| `alpha`     | number  | No          | 1       | Set color opacity value.                        |
 
 #### Returns
 
-- `(string)`: Returns RGBa value.
+- `(string)`: Returns RGBa value for valid colors else 'rgba(0,0,0,alpha)'.
 
 #### Example
 
@@ -739,6 +813,10 @@ toRGBa('purple');
 toRGBa('#DDD', 0.5);
 // Result.
 'rgba(221,221,221,0.5)'
+
+toRGBa('invalidColor', 0.3);
+// Result.
+'rgba(0,0,0,0.3)'
 ```
 
 ### `trimWhitespace`
@@ -766,7 +844,7 @@ trimWhitespace('   _the   quiCK--brown     FOx !');
 
 ## Changelog
 
-Check [Changelog][changelog] for a detailed list of changes.
+Check out [CHANGELOG.md](./CHANGELOG.md) for a full list of changes.
 
 ## Community
 
@@ -775,6 +853,9 @@ your ideas and suggestions.
 
 - [`Ideas`][discussions-ideas]
 - [`Q&A`][discussions-q-a]
+
+Found a bug or you have an improvement recommendation, head over to [`Issues`][issues] and submit
+a new request.
 
 ## License
 
@@ -785,9 +866,9 @@ the full license text.
 [discussions]: https://github.com/rashedmakkouk/dev-utils/discussions
 [discussions-ideas]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/ideas
 [discussions-q-a]: https://github.com/rashedmakkouk/dev-utils/discussions/categories/q-a
+[issues]: https://github.com/rashedmakkouk/dev-utils/issues
 [bsd-3-clause-license]: https://opensource.org/licenses/BSD-3-Clause
 [license-file]: https://github.com/rashedmakkouk/dev-utils/blob/main/LICENSE
-[changelog]: https://github.com/rashedmakkouk/dev-utils/blob/main/CHANGELOG.md
 [sqlstring-npm]: https://www.npmjs.com/package/sqlstring
 [moment-format]: https://momentjs.com/docs/#/displaying/format/
 [base64-url-safe]: https://base64.guru/standards/base64url
@@ -798,3 +879,4 @@ the full license text.
 [uuid-npm-react-native-polyfill]: https://www.npmjs.com/package/uuid#react-native--expo
 [uuid-github-duplicate-uuids-googlebot]: https://github.com/uuidjs/uuid#duplicate-uuids-googlebot
 [react-native-get-random-values-npm]:https://www.npmjs.com/package/react-native-get-random-values
+[start-case-wikipedia]: https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage
