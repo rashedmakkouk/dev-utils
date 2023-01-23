@@ -2,6 +2,23 @@
 
 Utility library.
 
+## v0.15.0
+
+Notable changes in `v0.15.0`:
+
+- Added `decimal` and `precision` options support to [number](#options-number) type in `random`
+helper.
+- Updated [random](#random) usage instructions in `README.md`.
+- Renamed `toNumber` option to `parseNumber` in [toArray](#toarray) helper (Breaking change).
+- Refactored `date` argument to accept empty value in [timestamp](#timestamp), defaults to `Now`.
+- Added [keyExtractor](#keyextractor) helper usage instructions in `README.md`.
+- Added `abs` support to `math` option in [toNumeric](#tonumeric).
+- Added `precision` option in [toNumeric](#tonumeric).
+- Added function `@returns` tag and description to all helpers.
+- Code updates and enhancements.
+
+Check out [CHANGELOG.md](./CHANGELOG.md) for a full list of changes.
+
 ## Installation
 
 Install package in your project.

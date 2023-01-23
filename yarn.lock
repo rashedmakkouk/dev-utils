@@ -398,6 +398,7 @@ __metadata:
     "@rashedmakkouk/eslint-config": ^0.8.1
     "@types/color-convert": ^2.0.0
     "@types/lodash": ^4.14.191
+    "@types/node": ^18.11.18
     "@types/shelljs": ^0.8.11
     "@types/sqlstring": ^2.3.0
     "@types/url-parse": ^1.4.8
