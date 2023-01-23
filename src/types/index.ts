@@ -1,6 +1,6 @@
 import validator from 'validator';
 
-import { toFixedRange } from '../utils';
+import { toFixedRange, toNumericMathTypes } from '../utils';
 
 export type Separators = '-' | '_' | ',' | ';' | '.' | '&' | '#' | '!';
 
@@ -103,8 +103,6 @@ export interface LetterCaseOptions {
   separators?: Separators[];
 }
 
-export type MathTypes = 'trunc' | 'ceil' | 'round' | 'floor';
-
 export interface JoinPathOptions {
   /** If true, resolves result path string. */
   resolve?: boolean;
@@ -138,6 +136,8 @@ export interface SqlEscapeOptions {
   stripQuote?: boolean;
 }
 
+export type ToNumericMathTypes = (typeof toNumericMathTypes)[number];
+
 export interface ToNumericOptions {
   /**
    * Whether to keep or remove decimal point.
@@ -145,7 +145,13 @@ export interface ToNumericOptions {
    * @default true
    */
   decimal?: boolean;
-  math?: MathTypes;
+  math?: ToNumericMathTypes;
+  /**
+   * If supplied, limits number decimal places.
+   *
+   * @default undefined
+   */
+  precision?: ToFixedRange;
 }
 
 export interface ToArrayOptions {
