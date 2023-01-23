@@ -1,5 +1,77 @@
 # Changelog
 
+## 0.14.0 (2023-01-23)
+
+### Changes
+
+- chore: Refactor `toRGBa` helper implementation
+  - Handle invalid `color` value
+  - Update `color` type assignment
+  - Apply supplied `alpha` for fallback color on invalid value
+  - Update function, params and return description
+
+### Documentation
+
+- docs: Update package `CHANGELOG.md`
+- docs: Update package `README.md`
+  - Add `keyExtractor` helper section
+  - Update `random` helper section
+  - Update `isValid` helper section
+  - Update `timestamp` helper section
+  - Update `toArray` helper section
+  - Update `toNumeric` helper section
+  - Update `toRGBa` helper section
+  - Update helpers parameters and usage description
+  - General updates and enhancements
+
+### Features
+
+- feat: Refactor `toArray` helper implementation
+  - Rename `toNumber` option to `parseNumber` (Breaking change)
+  - Update `Return` type definition
+  - Migrate to `trimWhitespace` helper instead of inline RegExp when value is a string
+- feat: Refactor `toNumeric` helper implementation
+  - Add support for `abs` to `math` option
+  - Add `precision` option support
+- feat: Refactor `random` helper implementation
+  - Add `decimal` and `precision` options support to `number` type
+  - Use Math `trunc` instead of `floor` on `decimal === false`
+  - Add `prefix` and `suffix` options support to `temp` type
+  - Refactor generated random `number` Math formula
+  - Add explicit `options` type definitions based on selected random `type`
+  - Add explicit return type assignment based on supplied random `type`
+- feat: Code updates and enhancements
+  - Add `string` validation to `text` in `autolinks`
+  - Update `string` validation for `text` in `initials`
+  - Add `nullish` validations to `string` value in `isValid`
+  - Minor refactoring in `joinPath`
+  - Add helper function description in `keyExtractor`
+  - Add `timeSpan` value validation in `ms` (will be migrated to vercel/ms in later release)
+  - Fix helper and return description typos in `ms`
+  - Refactor `date` argument to accept empty value in `timestamp`, fallback to `Now`
+  - Minor refactoring in `timestamp`
+  - Rename `FieldValue` type definition to `FieldValues`
+  - Refactor helpers to comply with new linting rules
+  - Update function description in all helpers
+  - Add `@returns` tag and description to all helpers
+- feat: Bump package version from `0.14.9` to `0.15.0`
+  - Install missing peer dependency `@types/node`
+  - Add `v0.15.0` release changes section in `README.md`
+
+## 0.14.0 (2023-01-18)
+
+### Features
+
+- feat: Update package configuration files
+  - Upgrade package dependencies --latest
+  - Upgrade Yarn to `3.3.1`
+  - Update TypeScript compiler ECMAScript target version to `2022`
+  - Add `tsconfig.eslint.json` configuration file
+  - Add `peerDependencies` in `package.json`
+  - Remove `devDependencies` installed as part of `@rashedmakkouk/eslint-config`
+  - Update ignored words in `cspell.json`
+  - Update extended path in `.markdownlint.json`
+
 ## 0.14.0 (2023-01-11)
 
 ### Changes
