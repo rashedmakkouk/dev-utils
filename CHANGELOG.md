@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.14.0 (2023-01-26)
+
+### Changes
+
+- chore: Update `Year` and contact handle in `LICENSE`
+
+### Documentation
+
+- docs: Add supported platform usage information in `README.md`
+
+### Features
+
+- feat: Bump package version from `0.15.0` to `0.15.1`
+  - Update release `CHANGELOG.md`
+- feat: Upgrade package dependencies --latest
+
 ## 0.14.0 (2023-01-23)
 
 ### Changes
