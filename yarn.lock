@@ -395,7 +395,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rashedmakkouk/dev-utils@workspace:."
   dependencies:
-    "@rashedmakkouk/eslint-config": ^0.8.2
+    "@rashedmakkouk/eslint-config": ^0.8.3
     "@types/color-convert": ^2.0.0
     "@types/lodash": ^4.14.191
     "@types/node": ^18.11.18
@@ -434,9 +434,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rashedmakkouk/eslint-config@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "@rashedmakkouk/eslint-config@npm:0.8.2"
+"@rashedmakkouk/eslint-config@npm:^0.8.3":
+  version: 0.8.3
+  resolution: "@rashedmakkouk/eslint-config@npm:0.8.3"
   dependencies:
     "@commitlint/cli": ^17.4.2
     "@commitlint/config-conventional": ^17.4.2
@@ -479,7 +479,7 @@ __metadata:
     prettier: ^2.8.3
     standard-version: ^9.5.0
     typescript: 4.9.4
-  checksum: ff17332b3b71008a01a40003991f394406b3fc30ec7b20d792eaff7d52c672c716dfd8e7e5f119924eb826b9a82d9c3c4e20be47a3459f49648f27554ba04920
+  checksum: 375eb92b55d67925ec27383895420d5ea6c958b7cffd880f0ee31626aa2d9e9d82ee59104e8a54320a8856389e59b695fa97a72467c13af7f73494e8fca09ffa
   languageName: node
   linkType: hard
 

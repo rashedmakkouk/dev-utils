@@ -63,7 +63,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "@rashedmakkouk/eslint-config": "^0.8.2",
+    "@rashedmakkouk/eslint-config": "^0.8.3",
     "@types/color-convert": "^2.0.0",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.18",
