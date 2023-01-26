@@ -33,6 +33,8 @@ yarn add @rashedmakkouk/dev-utils
 
 ## Usage
 
+This package can be used in both the browser and Node.js projects.
+
 ### Using ES6 module syntax
 
 ```javascript
